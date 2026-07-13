@@ -1,0 +1,595 @@
+dsl_version: "1"
+id: opt
+title: "Optimization"
+world_name: "The Gradient Wastes"
+world_description: |
+  EE364A (18 lectures) + Caramanis (12 blocks). Depends on linear algebra.
+color: "#ffb74d"
+
+unlocks_after:
+  - la
+
+boss:
+  id: opt_boss
+  hidden: true
+  title: "The Saddle Point"
+  description: |
+    Duality, minimax, and why flat minima generalize better than sharp ones.
+  unlock_condition: complete_all_topics
+  reward:
+    xp: 500
+    item: "Lagrange Multiplier"
+    title: "Dualist"
+  encounter:
+    type: review
+    title: "The Minimax Duel"
+    description: |
+      Connect primal/dual optimization and stochastic methods.
+    tasks:
+      - "Formulate an ML problem with a meaningful dual."
+      - "Compare GD, AGD, and ADMM on a toy problem."
+
+
+topics:
+  - id: opt_i01
+    title: "EE364A: Intro & Convexity"
+    description: |
+      Boyd EE364A lectures 1–3.
+    estimated_hours: 8
+    requires: []
+    reward:
+      xp: 110
+    waypoint:
+      x: 0
+      y: 0
+      icon: wasteland_marker
+      label: "Iteration 1"
+    encounters:
+      - id: opt_i01_theory
+        type: theory
+        title: "EE364A 1–3 (intro, выпуклые множества, выпуклые функции)"
+        description: |
+          Boyd EE364A lectures 1–3.
+        resources:
+          - type: url
+            title: "EE364A"
+            url: "#"
+        xp: 90
+
+  - id: opt_i02
+    title: "EE364A: Problems & Duality"
+    description: |
+      Boyd EE364A lectures 4–5.
+    estimated_hours: 8
+    requires:
+      - opt_i01
+    reward:
+      xp: 110
+    waypoint:
+      x: 0
+      y: 0
+      icon: wasteland_marker
+      label: "Iteration 2"
+    encounters:
+      - id: opt_i02_theory
+        type: theory
+        title: "EE364A 4–5 (задачи выпуклой оптимизации, двойственность)"
+        description: |
+          Boyd EE364A lectures 4–5.
+        resources:
+          - type: url
+            title: "EE364A"
+            url: "#"
+        xp: 90
+      - id: opt_i02_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Проверка выпуклости по Гессиану на 3–4 тестовых функциях
+        tasks:
+          - "Проверка выпуклости по Гессиану на 3–4 тестовых функциях"
+        xp: 40
+
+  - id: opt_i03
+    title: "EE364A: Approximation & Estimation"
+    description: |
+      Boyd EE364A lectures 6–8.
+    estimated_hours: 8
+    requires:
+      - opt_i02
+    reward:
+      xp: 110
+    waypoint:
+      x: 0
+      y: 0
+      icon: wasteland_marker
+      label: "Iteration 3"
+    encounters:
+      - id: opt_i03_theory
+        type: theory
+        title: "EE364A 6–8 (аппроксимация/fitting, стат. оценивание, геометрические задачи)"
+        description: |
+          Boyd EE364A lectures 6–8.
+        resources:
+          - type: url
+            title: "EE364A"
+            url: "#"
+        xp: 90
+
+  - id: opt_i04
+    title: "EE364A: Numerical LA & Unconstrained"
+    description: |
+      Boyd EE364A lectures 9–10.
+    estimated_hours: 10
+    requires:
+      - opt_i03
+    reward:
+      xp: 120
+    waypoint:
+      x: 0
+      y: 0
+      icon: wasteland_marker
+      label: "Iteration 4"
+    encounters:
+      - id: opt_i04_theory
+        type: theory
+        title: "EE364A 9–10 (численная линалгебра, безусловная минимизация)"
+        description: |
+          Boyd EE364A lectures 9–10.
+        resources:
+          - type: url
+            title: "EE364A"
+            url: "#"
+        xp: 100
+      - id: opt_i04_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Градиентный спуск (1-й порядок) с нуля + тест сходимости
+        tasks:
+          - "Градиентный спуск (1-й порядок) с нуля + тест сходимости"
+        xp: 40
+
+  - id: opt_i05
+    title: "EE364A: Constrained & Interior Point"
+    description: |
+      Boyd EE364A lectures 11–14.
+    estimated_hours: 10
+    requires:
+      - opt_i04
+    reward:
+      xp: 120
+    waypoint:
+      x: 0
+      y: 0
+      icon: wasteland_marker
+      label: "Iteration 5"
+    encounters:
+      - id: opt_i05_theory
+        type: theory
+        title: "EE364A 11–14 (условная минимизация, методы внутренней точки)"
+        description: |
+          Boyd EE364A lectures 11–14.
+        resources:
+          - type: url
+            title: "EE364A"
+            url: "#"
+        xp: 100
+      - id: opt_i05_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Координатный спуск / random search (0-й порядок) с нуля, сравнение с GD
+        tasks:
+          - "Координатный спуск / random search (0-й порядок) с нуля, сравнение с GD"
+        xp: 40
+
+  - id: opt_i06
+    title: "EE364A: Remaining Topics"
+    description: |
+      Boyd EE364A lectures 15–18.
+    estimated_hours: 8
+    requires:
+      - opt_i05
+    reward:
+      xp: 110
+    waypoint:
+      x: 0
+      y: 0
+      icon: wasteland_marker
+      label: "Iteration 6"
+    encounters:
+      - id: opt_i06_theory
+        type: theory
+        title: "EE364A 15–18 (оставшиеся темы курса)"
+        description: |
+          Boyd EE364A lectures 15–18.
+        resources:
+          - type: url
+            title: "EE364A"
+            url: "#"
+        xp: 90
+
+  - id: opt_i07
+    title: "Caramanis: Introduction"
+    description: |
+      Caramanis 1.1–1.4.
+    estimated_hours: 6
+    requires:
+      - opt_i06
+    reward:
+      xp: 100
+    waypoint:
+      x: 0
+      y: 0
+      icon: wasteland_marker
+      label: "Iteration 7"
+    encounters:
+      - id: opt_i07_theory
+        type: theory
+        title: "1.1–1.4 (введение, обзор, примеры, база линалгебры/анализа)"
+        description: |
+          Caramanis 1.1–1.4.
+        resources:
+          - type: url
+            title: "Caramanis"
+            url: "#"
+        xp: 80
+
+  - id: opt_i08
+    title: "Caramanis: Convex Sets I"
+    description: |
+      Caramanis 2.1–2.3.
+    estimated_hours: 6
+    requires:
+      - opt_i07
+    reward:
+      xp: 100
+    waypoint:
+      x: 0
+      y: 0
+      icon: wasteland_marker
+      label: "Iteration 8"
+    encounters:
+      - id: opt_i08_theory
+        type: theory
+        title: "2.1–2.3 (выпуклые множества, выпуклые функции)"
+        description: |
+          Caramanis 2.1–2.3.
+        resources:
+          - type: url
+            title: "Caramanis"
+            url: "#"
+        xp: 80
+
+  - id: opt_i09
+    title: "Caramanis: Convex Sets II"
+    description: |
+      Caramanis 2.4–2.6.
+    estimated_hours: 8
+    requires:
+      - opt_i08
+    reward:
+      xp: 110
+    waypoint:
+      x: 0
+      y: 0
+      icon: wasteland_marker
+      label: "Iteration 9"
+    encounters:
+      - id: opt_i09_theory
+        type: theory
+        title: "2.4–2.6 (эквивалентные определения, условия оптимальности, проекция)"
+        description: |
+          Caramanis 2.4–2.6.
+        resources:
+          - type: url
+            title: "Caramanis"
+            url: "#"
+        xp: 90
+      - id: opt_i09_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Проверка выпуклости по Гессиану
+        tasks:
+          - "Проверка выпуклости по Гессиану"
+        xp: 40
+
+  - id: opt_i10
+    title: "Caramanis: Gradient Descent"
+    description: |
+      Caramanis 3.1–3.4.
+    estimated_hours: 10
+    requires:
+      - opt_i09
+    reward:
+      xp: 120
+    waypoint:
+      x: 0
+      y: 0
+      icon: wasteland_marker
+      label: "Iteration 10"
+    encounters:
+      - id: opt_i10_theory
+        type: theory
+        title: "3.1–3.4 (Gradient & Subgradient Descent, smooth/strongly convex)"
+        description: |
+          Caramanis 3.1–3.4.
+        resources:
+          - type: url
+            title: "Caramanis"
+            url: "#"
+        xp: 100
+      - id: opt_i10_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Subgradient descent с нуля + тест скорости сходимости
+        tasks:
+          - "Subgradient descent с нуля + тест скорости сходимости"
+        xp: 40
+
+  - id: opt_i11
+    title: "Caramanis: Acceleration"
+    description: |
+      Caramanis 4.1–4.2.
+    estimated_hours: 8
+    requires:
+      - opt_i10
+    reward:
+      xp: 110
+    waypoint:
+      x: 0
+      y: 0
+      icon: wasteland_marker
+      label: "Iteration 11"
+    encounters:
+      - id: opt_i11_theory
+        type: theory
+        title: "4.1–4.2 (Oracle Lower Bounds, Accelerated Gradient Descent)"
+        description: |
+          Caramanis 4.1–4.2.
+        resources:
+          - type: url
+            title: "Caramanis"
+            url: "#"
+        xp: 90
+      - id: opt_i11_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Nesterov AGD с нуля, сравнение с обычным GD
+        tasks:
+          - "Nesterov AGD с нуля, сравнение с обычным GD"
+        xp: 40
+
+  - id: opt_i12
+    title: "Caramanis: Proximal Methods"
+    description: |
+      Caramanis 5.1–5.4.
+    estimated_hours: 10
+    requires:
+      - opt_i11
+    reward:
+      xp: 120
+    waypoint:
+      x: 0
+      y: 0
+      icon: wasteland_marker
+      label: "Iteration 12"
+    encounters:
+      - id: opt_i12_theory
+        type: theory
+        title: "5.1–5.4 (Proximal/Projected GD, ISTA/FISTA)"
+        description: |
+          Caramanis 5.1–5.4.
+        resources:
+          - type: url
+            title: "Caramanis"
+            url: "#"
+        xp: 100
+      - id: opt_i12_practice
+        type: practice
+        title: "Практика"
+        description: |
+          ISTA/FISTA с нуля на L1-регуляризованной задаче
+        tasks:
+          - "ISTA/FISTA с нуля на L1-регуляризованной задаче"
+        xp: 40
+
+  - id: opt_i13
+    title: "Caramanis: Mirror & Frank-Wolfe"
+    description: |
+      Caramanis 5.5–5.12.
+    estimated_hours: 8
+    requires:
+      - opt_i12
+    reward:
+      xp: 110
+    waypoint:
+      x: 0
+      y: 0
+      icon: wasteland_marker
+      label: "Iteration 13"
+    encounters:
+      - id: opt_i13_theory
+        type: theory
+        title: "5.5–5.12 (Mirror Descent, Frank-Wolfe)"
+        description: |
+          Caramanis 5.5–5.12.
+        resources:
+          - type: url
+            title: "Caramanis"
+            url: "#"
+        xp: 90
+      - id: opt_i13_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Mirror Descent или Frank-Wolfe с нуля
+        tasks:
+          - "Mirror Descent или Frank-Wolfe с нуля"
+        xp: 40
+
+  - id: opt_i14
+    title: "Caramanis: SGD & SVRG"
+    description: |
+      Caramanis 6.1–6.5.
+    estimated_hours: 10
+    requires:
+      - opt_i13
+    reward:
+      xp: 120
+    waypoint:
+      x: 0
+      y: 0
+      icon: wasteland_marker
+      label: "Iteration 14"
+    encounters:
+      - id: opt_i14_theory
+        type: theory
+        title: "6.1–6.5 (SGD, SVRG)"
+        description: |
+          Caramanis 6.1–6.5.
+        resources:
+          - type: url
+            title: "Caramanis"
+            url: "#"
+        xp: 100
+      - id: opt_i14_practice
+        type: practice
+        title: "Практика"
+        description: |
+          SGD и SVRG с нуля, сравнение сходимости
+        tasks:
+          - "SGD и SVRG с нуля, сравнение сходимости"
+        xp: 40
+
+  - id: opt_i15
+    title: "Caramanis: Newton's Method"
+    description: |
+      Caramanis 7.1–7.4.
+    estimated_hours: 10
+    requires:
+      - opt_i14
+    reward:
+      xp: 120
+    waypoint:
+      x: 0
+      y: 0
+      icon: wasteland_marker
+      label: "Iteration 15"
+    encounters:
+      - id: opt_i15_theory
+        type: theory
+        title: "7.1–7.4 (метод Ньютона: вид, аффинные преобразования, сходимость)"
+        description: |
+          Caramanis 7.1–7.4.
+        resources:
+          - type: url
+            title: "Caramanis"
+            url: "#"
+        xp: 100
+      - id: opt_i15_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Метод Ньютона (2-й порядок) с нуля, тест квадратичной сходимости
+        tasks:
+          - "Метод Ньютона (2-й порядок) с нуля, тест квадратичной сходимости"
+        xp: 40
+
+  - id: opt_i16
+    title: "Caramanis: Quasi-Newton & IPM"
+    description: |
+      Caramanis 8.1–9.4.
+    estimated_hours: 8
+    requires:
+      - opt_i15
+    reward:
+      xp: 110
+    waypoint:
+      x: 0
+      y: 0
+      icon: wasteland_marker
+      label: "Iteration 16"
+    encounters:
+      - id: opt_i16_theory
+        type: theory
+        title: "8.1–9.4 (Quasi-Newton/BFGS, Interior Point Methods)"
+        description: |
+          Caramanis 8.1–9.4.
+        resources:
+          - type: url
+            title: "Caramanis"
+            url: "#"
+        xp: 90
+      - id: opt_i16_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Опционально: BFGS с нуля
+        tasks:
+          - "Опционально: BFGS с нуля"
+        xp: 40
+
+  - id: opt_i17
+    title: "Caramanis: Duality & Decomposition"
+    description: |
+      Caramanis 10.1–11.6.
+    estimated_hours: 8
+    requires:
+      - opt_i16
+    reward:
+      xp: 110
+    waypoint:
+      x: 0
+      y: 0
+      icon: wasteland_marker
+      label: "Iteration 17"
+    encounters:
+      - id: opt_i17_theory
+        type: theory
+        title: "10.1–11.6 (Fenchel Dual, Dual Decomposition, Proximal Point/ALM)"
+        description: |
+          Caramanis 10.1–11.6.
+        resources:
+          - type: url
+            title: "Caramanis"
+            url: "#"
+        xp: 90
+
+  - id: opt_i18
+    title: "Caramanis: ADMM"
+    description: |
+      Caramanis 12.1–12.5.
+    estimated_hours: 10
+    requires:
+      - opt_i17
+    reward:
+      xp: 130
+    waypoint:
+      x: 0
+      y: 0
+      icon: wasteland_marker
+      label: "Iteration 18"
+    encounters:
+      - id: opt_i18_theory
+        type: theory
+        title: "12.1–12.5 (Monotone Operators, Douglas-Rachford, ADMM)"
+        description: |
+          Caramanis 12.1–12.5.
+        resources:
+          - type: url
+            title: "Caramanis"
+            url: "#"
+        xp: 110
+      - id: opt_i18_practice
+        type: practice
+        title: "Практика"
+        description: |
+          ADMM с нуля на задаче Lasso, тест сходимости
+        tasks:
+          - "ADMM с нуля на задаче Lasso, тест сходимости"
+        xp: 40

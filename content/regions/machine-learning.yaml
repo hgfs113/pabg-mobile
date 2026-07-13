@@ -1,0 +1,639 @@
+dsl_version: "1"
+id: ml
+title: "Machine Learning"
+world_name: "The Emergent Forests"
+world_description: |
+  CS109 + CS229 + CS229M. Parallel to optimization; depends only on linear algebra.
+color: "#81c784"
+
+unlocks_after:
+  - la
+
+boss:
+  id: ml_boss
+  hidden: true
+  title: "The Generalization Demon"
+  description: |
+    Bias-variance, regularization, and limits of classical generalization theory.
+  unlock_condition: complete_all_topics
+  reward:
+    xp: 500
+    item: "Generalization Bound"
+    title: "Theorist of Learning"
+  encounter:
+    type: review
+    title: "Face the Demon"
+    description: |
+      Empirical bias-variance study and theoretical justification.
+    tasks:
+      - "Demonstrate bias-variance tradeoff on a controlled dataset."
+      - "Explain one phenomenon standard VC theory cannot explain for deep nets."
+
+
+topics:
+  - id: ml_i01
+    title: "CS109: Counting & Probability"
+    description: |
+      CS109 lectures 1–3.
+    estimated_hours: 6
+    requires: []
+    reward:
+      xp: 90
+    waypoint:
+      x: 0
+      y: 0
+      icon: forest_glow
+      label: "Iteration 1"
+    encounters:
+      - id: ml_i01_theory
+        type: theory
+        title: "1–3 (счёт, комбинаторика, что такое вероятность)"
+        description: |
+          CS109 lectures 1–3.
+        resources:
+          - type: url
+            title: "CS109"
+            url: "#"
+        xp: 70
+
+  - id: ml_i02
+    title: "CS109: Bayes & Expectation"
+    description: |
+      CS109 lectures 4–6.
+    estimated_hours: 8
+    requires:
+      - ml_i01
+    reward:
+      xp: 100
+    waypoint:
+      x: 0
+      y: 0
+      icon: forest_glow
+      label: "Iteration 2"
+    encounters:
+      - id: ml_i02_theory
+        type: theory
+        title: "4–6 (условная вероятность и Байес, независимость, случайные величины)"
+        description: |
+          CS109 lectures 4–6.
+        resources:
+          - type: url
+            title: "CS109"
+            url: "#"
+        xp: 80
+      - id: ml_i02_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Задачи на условную вероятность/Байеса
+        tasks:
+          - "Задачи на условную вероятность/Байеса"
+        xp: 40
+
+  - id: ml_i03
+    title: "CS109: Distributions I"
+    description: |
+      CS109 lectures 7–10.
+    estimated_hours: 8
+    requires:
+      - ml_i02
+    reward:
+      xp: 100
+    waypoint:
+      x: 0
+      y: 0
+      icon: forest_glow
+      label: "Iteration 3"
+    encounters:
+      - id: ml_i03_theory
+        type: theory
+        title: "7–10 (дисперсия, Бернулли, Биномиальное, Пуассон, непрерывные, нормальное)"
+        description: |
+          CS109 lectures 7–10.
+        resources:
+          - type: url
+            title: "CS109"
+            url: "#"
+        xp: 80
+      - id: ml_i03_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Смоделировать распределения в Python, оценка Монте-Карло
+        tasks:
+          - "Смоделировать распределения в Python, оценка Монте-Карло"
+        xp: 40
+
+  - id: ml_i04
+    title: "CS109: Joint & Inference I"
+    description: |
+      CS109 lectures 11–14.
+    estimated_hours: 8
+    requires:
+      - ml_i03
+    reward:
+      xp: 100
+    waypoint:
+      x: 0
+      y: 0
+      icon: forest_glow
+      label: "Iteration 4"
+    encounters:
+      - id: ml_i04_theory
+        type: theory
+        title: "11–14 (совместные распределения, инференс I–II, моделирование)"
+        description: |
+          CS109 lectures 11–14.
+        resources:
+          - type: url
+            title: "CS109"
+            url: "#"
+        xp: 80
+
+  - id: ml_i05
+    title: "CS109: CLT & Bootstrap"
+    description: |
+      CS109 lectures 15–19.
+    estimated_hours: 8
+    requires:
+      - ml_i04
+    reward:
+      xp: 100
+    waypoint:
+      x: 0
+      y: 0
+      icon: forest_glow
+      label: "Iteration 5"
+    encounters:
+      - id: ml_i05_theory
+        type: theory
+        title: "15–19 (инференс, Beta, ЦПТ, bootstrap/p-values)"
+        description: |
+          CS109 lectures 15–19.
+        resources:
+          - type: url
+            title: "CS109"
+            url: "#"
+        xp: 80
+      - id: ml_i05_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Демонстрация ЦПТ и bootstrap в Python
+        tasks:
+          - "Демонстрация ЦПТ и bootstrap в Python"
+        xp: 40
+
+  - id: ml_i06
+    title: "CS109: MLE & MAP"
+    description: |
+      CS109 lectures 20–22.
+    estimated_hours: 8
+    requires:
+      - ml_i05
+    reward:
+      xp: 100
+    waypoint:
+      x: 0
+      y: 0
+      icon: forest_glow
+      label: "Iteration 6"
+    encounters:
+      - id: ml_i06_theory
+        type: theory
+        title: "20–22 (алгоритмический анализ, MLE, MAP)"
+        description: |
+          CS109 lectures 20–22.
+        resources:
+          - type: url
+            title: "CS109"
+            url: "#"
+        xp: 80
+      - id: ml_i06_practice
+        type: practice
+        title: "Практика"
+        description: |
+          MLE/MAP с нуля для простого распределения
+        tasks:
+          - "MLE/MAP с нуля для простого распределения"
+        xp: 40
+
+  - id: ml_i07
+    title: "CS109: Naive Bayes & LogReg"
+    description: |
+      CS109 lectures 23–24.
+    estimated_hours: 8
+    requires:
+      - ml_i06
+    reward:
+      xp: 110
+    waypoint:
+      x: 0
+      y: 0
+      icon: forest_glow
+      label: "Iteration 7"
+    encounters:
+      - id: ml_i07_theory
+        type: theory
+        title: "23–24 (наивный Байес, логистическая регрессия)"
+        description: |
+          CS109 lectures 23–24.
+        resources:
+          - type: url
+            title: "CS109"
+            url: "#"
+        xp: 90
+      - id: ml_i07_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Наивный Байес и логрег с нуля
+        tasks:
+          - "Наивный Байес и логрег с нуля"
+        xp: 40
+
+  - id: ml_i08
+    title: "CS109: Deep Learning Intro"
+    description: |
+      CS109 lectures 25–29.
+    estimated_hours: 6
+    requires:
+      - ml_i07
+    reward:
+      xp: 90
+    waypoint:
+      x: 0
+      y: 0
+      icon: forest_glow
+      label: "Iteration 8"
+    encounters:
+      - id: ml_i08_theory
+        type: theory
+        title: "25–29 (Deep Learning intro, Fairness, Advanced Probability)"
+        description: |
+          CS109 lectures 25–29.
+        resources:
+          - type: url
+            title: "CS109"
+            url: "#"
+        xp: 70
+
+  - id: ml_i09
+    title: "CS229: LMS & Regression"
+    description: |
+      CS229 lectures 1–3.
+    estimated_hours: 10
+    requires:
+      - ml_i08
+    reward:
+      xp: 120
+    waypoint:
+      x: 0
+      y: 0
+      icon: forest_glow
+      label: "Iteration 9"
+    encounters:
+      - id: ml_i09_theory
+        type: theory
+        title: "1–3 (введение, LMS, Weighted LS/логрег/Ньютон)"
+        description: |
+          CS229 lectures 1–3.
+        resources:
+          - type: url
+            title: "CS229"
+            url: "#"
+        xp: 100
+      - id: ml_i09_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Линейная и логистическая регрессия с нуля
+        tasks:
+          - "Линейная и логистическая регрессия с нуля"
+        xp: 40
+
+  - id: ml_i10
+    title: "CS229: GLM & Generative"
+    description: |
+      CS229 lectures 4–6.
+    estimated_hours: 8
+    requires:
+      - ml_i09
+    reward:
+      xp: 100
+    waypoint:
+      x: 0
+      y: 0
+      icon: forest_glow
+      label: "Iteration 10"
+    encounters:
+      - id: ml_i10_theory
+        type: theory
+        title: "4–6 (экспоненциальное семейство/GLM, GDA/наивный Байес)"
+        description: |
+          CS229 lectures 4–6.
+        resources:
+          - type: url
+            title: "CS229"
+            url: "#"
+        xp: 80
+
+  - id: ml_i11
+    title: "CS229: Kernels & Neural Nets"
+    description: |
+      CS229 lectures 7–9.
+    estimated_hours: 10
+    requires:
+      - ml_i10
+    reward:
+      xp: 120
+    waypoint:
+      x: 0
+      y: 0
+      icon: forest_glow
+      label: "Iteration 11"
+    encounters:
+      - id: ml_i11_theory
+        type: theory
+        title: "7–9 (ядра, нейросети 1–2/backprop)"
+        description: |
+          CS229 lectures 7–9.
+        resources:
+          - type: url
+            title: "CS229"
+            url: "#"
+        xp: 100
+      - id: ml_i11_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Простая NN (forward/backward) с нуля
+        tasks:
+          - "Простая NN (forward/backward) с нуля"
+        xp: 40
+
+  - id: ml_i12
+    title: "CS229: Bias-Variance"
+    description: |
+      CS229 lectures 10–11.
+    estimated_hours: 8
+    requires:
+      - ml_i11
+    reward:
+      xp: 100
+    waypoint:
+      x: 0
+      y: 0
+      icon: forest_glow
+      label: "Iteration 12"
+    encounters:
+      - id: ml_i12_theory
+        type: theory
+        title: "10–11 (bias-variance/регуляризация, feature/model selection)"
+        description: |
+          CS229 lectures 10–11.
+        resources:
+          - type: url
+            title: "CS229"
+            url: "#"
+        xp: 80
+
+  - id: ml_i13
+    title: "CS229: Unsupervised"
+    description: |
+      CS229 lectures 12–15.
+    estimated_hours: 10
+    requires:
+      - ml_i12
+    reward:
+      xp: 120
+    waypoint:
+      x: 0
+      y: 0
+      icon: forest_glow
+      label: "Iteration 13"
+    encounters:
+      - id: ml_i13_theory
+        type: theory
+        title: "12–15 (k-means, GMM/EM, factor analysis/PCA, PCA/ICA)"
+        description: |
+          CS229 lectures 12–15.
+        resources:
+          - type: url
+            title: "CS229"
+            url: "#"
+        xp: 100
+      - id: ml_i13_practice
+        type: practice
+        title: "Практика"
+        description: |
+          k-means, GMM/EM и PCA с нуля
+        tasks:
+          - "k-means, GMM/EM и PCA с нуля"
+        xp: 40
+
+  - id: ml_i14
+    title: "CS229: RL & Impact"
+    description: |
+      CS229 lectures 16–19.
+    estimated_hours: 8
+    requires:
+      - ml_i13
+    reward:
+      xp: 100
+    waypoint:
+      x: 0
+      y: 0
+      icon: forest_glow
+      label: "Iteration 14"
+    encounters:
+      - id: ml_i14_theory
+        type: theory
+        title: "16–19 (self-supervised, RL basics, societal impact, model-based RL)"
+        description: |
+          CS229 lectures 16–19.
+        resources:
+          - type: url
+            title: "CS229"
+            url: "#"
+        xp: 80
+
+  - id: ml_i15
+    title: "CS229M: ERM & Concentration"
+    description: |
+      CS229M lectures 1–4 (by number).
+    estimated_hours: 8
+    requires:
+      - ml_i14
+    reward:
+      xp: 100
+    waypoint:
+      x: 0
+      y: 0
+      icon: forest_glow
+      label: "Iteration 15"
+    encounters:
+      - id: ml_i15_theory
+        type: theory
+        title: "1–4 (overview/ERM, Hoeffding, гипотезы классов, концентрационные неравенства)"
+        description: |
+          CS229M lectures 1–4 (by number).
+        resources:
+          - type: url
+            title: "CS229M"
+            url: "#"
+        xp: 80
+      - id: ml_i15_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Эмпирически проверить границу Хёфдинга
+        tasks:
+          - "Эмпирически проверить границу Хёфдинга"
+        xp: 40
+
+  - id: ml_i16
+    title: "CS229M: Rademacher & Margin"
+    description: |
+      CS229M lectures 5–6.
+    estimated_hours: 8
+    requires:
+      - ml_i15
+    reward:
+      xp: 100
+    waypoint:
+      x: 0
+      y: 0
+      icon: forest_glow
+      label: "Iteration 16"
+    encounters:
+      - id: ml_i16_theory
+        type: theory
+        title: "5–6 (Rademacher complexity, margin theory)"
+        description: |
+          CS229M lectures 5–6.
+        resources:
+          - type: url
+            title: "CS229M"
+            url: "#"
+        xp: 80
+
+  - id: ml_i17
+    title: "CS229M: Deep Generalization"
+    description: |
+      CS229M lectures 7–10.
+    estimated_hours: 8
+    requires:
+      - ml_i16
+    reward:
+      xp: 100
+    waypoint:
+      x: 0
+      y: 0
+      icon: forest_glow
+      label: "Iteration 17"
+    encounters:
+      - id: ml_i17_theory
+        type: theory
+        title: "7–10 (генерализация для нейросетей, ядра, covering numbers, bounds)"
+        description: |
+          CS229M lectures 7–10.
+        resources:
+          - type: url
+            title: "CS229M"
+            url: "#"
+        xp: 80
+
+  - id: ml_i18
+    title: "CS229M: Nonconvex & Margins"
+    description: |
+      CS229M lectures 11–12.
+    estimated_hours: 8
+    requires:
+      - ml_i17
+    reward:
+      xp: 110
+    waypoint:
+      x: 0
+      y: 0
+      icon: forest_glow
+      label: "Iteration 18"
+    encounters:
+      - id: ml_i18_theory
+        type: theory
+        title: "11–12 (all-layer margin, невыпуклая оптимизация/PCA/matrix completion)"
+        description: |
+          CS229M lectures 11–12.
+        resources:
+          - type: url
+            title: "CS229M"
+            url: "#"
+        xp: 90
+      - id: ml_i18_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Невыпуклая PCA или matrix completion — игрушечный пример
+        tasks:
+          - "Невыпуклая PCA или matrix completion — игрушечный пример"
+        xp: 40
+
+  - id: ml_i19
+    title: "CS229M: NTK & Implicit Reg"
+    description: |
+      CS229M lectures 13–17.
+    estimated_hours: 8
+    requires:
+      - ml_i18
+    reward:
+      xp: 100
+    waypoint:
+      x: 0
+      y: 0
+      icon: forest_glow
+      label: "Iteration 19"
+    encounters:
+      - id: ml_i19_theory
+        type: theory
+        title: "13–17 (NTK, implicit regularization)"
+        description: |
+          CS229M lectures 13–17.
+        resources:
+          - type: url
+            title: "CS229M"
+            url: "#"
+        xp: 80
+
+  - id: ml_i20
+    title: "CS229M: Unsupervised Theory"
+    description: |
+      CS229M lectures 18–20.
+    estimated_hours: 8
+    requires:
+      - ml_i19
+    reward:
+      xp: 110
+    waypoint:
+      x: 0
+      y: 0
+      icon: forest_glow
+      label: "Iteration 20"
+    encounters:
+      - id: ml_i20_theory
+        type: theory
+        title: "18–20 (mixture of Gaussians, spectral clustering)"
+        description: |
+          CS229M lectures 18–20.
+        resources:
+          - type: url
+            title: "CS229M"
+            url: "#"
+        xp: 90
+      - id: ml_i20_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Spectral clustering vs GMM на модельных данных
+        tasks:
+          - "Spectral clustering vs GMM на модельных данных"
+        xp: 40

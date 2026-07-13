@@ -1,0 +1,57 @@
+dsl_version: "1"
+id: nlp
+title: "NLP & LLM"
+world_name: "The Scriptoria"
+world_description: |
+  Upper block: requires optimization and ML. Content TBD in plan.md.
+color: "#f48fb1"
+
+unlocks_after:
+  - opt
+  - ml
+
+boss:
+  id: nlp_boss
+  hidden: true
+  title: "The Language Forge"
+  description: |
+    Placeholder boss for the NLP & LLM block — content coming soon.
+  unlock_condition: complete_all_topics
+  reward:
+    xp: 500
+    item: "Tokenizer of Ages"
+    title: "Wordsmith"
+  encounter:
+    type: review
+    title: "Forge the Model"
+    description: |
+      Will be defined when the NLP block is filled in plan.md.
+    tasks:
+      - "TBD"
+
+
+topics:
+  - id: nlp_i01
+    title: "Coming Soon"
+    description: |
+      Block 5 from plan.md — наполнение будет добавлено позже.
+    estimated_hours: 1
+    requires: []
+    reward:
+      xp: 10
+    waypoint:
+      x: 0
+      y: 0
+      icon: scroll_marker
+      label: "Iteration 1"
+    encounters:
+      - id: nlp_i01_theory
+        type: theory
+        title: "NLP и LLM — placeholder"
+        description: |
+          Block 5 from plan.md — наполнение будет добавлено позже.
+        resources:
+          - type: url
+            title: "TBD"
+            url: "#"
+        xp: 40

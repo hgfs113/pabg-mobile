@@ -1,0 +1,237 @@
+dsl_version: "1"
+id: cv
+title: "Computer Vision"
+world_name: "The Seeing Peaks"
+world_description: |
+  CS198-126 — 22 lectures in 7 iterations. Depends on ML base.
+color: "#ce93d8"
+
+unlocks_after:
+  - ml
+
+boss:
+  id: cv_boss
+  hidden: true
+  title: "The All-Seeing Eye"
+  description: |
+    End-to-end vision pipeline from pixels to structured understanding.
+  unlock_condition: complete_all_topics
+  reward:
+    xp: 500
+    item: "The Seeing Stone"
+    title: "Computer Visionary"
+  encounter:
+    type: review
+    title: "Build the Eye"
+    description: |
+      Design and prototype a complete vision system.
+    tasks:
+      - "Define a vision task, metric, and full pipeline."
+      - "Implement a working prototype and analyze failure cases."
+
+
+topics:
+  - id: cv_i01
+    title: "CV: Intro & Pretraining"
+    description: |
+      CS198-126 lectures 1–5.
+    estimated_hours: 8
+    requires: []
+    reward:
+      xp: 100
+    waypoint:
+      x: 0
+      y: 0
+      icon: peak_base
+      label: "Iteration 1"
+    encounters:
+      - id: cv_i01_theory
+        type: theory
+        title: "1–5 (Intro to ML, Intro to DL, Pretraining/Augmentations, Intro to CV)"
+        description: |
+          CS198-126 lectures 1–5.
+        resources:
+          - type: url
+            title: "CS198-126"
+            url: "#"
+        xp: 80
+
+  - id: cv_i02
+    title: "CV: Architectures & Detection"
+    description: |
+      CS198-126 lectures 6–7.
+    estimated_hours: 10
+    requires:
+      - cv_i01
+    reward:
+      xp: 120
+    waypoint:
+      x: 0
+      y: 0
+      icon: peak_base
+      label: "Iteration 2"
+    encounters:
+      - id: cv_i02_theory
+        type: theory
+        title: "6–7 (Advanced CV Architectures, Object Detection)"
+        description: |
+          CS198-126 lectures 6–7.
+        resources:
+          - type: url
+            title: "CS198-126"
+            url: "#"
+        xp: 100
+      - id: cv_i02_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Обучить простую CNN на CIFAR-10 (PyTorch)
+        tasks:
+          - "Обучить простую CNN на CIFAR-10 (PyTorch)"
+        xp: 40
+
+  - id: cv_i03
+    title: "CV: Segmentation & VAE"
+    description: |
+      CS198-126 lectures 8–9.
+    estimated_hours: 8
+    requires:
+      - cv_i02
+    reward:
+      xp: 100
+    waypoint:
+      x: 0
+      y: 0
+      icon: peak_base
+      label: "Iteration 3"
+    encounters:
+      - id: cv_i03_theory
+        type: theory
+        title: "8–9 (Semantic Segmentation, Autoencoders/VAE)"
+        description: |
+          CS198-126 lectures 8–9.
+        resources:
+          - type: url
+            title: "CS198-126"
+            url: "#"
+        xp: 80
+
+  - id: cv_i04
+    title: "CV: GANs & Diffusion"
+    description: |
+      CS198-126 lectures 10–12.
+    estimated_hours: 10
+    requires:
+      - cv_i03
+    reward:
+      xp: 120
+    waypoint:
+      x: 0
+      y: 0
+      icon: peak_base
+      label: "Iteration 4"
+    encounters:
+      - id: cv_i04_theory
+        type: theory
+        title: "10–12 (GANs, Advanced GANs, Diffusion Models)"
+        description: |
+          CS198-126 lectures 10–12.
+        resources:
+          - type: url
+            title: "CS198-126"
+            url: "#"
+        xp: 100
+      - id: cv_i04_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Обучить GAN на MNIST (диффузию — опционально)
+        tasks:
+          - "Обучить GAN на MNIST (диффузию — опционально)"
+        xp: 40
+
+  - id: cv_i05
+    title: "CV: Transformers & ViT"
+    description: |
+      CS198-126 lectures 13–16.
+    estimated_hours: 10
+    requires:
+      - cv_i04
+    reward:
+      xp: 120
+    waypoint:
+      x: 0
+      y: 0
+      icon: peak_base
+      label: "Iteration 5"
+    encounters:
+      - id: cv_i05_theory
+        type: theory
+        title: "13–16 (Sequence Modeling, Transformers, ViT, Advanced Detection/Segmentation)"
+        description: |
+          CS198-126 lectures 13–16.
+        resources:
+          - type: url
+            title: "CS198-126"
+            url: "#"
+        xp: 100
+      - id: cv_i05_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Transfer learning: дообучить ViT/детектор
+        tasks:
+          - "Transfer learning: дообучить ViT/детектор"
+        xp: 40
+
+  - id: cv_i06
+    title: "CV: 3D & Pretraining"
+    description: |
+      CS198-126 lectures 17–19.
+    estimated_hours: 8
+    requires:
+      - cv_i05
+    reward:
+      xp: 100
+    waypoint:
+      x: 0
+      y: 0
+      icon: peak_base
+      label: "Iteration 6"
+    encounters:
+      - id: cv_i06_theory
+        type: theory
+        title: "17–19 (3D Vision Survey, Advanced Vision Pretraining)"
+        description: |
+          CS198-126 lectures 17–19.
+        resources:
+          - type: url
+            title: "CS198-126"
+            url: "#"
+        xp: 80
+
+  - id: cv_i07
+    title: "CV: Multimodal & Audio"
+    description: |
+      CS198-126 lectures 20–22.
+    estimated_hours: 8
+    requires:
+      - cv_i06
+    reward:
+      xp: 100
+    waypoint:
+      x: 0
+      y: 0
+      icon: peak_base
+      label: "Iteration 7"
+    encounters:
+      - id: cv_i07_theory
+        type: theory
+        title: "20–22 (Stylizing Images, Generative Audio, Multimodal Learning)"
+        description: |
+          CS198-126 lectures 20–22.
+        resources:
+          - type: url
+            title: "CS198-126"
+            url: "#"
+        xp: 80

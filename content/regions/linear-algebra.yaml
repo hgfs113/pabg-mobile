@@ -1,0 +1,371 @@
+dsl_version: "1"
+id: la
+title: "Linear Algebra"
+world_name: "The Crystalline Vaults"
+world_description: |
+  LADR 4e — 10 chapters + capstone lab. Root of the journey.
+color: "#90caf9"
+map_background: "8b1e081f-e842-4308-853f-5acdebc1536d.png"
+
+unlocks_after: []
+
+boss:
+  id: la_boss
+  hidden: true
+  title: "The Decomposition Engine"
+  description: |
+    Capstone of linear algebra: SVD as the unified view of operators on inner product spaces.
+  unlock_condition: complete_all_topics
+  reward:
+    xp: 500
+    item: "Prism of Singular Values"
+    title: "Decomposer"
+  encounter:
+    type: review
+    title: "Operate the Engine"
+    description: |
+      Derive SVD from the spectral theorem. Connect to PCA and least squares.
+    tasks:
+      - "State and prove the SVD theorem for real matrices."
+      - "Implement simplified SVD and compare with numpy.linalg.svd."
+
+
+topics:
+  - id: la_i01
+    title: "Vector Spaces"
+    description: |
+      LADR Ch. 1 — vector spaces.
+    estimated_hours: 8
+    requires: []
+    reward:
+      xp: 120
+    waypoint:
+      x: 0
+      y: 0
+      icon: crystal_small
+      label: "Iteration 1"
+    encounters:
+      - id: la_i01_theory
+        type: theory
+        title: "Гл. 1 Vector Spaces"
+        description: |
+          LADR Ch. 1 — vector spaces.
+        resources:
+          - type: url
+            title: "LADR 4e"
+            url: "#"
+        xp: 100
+      - id: la_i01_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Задачи из конца главы
+        tasks:
+          - "Задачи из конца главы"
+        xp: 40
+
+  - id: la_i02
+    title: "Finite-Dimensional Spaces"
+    description: |
+      LADR Ch. 2 — dimension, basis, rank.
+    estimated_hours: 8
+    requires:
+      - la_i01
+    reward:
+      xp: 120
+    waypoint:
+      x: 0
+      y: 0
+      icon: crystal_small
+      label: "Iteration 2"
+    encounters:
+      - id: la_i02_theory
+        type: theory
+        title: "Гл. 2 Finite-Dimensional Vector Spaces"
+        description: |
+          LADR Ch. 2 — dimension, basis, rank.
+        resources:
+          - type: url
+            title: "LADR 4e"
+            url: "#"
+        xp: 100
+      - id: la_i02_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Задачи из конца главы
+        tasks:
+          - "Задачи из конца главы"
+        xp: 40
+
+  - id: la_i03
+    title: "Linear Maps"
+    description: |
+      LADR Ch. 3 — linear maps and matrices.
+    estimated_hours: 10
+    requires:
+      - la_i02
+    reward:
+      xp: 140
+    waypoint:
+      x: 0
+      y: 0
+      icon: crystal_small
+      label: "Iteration 3"
+    encounters:
+      - id: la_i03_theory
+        type: theory
+        title: "Гл. 3 Linear Maps"
+        description: |
+          LADR Ch. 3 — linear maps and matrices.
+        resources:
+          - type: url
+            title: "LADR 4e"
+            url: "#"
+        xp: 120
+      - id: la_i03_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Задачи из конца главы
+        tasks:
+          - "Задачи из конца главы"
+        xp: 40
+
+  - id: la_i04
+    title: "Polynomials"
+    description: |
+      LADR Ch. 4 — polynomial tools (selective).
+    estimated_hours: 6
+    requires:
+      - la_i03
+    reward:
+      xp: 100
+    waypoint:
+      x: 0
+      y: 0
+      icon: crystal_small
+      label: "Iteration 4"
+    encounters:
+      - id: la_i04_theory
+        type: theory
+        title: "Гл. 4 Polynomials"
+        description: |
+          LADR Ch. 4 — polynomial tools (selective).
+        resources:
+          - type: url
+            title: "LADR 4e"
+            url: "#"
+        xp: 80
+      - id: la_i04_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Задачи выборочно
+        tasks:
+          - "Задачи выборочно"
+        xp: 40
+
+  - id: la_i05
+    title: "Eigenvalues & Eigenvectors"
+    description: |
+      LADR Ch. 5 — spectral foundations for ML.
+    estimated_hours: 10
+    requires:
+      - la_i04
+    reward:
+      xp: 140
+    waypoint:
+      x: 0
+      y: 0
+      icon: crystal_small
+      label: "Iteration 5"
+    encounters:
+      - id: la_i05_theory
+        type: theory
+        title: "Гл. 5 Eigenvalues and Eigenvectors"
+        description: |
+          LADR Ch. 5 — spectral foundations for ML.
+        resources:
+          - type: url
+            title: "LADR 4e"
+            url: "#"
+        xp: 120
+      - id: la_i05_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Задачи из конца главы — не пропускать
+        tasks:
+          - "Задачи из конца главы — не пропускать"
+        xp: 40
+
+  - id: la_i06
+    title: "Inner Product Spaces"
+    description: |
+      LADR Ch. 6 — geometry, orthogonality.
+    estimated_hours: 8
+    requires:
+      - la_i05
+    reward:
+      xp: 120
+    waypoint:
+      x: 0
+      y: 0
+      icon: crystal_small
+      label: "Iteration 6"
+    encounters:
+      - id: la_i06_theory
+        type: theory
+        title: "Гл. 6 Inner Product Spaces"
+        description: |
+          LADR Ch. 6 — geometry, orthogonality.
+        resources:
+          - type: url
+            title: "LADR 4e"
+            url: "#"
+        xp: 100
+      - id: la_i06_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Задачи из конца главы
+        tasks:
+          - "Задачи из конца главы"
+        xp: 40
+
+  - id: la_i07
+    title: "SVD & Normal Operators"
+    description: |
+      LADR Ch. 7 — operators on inner product spaces.
+    estimated_hours: 10
+    requires:
+      - la_i06
+    reward:
+      xp: 140
+    waypoint:
+      x: 0
+      y: 0
+      icon: crystal_small
+      label: "Iteration 7"
+    encounters:
+      - id: la_i07_theory
+        type: theory
+        title: "Гл. 7 Operators on Inner Product Spaces (SVD)"
+        description: |
+          LADR Ch. 7 — operators on inner product spaces.
+        resources:
+          - type: url
+            title: "LADR 4e"
+            url: "#"
+        xp: 120
+      - id: la_i07_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Задачи из конца главы
+        tasks:
+          - "Задачи из конца главы"
+        xp: 40
+
+  - id: la_i08
+    title: "Complex & Real Operators"
+    description: |
+      LADR Ch. 8–9 — selective coverage.
+    estimated_hours: 6
+    requires:
+      - la_i07
+    reward:
+      xp: 100
+    waypoint:
+      x: 0
+      y: 0
+      icon: crystal_small
+      label: "Iteration 8"
+    encounters:
+      - id: la_i08_theory
+        type: theory
+        title: "Гл. 8–9 Operators on Complex/Real Vector Spaces"
+        description: |
+          LADR Ch. 8–9 — selective coverage.
+        resources:
+          - type: url
+            title: "LADR 4e"
+            url: "#"
+        xp: 80
+      - id: la_i08_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Задачи выборочно
+        tasks:
+          - "Задачи выборочно"
+        xp: 40
+
+  - id: la_i09
+    title: "Trace & Determinant"
+    description: |
+      LADR Ch. 10 — trace and determinant.
+    estimated_hours: 8
+    requires:
+      - la_i08
+    reward:
+      xp: 120
+    waypoint:
+      x: 0
+      y: 0
+      icon: crystal_small
+      label: "Iteration 9"
+    encounters:
+      - id: la_i09_theory
+        type: theory
+        title: "Гл. 10 Trace and Determinant"
+        description: |
+          LADR Ch. 10 — trace and determinant.
+        resources:
+          - type: url
+            title: "LADR 4e"
+            url: "#"
+        xp: 100
+      - id: la_i09_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Задачи из конца главы
+        tasks:
+          - "Задачи из конца главы"
+        xp: 40
+
+  - id: la_i10
+    title: "Power Iteration & SVD Lab"
+    description: |
+      Capstone: implement power iteration and simplified SVD.
+    estimated_hours: 8
+    requires:
+      - la_i09
+    reward:
+      xp: 150
+    waypoint:
+      x: 0
+      y: 0
+      icon: crystal_small
+      label: "Iteration 10"
+    encounters:
+      - id: la_i10_theory
+        type: theory
+        title: "Итерация 10 — capstone"
+        description: |
+          Capstone: implement power iteration and simplified SVD.
+        resources:
+          - type: url
+            title: "Python / numpy"
+            url: "#"
+        xp: 130
+      - id: la_i10_practice
+        type: practice
+        title: "Практика"
+        description: |
+          Реализовать power iteration и упрощённый SVD, сверить с numpy.linalg
+        tasks:
+          - "Реализовать power iteration и упрощённый SVD, сверить с numpy.linalg"
+        xp: 40
