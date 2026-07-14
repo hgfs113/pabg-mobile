@@ -8,6 +8,19 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 REGIONS = ROOT / "content" / "regions"
 
+# Official course pages / playlists referenced in plan.md
+COURSE_URLS: dict[str, tuple[str, str]] = {
+    # source key -> (resource type, url)
+    "LADR 4e": ("book", "https://linear.axler.net/LADR4e.html"),
+    "EE364A": ("video", "https://www.youtube.com/playlist?list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h"),
+    "Caramanis": ("video", "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"),
+    "CS109": ("video", "https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg"),
+    "CS229": ("video", "https://www.youtube.com/playlist?list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy"),
+    "CS229M": ("video", "https://www.youtube.com/playlist?list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh"),
+    "CS198-126": ("video", "https://www.youtube.com/playlist?list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5"),
+    "Python / numpy": ("url", "https://numpy.org/doc/stable/reference/routines.linalg.html"),
+}
+
 
 def yaml_quote(s: str) -> str:
     return s.replace('"', '\\"')
@@ -33,6 +46,16 @@ def topic(
     label: str,
 ) -> str:
     enc: list[str] = []
+    rtype, rurl = COURSE_URLS.get(source, ("url", ""))
+    resource_lines = [
+        f"          - type: {rtype}",
+        f'            title: "{yaml_quote(source)}"',
+        f'            ref: "{yaml_quote(material)}"',
+    ]
+    if rurl:
+        resource_lines.append(f'            url: "{rurl}"')
+    resources_yaml = "\n".join(resource_lines)
+
     enc.append(
         f"""      - id: {tid}_theory
         type: theory
@@ -40,9 +63,7 @@ def topic(
         description: |
 {block(description, 10)}
         resources:
-          - type: url
-            title: "{yaml_quote(source)}"
-            url: "#"
+{resources_yaml}
         xp: {max(40, xp - 20)}"""
     )
     if practice:

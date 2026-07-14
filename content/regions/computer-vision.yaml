@@ -51,9 +51,10 @@ topics:
         description: |
           CS198-126 lectures 1–5.
         resources:
-          - type: url
+          - type: video
             title: "CS198-126"
-            url: "#"
+            ref: "1–5 (Intro to ML, Intro to DL, Pretraining/Augmentations, Intro to CV)"
+            url: "https://www.youtube.com/playlist?list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5"
         xp: 80
 
   - id: cv_i02
@@ -77,9 +78,10 @@ topics:
         description: |
           CS198-126 lectures 6–7.
         resources:
-          - type: url
+          - type: video
             title: "CS198-126"
-            url: "#"
+            ref: "6–7 (Advanced CV Architectures, Object Detection)"
+            url: "https://www.youtube.com/playlist?list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5"
         xp: 100
       - id: cv_i02_practice
         type: practice
@@ -111,9 +113,10 @@ topics:
         description: |
           CS198-126 lectures 8–9.
         resources:
-          - type: url
+          - type: video
             title: "CS198-126"
-            url: "#"
+            ref: "8–9 (Semantic Segmentation, Autoencoders/VAE)"
+            url: "https://www.youtube.com/playlist?list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5"
         xp: 80
 
   - id: cv_i04
@@ -137,9 +140,10 @@ topics:
         description: |
           CS198-126 lectures 10–12.
         resources:
-          - type: url
+          - type: video
             title: "CS198-126"
-            url: "#"
+            ref: "10–12 (GANs, Advanced GANs, Diffusion Models)"
+            url: "https://www.youtube.com/playlist?list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5"
         xp: 100
       - id: cv_i04_practice
         type: practice
@@ -171,9 +175,10 @@ topics:
         description: |
           CS198-126 lectures 13–16.
         resources:
-          - type: url
+          - type: video
             title: "CS198-126"
-            url: "#"
+            ref: "13–16 (Sequence Modeling, Transformers, ViT, Advanced Detection/Segmentation)"
+            url: "https://www.youtube.com/playlist?list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5"
         xp: 100
       - id: cv_i05_practice
         type: practice
@@ -205,9 +210,10 @@ topics:
         description: |
           CS198-126 lectures 17–19.
         resources:
-          - type: url
+          - type: video
             title: "CS198-126"
-            url: "#"
+            ref: "17–19 (3D Vision Survey, Advanced Vision Pretraining)"
+            url: "https://www.youtube.com/playlist?list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5"
         xp: 80
 
   - id: cv_i07
@@ -231,7 +237,8 @@ topics:
         description: |
           CS198-126 lectures 20–22.
         resources:
-          - type: url
+          - type: video
             title: "CS198-126"
-            url: "#"
+            ref: "20–22 (Stylizing Images, Generative Audio, Multimodal Learning)"
+            url: "https://www.youtube.com/playlist?list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5"
         xp: 80

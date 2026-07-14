@@ -21,6 +21,10 @@ const RESOURCE_ICONS: Record<string, string> = {
   url:   '🔗',
 };
 
+function isExternalUrl(url: string): boolean {
+  return /^https?:\/\//i.test(url);
+}
+
 function ResourceItem({ r }: { r: Resource }) {
   return (
     <li className="quest-resource-item">
@@ -28,7 +32,7 @@ function ResourceItem({ r }: { r: Resource }) {
       <div className="quest-resource-body">
         <div className="quest-resource-name">{r.title}</div>
         {r.ref && <div className="quest-resource-ref">{r.ref}</div>}
-        {r.url && (
+        {r.url && isExternalUrl(r.url) && (
           <a href={r.url} target="_blank" rel="noopener noreferrer" className="quest-resource-link">
             Open ↗
           </a>

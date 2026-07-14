@@ -51,9 +51,10 @@ topics:
         description: |
           LADR Ch. 1 — vector spaces.
         resources:
-          - type: url
+          - type: book
             title: "LADR 4e"
-            url: "#"
+            ref: "Гл. 1 Vector Spaces"
+            url: "https://linear.axler.net/LADR4e.html"
         xp: 100
       - id: la_i01_practice
         type: practice
@@ -85,9 +86,10 @@ topics:
         description: |
           LADR Ch. 2 — dimension, basis, rank.
         resources:
-          - type: url
+          - type: book
             title: "LADR 4e"
-            url: "#"
+            ref: "Гл. 2 Finite-Dimensional Vector Spaces"
+            url: "https://linear.axler.net/LADR4e.html"
         xp: 100
       - id: la_i02_practice
         type: practice
@@ -119,9 +121,10 @@ topics:
         description: |
           LADR Ch. 3 — linear maps and matrices.
         resources:
-          - type: url
+          - type: book
             title: "LADR 4e"
-            url: "#"
+            ref: "Гл. 3 Linear Maps"
+            url: "https://linear.axler.net/LADR4e.html"
         xp: 120
       - id: la_i03_practice
         type: practice
@@ -153,9 +156,10 @@ topics:
         description: |
           LADR Ch. 4 — polynomial tools (selective).
         resources:
-          - type: url
+          - type: book
             title: "LADR 4e"
-            url: "#"
+            ref: "Гл. 4 Polynomials"
+            url: "https://linear.axler.net/LADR4e.html"
         xp: 80
       - id: la_i04_practice
         type: practice
@@ -187,9 +191,10 @@ topics:
         description: |
           LADR Ch. 5 — spectral foundations for ML.
         resources:
-          - type: url
+          - type: book
             title: "LADR 4e"
-            url: "#"
+            ref: "Гл. 5 Eigenvalues and Eigenvectors"
+            url: "https://linear.axler.net/LADR4e.html"
         xp: 120
       - id: la_i05_practice
         type: practice
@@ -221,9 +226,10 @@ topics:
         description: |
           LADR Ch. 6 — geometry, orthogonality.
         resources:
-          - type: url
+          - type: book
             title: "LADR 4e"
-            url: "#"
+            ref: "Гл. 6 Inner Product Spaces"
+            url: "https://linear.axler.net/LADR4e.html"
         xp: 100
       - id: la_i06_practice
         type: practice
@@ -255,9 +261,10 @@ topics:
         description: |
           LADR Ch. 7 — operators on inner product spaces.
         resources:
-          - type: url
+          - type: book
             title: "LADR 4e"
-            url: "#"
+            ref: "Гл. 7 Operators on Inner Product Spaces (SVD)"
+            url: "https://linear.axler.net/LADR4e.html"
         xp: 120
       - id: la_i07_practice
         type: practice
@@ -289,9 +296,10 @@ topics:
         description: |
           LADR Ch. 8–9 — selective coverage.
         resources:
-          - type: url
+          - type: book
             title: "LADR 4e"
-            url: "#"
+            ref: "Гл. 8–9 Operators on Complex/Real Vector Spaces"
+            url: "https://linear.axler.net/LADR4e.html"
         xp: 80
       - id: la_i08_practice
         type: practice
@@ -323,9 +331,10 @@ topics:
         description: |
           LADR Ch. 10 — trace and determinant.
         resources:
-          - type: url
+          - type: book
             title: "LADR 4e"
-            url: "#"
+            ref: "Гл. 10 Trace and Determinant"
+            url: "https://linear.axler.net/LADR4e.html"
         xp: 100
       - id: la_i09_practice
         type: practice
@@ -359,7 +368,8 @@ topics:
         resources:
           - type: url
             title: "Python / numpy"
-            url: "#"
+            ref: "Итерация 10 — capstone"
+            url: "https://numpy.org/doc/stable/reference/routines.linalg.html"
         xp: 130
       - id: la_i10_practice
         type: practice

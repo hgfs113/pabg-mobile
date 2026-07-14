@@ -53,5 +53,5 @@ topics:
         resources:
           - type: url
             title: "TBD"
-            url: "#"
+            ref: "NLP и LLM — placeholder"
         xp: 40

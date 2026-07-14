@@ -51,9 +51,10 @@ topics:
         description: |
           Boyd EE364A lectures 1–3.
         resources:
-          - type: url
+          - type: video
             title: "EE364A"
-            url: "#"
+            ref: "EE364A 1–3 (intro, выпуклые множества, выпуклые функции)"
+            url: "https://www.youtube.com/playlist?list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h"
         xp: 90
 
   - id: opt_i02
@@ -77,9 +78,10 @@ topics:
         description: |
           Boyd EE364A lectures 4–5.
         resources:
-          - type: url
+          - type: video
             title: "EE364A"
-            url: "#"
+            ref: "EE364A 4–5 (задачи выпуклой оптимизации, двойственность)"
+            url: "https://www.youtube.com/playlist?list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h"
         xp: 90
       - id: opt_i02_practice
         type: practice
@@ -111,9 +113,10 @@ topics:
         description: |
           Boyd EE364A lectures 6–8.
         resources:
-          - type: url
+          - type: video
             title: "EE364A"
-            url: "#"
+            ref: "EE364A 6–8 (аппроксимация/fitting, стат. оценивание, геометрические задачи)"
+            url: "https://www.youtube.com/playlist?list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h"
         xp: 90
 
   - id: opt_i04
@@ -137,9 +140,10 @@ topics:
         description: |
           Boyd EE364A lectures 9–10.
         resources:
-          - type: url
+          - type: video
             title: "EE364A"
-            url: "#"
+            ref: "EE364A 9–10 (численная линалгебра, безусловная минимизация)"
+            url: "https://www.youtube.com/playlist?list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h"
         xp: 100
       - id: opt_i04_practice
         type: practice
@@ -171,9 +175,10 @@ topics:
         description: |
           Boyd EE364A lectures 11–14.
         resources:
-          - type: url
+          - type: video
             title: "EE364A"
-            url: "#"
+            ref: "EE364A 11–14 (условная минимизация, методы внутренней точки)"
+            url: "https://www.youtube.com/playlist?list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h"
         xp: 100
       - id: opt_i05_practice
         type: practice
@@ -205,9 +210,10 @@ topics:
         description: |
           Boyd EE364A lectures 15–18.
         resources:
-          - type: url
+          - type: video
             title: "EE364A"
-            url: "#"
+            ref: "EE364A 15–18 (оставшиеся темы курса)"
+            url: "https://www.youtube.com/playlist?list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h"
         xp: 90
 
   - id: opt_i07
@@ -231,9 +237,10 @@ topics:
         description: |
           Caramanis 1.1–1.4.
         resources:
-          - type: url
+          - type: video
             title: "Caramanis"
-            url: "#"
+            ref: "1.1–1.4 (введение, обзор, примеры, база линалгебры/анализа)"
+            url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
         xp: 80
 
   - id: opt_i08
@@ -257,9 +264,10 @@ topics:
         description: |
           Caramanis 2.1–2.3.
         resources:
-          - type: url
+          - type: video
             title: "Caramanis"
-            url: "#"
+            ref: "2.1–2.3 (выпуклые множества, выпуклые функции)"
+            url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
         xp: 80
 
   - id: opt_i09
@@ -283,9 +291,10 @@ topics:
         description: |
           Caramanis 2.4–2.6.
         resources:
-          - type: url
+          - type: video
             title: "Caramanis"
-            url: "#"
+            ref: "2.4–2.6 (эквивалентные определения, условия оптимальности, проекция)"
+            url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
         xp: 90
       - id: opt_i09_practice
         type: practice
@@ -317,9 +326,10 @@ topics:
         description: |
           Caramanis 3.1–3.4.
         resources:
-          - type: url
+          - type: video
             title: "Caramanis"
-            url: "#"
+            ref: "3.1–3.4 (Gradient & Subgradient Descent, smooth/strongly convex)"
+            url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
         xp: 100
       - id: opt_i10_practice
         type: practice
@@ -351,9 +361,10 @@ topics:
         description: |
           Caramanis 4.1–4.2.
         resources:
-          - type: url
+          - type: video
             title: "Caramanis"
-            url: "#"
+            ref: "4.1–4.2 (Oracle Lower Bounds, Accelerated Gradient Descent)"
+            url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
         xp: 90
       - id: opt_i11_practice
         type: practice
@@ -385,9 +396,10 @@ topics:
         description: |
           Caramanis 5.1–5.4.
         resources:
-          - type: url
+          - type: video
             title: "Caramanis"
-            url: "#"
+            ref: "5.1–5.4 (Proximal/Projected GD, ISTA/FISTA)"
+            url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
         xp: 100
       - id: opt_i12_practice
         type: practice
@@ -419,9 +431,10 @@ topics:
         description: |
           Caramanis 5.5–5.12.
         resources:
-          - type: url
+          - type: video
             title: "Caramanis"
-            url: "#"
+            ref: "5.5–5.12 (Mirror Descent, Frank-Wolfe)"
+            url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
         xp: 90
       - id: opt_i13_practice
         type: practice
@@ -453,9 +466,10 @@ topics:
         description: |
           Caramanis 6.1–6.5.
         resources:
-          - type: url
+          - type: video
             title: "Caramanis"
-            url: "#"
+            ref: "6.1–6.5 (SGD, SVRG)"
+            url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
         xp: 100
       - id: opt_i14_practice
         type: practice
@@ -487,9 +501,10 @@ topics:
         description: |
           Caramanis 7.1–7.4.
         resources:
-          - type: url
+          - type: video
             title: "Caramanis"
-            url: "#"
+            ref: "7.1–7.4 (метод Ньютона: вид, аффинные преобразования, сходимость)"
+            url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
         xp: 100
       - id: opt_i15_practice
         type: practice
@@ -521,9 +536,10 @@ topics:
         description: |
           Caramanis 8.1–9.4.
         resources:
-          - type: url
+          - type: video
             title: "Caramanis"
-            url: "#"
+            ref: "8.1–9.4 (Quasi-Newton/BFGS, Interior Point Methods)"
+            url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
         xp: 90
       - id: opt_i16_practice
         type: practice
@@ -555,9 +571,10 @@ topics:
         description: |
           Caramanis 10.1–11.6.
         resources:
-          - type: url
+          - type: video
             title: "Caramanis"
-            url: "#"
+            ref: "10.1–11.6 (Fenchel Dual, Dual Decomposition, Proximal Point/ALM)"
+            url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
         xp: 90
 
   - id: opt_i18
@@ -581,9 +598,10 @@ topics:
         description: |
           Caramanis 12.1–12.5.
         resources:
-          - type: url
+          - type: video
             title: "Caramanis"
-            url: "#"
+            ref: "12.1–12.5 (Monotone Operators, Douglas-Rachford, ADMM)"
+            url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
         xp: 110
       - id: opt_i18_practice
         type: practice
