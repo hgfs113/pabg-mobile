@@ -43,7 +43,8 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   });
   const data = await res.json().catch(() => ({}));
   if (!res.ok) {
-    throw new Error((data as { error?: string }).error ?? `HTTP ${res.status}`);
+    const url = `${resolveApiBase()}${path}`;
+    throw new Error((data as { error?: string }).error ?? `HTTP ${res.status} — ${url}`);
   }
   return data as T;
 }
