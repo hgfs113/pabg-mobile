@@ -2,6 +2,7 @@ import { useMemo, useState, useEffect, useRef, useCallback } from 'react';
 import GameGraph from '../components/GameGraph';
 import PartyPanel from '../components/PartyPanel';
 import Logo from '../components/Logo';
+import ChatHeaderButton from '../components/ChatHeaderButton';
 import MapPlayerAvatar from '../components/MapPlayerAvatar';
 import { useOtherPlayerMarkers } from '../hooks/useOtherPlayerMarkers';
 import { buildWorldGraph, type GNode } from '../lib/graphLayout';
@@ -162,6 +163,7 @@ export default function WorldView({ bundle, nav }: Props) {
                 <span className="map-quest-count">{activeQuestCount}</span>
               )}
             </button>
+            <ChatHeaderButton />
             <button
               className={`map-quest-btn${showGrid ? ' active' : ''}`}
               onClick={() => setShowGrid((v) => !v)}

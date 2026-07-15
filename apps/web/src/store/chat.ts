@@ -3,10 +3,12 @@ import { fetchChat, postChat, type ChatMessage } from '../lib/api';
 
 interface ChatState {
   messages: ChatMessage[];
+  lastReadAt: number;
   sending: boolean;
 
   sync: () => Promise<void>;
   send: (text: string) => Promise<boolean>;
+  markRead: () => void;
 }
 
 function mergeMessages(existing: ChatMessage[], incoming: ChatMessage[]) {
@@ -18,7 +20,12 @@ function mergeMessages(existing: ChatMessage[], incoming: ChatMessage[]) {
 
 export const useChat = create<ChatState>((set, get) => ({
   messages: [],
+  lastReadAt: Date.now(),
   sending: false,
+
+  markRead() {
+    set({ lastReadAt: Date.now() });
+  },
 
   async sync() {
     try {

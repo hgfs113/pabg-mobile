@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { useChat } from './chat';
 
 interface UIState {
   questLogOpen: boolean;
@@ -25,7 +26,11 @@ export const useUI = create<UIState>((set) => ({
   toggleQuestLog: () => set((s) => ({ questLogOpen: !s.questLogOpen })),
   closeQuestLog: () => set({ questLogOpen: false }),
   togglePartyPanel: () => set((s) => ({ partyPanelOpen: !s.partyPanelOpen })),
-  toggleChat: () => set((s) => ({ chatOpen: !s.chatOpen })),
+  toggleChat: () =>
+    set((s) => {
+      if (!s.chatOpen) useChat.getState().markRead();
+      return { chatOpen: !s.chatOpen };
+    }),
 
   focusQuest: (topicId) =>
     set({ questLogOpen: false, pendingQuestId: topicId }),

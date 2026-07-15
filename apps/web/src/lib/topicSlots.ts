@@ -21,6 +21,14 @@ function hashId(id: string): number {
   return Math.abs(h);
 }
 
+function topicJitter(id: string): { x: number; y: number } {
+  const h = hashId(id);
+  return {
+    x: ((h % 17) - 8) * 0.28,
+    y: (((h >> 4) % 13) - 6) * 0.28,
+  };
+}
+
 /** Pick first unused slot starting from hash(topicId) % slots.length. */
 function pickSlot(topicId: string, used: Set<number>, slots: TopicSlot[]): number {
   const start = hashId(topicId) % slots.length;
@@ -55,23 +63,96 @@ export function assignTopicWaypoints(campaign: CampaignData, regions: Region[]):
   }
 }
 
-/** Region-map layout — independent of world waypoints. */
+/** Topological order within a region (respects requires edges). */
+function topoSortTopics(topics: Topic[]): Topic[] {
+  const ids = new Set(topics.map((t) => t.id));
+  const order = new Map(topics.map((t, i) => [t.id, i]));
+  const indegree = new Map<string, number>();
+  const children = new Map<string, string[]>();
+
+  for (const t of topics) {
+    indegree.set(t.id, 0);
+    children.set(t.id, []);
+  }
+
+  for (const t of topics) {
+    const reqs = t.requires.filter((r) => ids.has(r));
+    indegree.set(t.id, reqs.length);
+    for (const r of reqs) {
+      children.get(r)!.push(t.id);
+    }
+  }
+
+  const queue = topics
+    .filter((t) => (indegree.get(t.id) ?? 0) === 0)
+    .map((t) => t.id)
+    .sort((a, b) => (order.get(a) ?? 0) - (order.get(b) ?? 0));
+
+  const sorted: Topic[] = [];
+  const byId = Object.fromEntries(topics.map((t) => [t.id, t]));
+
+  while (queue.length) {
+    const id = queue.shift()!;
+    sorted.push(byId[id]);
+    for (const child of children.get(id) ?? []) {
+      const next = (indegree.get(child) ?? 1) - 1;
+      indegree.set(child, next);
+      if (next === 0) {
+        queue.push(child);
+        queue.sort((a, b) => (order.get(a) ?? 0) - (order.get(b) ?? 0));
+      }
+    }
+  }
+
+  for (const t of topics) {
+    if (!sorted.some((s) => s.id === t.id)) sorted.push(t);
+  }
+  return sorted;
+}
+
+/**
+ * Winding path pool for region maps — varied heights, not two parallel lanes.
+ * Inspired by the world-map slot curve but scaled for a single region viewBox.
+ */
+function regionSlotPool(count: number): TopicSlot[] {
+  const n = Math.max(count, 8);
+  const slots: TopicSlot[] = [];
+
+  for (let i = 0; i < n; i++) {
+    const t = i / Math.max(n - 1, 1);
+    const serp = Math.sin(t * Math.PI * 2.8);
+    const x = 50 + serp * 34 + Math.sin(t * Math.PI * 5.1) * 4;
+    const y = 84 - t * 58 + Math.cos(t * Math.PI * 3.7) * 5;
+    slots.push({
+      x: Math.min(93, Math.max(7, x)),
+      y: Math.min(90, Math.max(10, y)),
+    });
+  }
+
+  return slots;
+}
+
+/** Region-map layout — winding trail through varied coordinates. */
 export function layoutRegionTopics(topics: Topic[]): Map<string, { x: number; y: number }> {
   if (topics.length === 0) return new Map();
   if (topics.length === 1) {
     return new Map([[topics[0].id, { x: 50, y: 50 }]]);
   }
 
-  const margin = 16;
-  const width = 100 - 2 * margin;
+  const ordered = topoSortTopics(topics);
+  const slots = regionSlotPool(ordered.length);
 
   return new Map(
-    topics.map((t, i) => [
-      t.id,
-      {
-        x: margin + (i / (topics.length - 1)) * width,
-        y: 38 + (i % 2) * 24,
-      },
-    ]),
+    ordered.map((t, i) => {
+      const slot = slots[Math.min(i, slots.length - 1)];
+      const jitter = topicJitter(t.id);
+      return [
+        t.id,
+        {
+          x: Math.min(94, Math.max(6, slot.x + jitter.x)),
+          y: Math.min(92, Math.max(8, slot.y + jitter.y)),
+        },
+      ];
+    }),
   );
 }

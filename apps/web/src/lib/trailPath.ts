@@ -26,6 +26,44 @@ export function edgePathSeed(from: string, to: string): string {
  * Each segment gets a different curvature — not one uniform Bézier arc.
  */
 export function buildTrailPath(from: Point, to: Point, seed: string): string {
+  return buildTrailPathWithStyle(from, to, seed, 'world');
+}
+
+/** Region maps use gentler, straighter trails between nearby topics. */
+export function buildTrailPathWithStyle(
+  from: Point,
+  to: Point,
+  seed: string,
+  style: 'world' | 'region',
+): string {
+  if (style === 'region') {
+    return buildRegionTrailPath(from, to, seed);
+  }
+  return buildOrganicTrailPath(from, to, seed);
+}
+
+function buildRegionTrailPath(from: Point, to: Point, seed: string): string {
+  const dx = to.x - from.x;
+  const dy = to.y - from.y;
+  const len = Math.hypot(dx, dy) || 1;
+  const h = hashString(seed);
+
+  if (len < 6) {
+    return `M ${from.x} ${from.y} L ${to.x} ${to.y}`;
+  }
+
+  const px = -dy / len;
+  const py = dx / len;
+  const side = rand01(h, 1) > 0.5 ? 1 : -1;
+  const bend = Math.min(len * 0.06, 3.5) * side;
+
+  const mx = from.x + dx * 0.5 + px * bend;
+  const my = from.y + dy * 0.5 + py * bend;
+
+  return `M ${from.x} ${from.y} Q ${mx} ${my} ${to.x} ${to.y}`;
+}
+
+function buildOrganicTrailPath(from: Point, to: Point, seed: string): string {
   const dx = to.x - from.x;
   const dy = to.y - from.y;
   const len = Math.hypot(dx, dy) || 1;

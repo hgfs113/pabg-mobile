@@ -3,6 +3,7 @@ import GameGraph from '../components/GameGraph';
 import QuestPanel from '../components/QuestPanel';
 import MapPlayerAvatar from '../components/MapPlayerAvatar';
 import Logo from '../components/Logo';
+import ChatHeaderButton from '../components/ChatHeaderButton';
 import { useRegionOtherPlayerMarkers } from '../hooks/useOtherPlayerMarkers';
 import { buildRegionGraph, regionMapBackground, type GNode } from '../lib/graphLayout';
 import type { CampaignBundle, Region, Topic } from '../types/campaign';
@@ -179,6 +180,7 @@ export default function RegionView({ bundle, region, nav, autoOpenTopicId }: Pro
           </>
         }
         showGrid={showGrid}
+        edgePathStyle="region"
         header={
           <div className="map-header">
             <Logo
@@ -199,6 +201,7 @@ export default function RegionView({ bundle, region, nav, autoOpenTopicId }: Pro
                 <span className="map-quest-count">{activeQuestCount}</span>
               )}
             </button>
+            <ChatHeaderButton />
             <button
               className={`map-quest-btn${showGrid ? ' active' : ''}`}
               onClick={() => setShowGrid((v) => !v)}

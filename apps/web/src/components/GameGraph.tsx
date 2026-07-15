@@ -6,7 +6,7 @@
  */
 import type { GNode, GEdge, ViewBox } from '../lib/graphLayout';
 import { useAnimatedPosition } from '../lib/useAnimatedPosition';
-import { buildTrailPath, edgePathSeed } from '../lib/trailPath';
+import { buildTrailPathWithStyle, edgePathSeed } from '../lib/trailPath';
 import MapPlayerAvatar from './MapPlayerAvatar';
 import { useId } from 'react';
 
@@ -30,6 +30,8 @@ interface Props {
   extraSvgContent?: React.ReactNode;
   /** Show 20×20 coordinate grid overlay */
   showGrid?: boolean;
+  /** World = winding organic trails; region = straighter local paths */
+  edgePathStyle?: 'world' | 'region';
 }
 
 const FILTER_GLOW = 'gg-glow';
@@ -44,7 +46,7 @@ function gridTicks(max: number): number[] {
 export default function GameGraph({
   nodes, edges, playerX, playerY, playerColor, playerAvatar, playerName, playerSize = 2.6,
   bgImage, bgTint, initialVb,
-  onNodeClick, renderNode, header, extraSvgContent, showGrid,
+  onNodeClick, renderNode, header, extraSvgContent, showGrid, edgePathStyle = 'world',
 }: Props) {
   const animatedPlayer = useAnimatedPosition(playerX, playerY);
   const playerClipId = useId().replace(/:/g, '');
@@ -93,7 +95,7 @@ export default function GameGraph({
             const to   = nodePos[edge.to];
             if (!from || !to) return null;
 
-            const d = buildTrailPath(from, to, edgePathSeed(edge.from, edge.to));
+            const d = buildTrailPathWithStyle(from, to, edgePathSeed(edge.from, edge.to), edgePathStyle);
 
             return (
               <path
