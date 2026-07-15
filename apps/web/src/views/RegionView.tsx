@@ -88,7 +88,7 @@ function TopicNodeShape({ node }: { node: GNode }) {
 }
 
 export default function RegionView({ bundle, region, nav, autoOpenTopicId }: Props) {
-  const { completedTopics, acceptedTopics, acceptTopic, xp, visitRegion } = useProgress();
+  const { completedTopics, acceptedTopics, acceptTopic, xp, visitRegion, lastCompletedTopicId } = useProgress();
   const { questLogOpen, toggleQuestLog, togglePartyPanel, partyPanelOpen } = useUI();
   const { players, currentPlayerId } = useMultiplayer();
 
@@ -103,22 +103,18 @@ export default function RegionView({ bundle, region, nav, autoOpenTopicId }: Pro
   }, [region.id, visitRegion]);
 
   const { nodes, edges, initialVb, playerPos } = useMemo(
-    () => buildRegionGraph(region, bundle, completedTopics, acceptedTopics),
+    () => buildRegionGraph(region, bundle, completedTopics, acceptedTopics, lastCompletedTopicId),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [region.id, completedTopics.join(','), acceptedTopics.join(',')],
+    [region.id, completedTopics.join(','), acceptedTopics.join(','), lastCompletedTopicId],
   );
 
   const displayPlayerPos = playerOverride ?? playerPos;
   const currentMeta = currentPlayerId ? players[currentPlayerId] : null;
 
-  // Reset manual position when switching regions or after completing a topic
+  // Reset manual override only when switching regions
   useEffect(() => {
     setPlayerOverride(null);
   }, [region.id]);
-
-  useEffect(() => {
-    setPlayerOverride(null);
-  }, [playerPos.x, playerPos.y]);
 
   const movePlayerToTopic = (topicId: string) => {
     const node = nodes.find((n) => n.id === topicId);

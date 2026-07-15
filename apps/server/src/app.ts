@@ -9,6 +9,7 @@ import {
   resolveSession,
   saveProgress,
 } from './players.js';
+import { getChatMessages, postChatMessage } from './chat.js';
 
 export const app = new Hono();
 
@@ -84,4 +85,19 @@ app.patch('/api/me/progress', async (c) => {
 
   await saveProgress(playerId, next);
   return c.json({ progress: next });
+});
+
+app.get('/api/chat', async (c) => {
+  const since = Number(c.req.query('since') ?? 0);
+  return c.json({ messages: await getChatMessages(Number.isFinite(since) ? since : 0) });
+});
+
+app.post('/api/chat', async (c) => {
+  const playerId = await resolveSession(c.req.header('Authorization')?.replace(/^Bearer\s+/i, ''));
+  if (!playerId) return c.json({ error: 'Unauthorized' }, 401);
+
+  const body = await c.req.json<{ text?: string }>();
+  const result = await postChatMessage(playerId, body.text ?? '');
+  if (!result.ok) return c.json(result, 400);
+  return c.json({ message: result.message });
 });

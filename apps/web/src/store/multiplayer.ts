@@ -80,12 +80,37 @@ function writeSession(id: string | null) {
   } catch {}
 }
 
-function pushProgressOnline(get: () => MultiplayerState) {
-  const { currentPlayerId, progress } = get();
-  if (!currentPlayerId) return;
-  const p = progress[currentPlayerId];
-  if (!p) return;
-  void apiPatchProgress(p).catch(() => {});
+function pushProgressOnline(progress: PlayerProgress) {
+  void apiPatchProgress(progress).catch(() => {});
+}
+
+/** Never drop local completions when server sync is slightly behind. */
+function mergePlayerProgress(local: PlayerProgress, remote: PlayerProgress): PlayerProgress {
+  const completed = [...remote.completedTopics];
+  for (const id of local.completedTopics) {
+    if (!completed.includes(id)) completed.push(id);
+  }
+
+  const accepted = [...remote.acceptedTopics];
+  for (const id of local.acceptedTopics) {
+    if (!accepted.includes(id)) accepted.push(id);
+  }
+
+  let lastCompleted = remote.lastCompletedTopicId;
+  if (local.lastCompletedTopicId) {
+    const localAhead = local.completedTopics.some((id) => !remote.completedTopics.includes(id));
+    if (localAhead || local.completedTopics.length >= remote.completedTopics.length) {
+      lastCompleted = local.lastCompletedTopicId;
+    }
+  }
+
+  return {
+    completedTopics: completed,
+    acceptedTopics: accepted,
+    xp: Math.max(local.xp, remote.xp),
+    lastCompletedTopicId: lastCompleted,
+    lastVisitedRegionId: local.lastVisitedRegionId ?? remote.lastVisitedRegionId,
+  };
 }
 
 export const useMultiplayer = create<MultiplayerState>()((set, get) => ({
@@ -118,9 +143,22 @@ export const useMultiplayer = create<MultiplayerState>()((set, get) => ({
   },
 
   async syncWorld() {
+    const { currentPlayerId, progress } = get();
     try {
       const world = await fetchWorld();
-      set({ players: world.players, progress: world.progress });
+      const mergedProgress = { ...world.progress };
+
+      if (currentPlayerId) {
+        const local = progress[currentPlayerId];
+        const remote = world.progress[currentPlayerId];
+        if (local && remote) {
+          mergedProgress[currentPlayerId] = mergePlayerProgress(local, remote);
+        } else if (local) {
+          mergedProgress[currentPlayerId] = local;
+        }
+      }
+
+      set({ players: world.players, progress: mergedProgress });
     } catch {
       /* server unreachable — keep last known state */
     }
@@ -176,7 +214,7 @@ export const useMultiplayer = create<MultiplayerState>()((set, get) => ({
       [currentPlayerId]: { ...p, acceptedTopics: [...p.acceptedTopics, topicId] },
     };
     set({ progress: next });
-    pushProgressOnline(get);
+    pushProgressOnline(next[currentPlayerId]);
   },
 
   completeTopic(topicId, xpGain) {
@@ -184,20 +222,18 @@ export const useMultiplayer = create<MultiplayerState>()((set, get) => ({
     if (!currentPlayerId) return;
     const p = progress[currentPlayerId] ?? EMPTY_PROGRESS;
     if (p.completedTopics.includes(topicId)) return;
-    const next = {
-      ...progress,
-      [currentPlayerId]: {
-        ...p,
-        completedTopics: [...p.completedTopics, topicId],
-        acceptedTopics: p.acceptedTopics.includes(topicId)
-          ? p.acceptedTopics
-          : [...p.acceptedTopics, topicId],
-        xp: p.xp + xpGain,
-        lastCompletedTopicId: topicId,
-      },
+    const nextProgress: PlayerProgress = {
+      ...p,
+      completedTopics: [...p.completedTopics, topicId],
+      acceptedTopics: p.acceptedTopics.includes(topicId)
+        ? p.acceptedTopics
+        : [...p.acceptedTopics, topicId],
+      xp: p.xp + xpGain,
+      lastCompletedTopicId: topicId,
     };
+    const next = { ...progress, [currentPlayerId]: nextProgress };
     set({ progress: next });
-    pushProgressOnline(get);
+    pushProgressOnline(nextProgress);
   },
 
   visitRegion(regionId) {
@@ -205,20 +241,19 @@ export const useMultiplayer = create<MultiplayerState>()((set, get) => ({
     if (!currentPlayerId) return;
     const p = progress[currentPlayerId] ?? EMPTY_PROGRESS;
     if (p.lastVisitedRegionId === regionId) return;
-    const next = {
-      ...progress,
-      [currentPlayerId]: { ...p, lastVisitedRegionId: regionId },
-    };
+    const nextProgress: PlayerProgress = { ...p, lastVisitedRegionId: regionId };
+    const next = { ...progress, [currentPlayerId]: nextProgress };
     set({ progress: next });
-    pushProgressOnline(get);
+    pushProgressOnline(nextProgress);
   },
 
   resetProgress() {
     const { currentPlayerId, progress } = get();
     if (!currentPlayerId) return;
-    const next = { ...progress, [currentPlayerId]: { ...EMPTY_PROGRESS } };
+    const nextProgress = { ...EMPTY_PROGRESS };
+    const next = { ...progress, [currentPlayerId]: nextProgress };
     set({ progress: next });
-    pushProgressOnline(get);
+    pushProgressOnline(nextProgress);
   },
 }));
 

@@ -63,6 +63,7 @@ export function useRegionOtherPlayerMarkers(
           bundle,
           prog.completedTopics,
           prog.acceptedTopics,
+          prog.lastCompletedTopicId,
         );
         return {
           id: p.id,

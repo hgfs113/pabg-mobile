@@ -85,3 +85,24 @@ export async function apiPatchProgress(progress: PlayerProgress) {
     body: JSON.stringify(progress),
   });
 }
+
+export interface ChatMessage {
+  id: string;
+  playerId: string;
+  playerName: string;
+  playerColor: string;
+  text: string;
+  sentAt: number;
+}
+
+export async function fetchChat(since = 0) {
+  return request<{ messages: ChatMessage[] }>(`/api/chat?since=${since}`);
+}
+
+export async function postChat(text: string) {
+  return request<{ message: ChatMessage }>('/api/chat', {
+    method: 'POST',
+    headers: authHeaders(),
+    body: JSON.stringify({ text }),
+  });
+}

@@ -161,6 +161,7 @@ export function buildRegionGraph(
   bundle: CampaignBundle,
   completedTopics: string[],
   acceptedTopics: string[],
+  lastCompletedTopicId: string | null = null,
 ): GraphData {
   // Region map layout is independent of world-map waypoints.
   const posMap = layoutRegionTopics(region.topics);
@@ -204,15 +205,22 @@ export function buildRegionGraph(
       })),
   );
 
-  // Player: last completed topic in this region, else first topic
+  // Player stands on the last completed topic in this region.
   const regionIds = new Set(region.topics.map((t) => t.id));
   const defaultPos = posMap.get(region.topics[0].id) ?? { x: 50, y: 80 };
   let playerPos = mapPos(defaultPos.x, defaultPos.y);
-  for (let i = completedTopics.length - 1; i >= 0; i--) {
-    if (regionIds.has(completedTopics[i])) {
-      const pos = posMap.get(completedTopics[i]) ?? defaultPos;
-      playerPos = mapPos(pos.x, pos.y);
-      break;
+
+  if (lastCompletedTopicId && regionIds.has(lastCompletedTopicId)) {
+    const pos = posMap.get(lastCompletedTopicId) ?? defaultPos;
+    playerPos = mapPos(pos.x, pos.y);
+  } else {
+    for (let i = region.topics.length - 1; i >= 0; i--) {
+      const topicId = region.topics[i].id;
+      if (completedTopics.includes(topicId)) {
+        const pos = posMap.get(topicId) ?? defaultPos;
+        playerPos = mapPos(pos.x, pos.y);
+        break;
+      }
     }
   }
 

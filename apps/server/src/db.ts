@@ -46,6 +46,12 @@ async function initSchema() {
       player_id  TEXT NOT NULL REFERENCES players(id) ON DELETE CASCADE,
       expires_at INTEGER NOT NULL
     );
+    CREATE TABLE IF NOT EXISTS chat_messages (
+      id         TEXT PRIMARY KEY,
+      player_id  TEXT NOT NULL REFERENCES players(id) ON DELETE CASCADE,
+      text       TEXT NOT NULL,
+      sent_at    INTEGER NOT NULL
+    );
   `);
 }
 

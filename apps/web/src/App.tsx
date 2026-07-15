@@ -4,9 +4,11 @@ import { useRouter } from './lib/router';
 import { useUI } from './store/ui';
 import { useMultiplayer } from './store/multiplayer';
 import { useWorldSync } from './hooks/useWorldSync';
+import { useChatSync } from './hooks/useChatSync';
 import WorldView from './views/WorldView';
 import RegionView from './views/RegionView';
 import QuestLog from './components/QuestLog';
+import ChatPanel from './components/ChatPanel';
 import LoginScreen from './components/LoginScreen';
 import Logo from './components/Logo';
 
@@ -17,6 +19,7 @@ export default function App() {
   const { currentPlayerId, ready, bootstrap } = useMultiplayer();
 
   useWorldSync();
+  useChatSync();
 
   /** When the player clicks a quest in the log, we navigate to the region and
    *  pass the topic ID to RegionView so it auto-opens the QuestPanel. */
@@ -77,6 +80,7 @@ export default function App() {
   return (
     <>
       {view}
+      <ChatPanel />
       {questLogOpen && (
         <QuestLog bundle={bundle} onFocusQuest={handleFocusQuest} />
       )}
