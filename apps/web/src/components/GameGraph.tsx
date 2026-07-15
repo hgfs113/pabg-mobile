@@ -32,6 +32,8 @@ interface Props {
   showGrid?: boolean;
   /** World = winding organic trails; region = straighter local paths */
   edgePathStyle?: 'world' | 'region';
+  /** Fill parent height instead of 100vh (region view with quest bar) */
+  fillParent?: boolean;
 }
 
 const FILTER_GLOW = 'gg-glow';
@@ -47,6 +49,7 @@ export default function GameGraph({
   nodes, edges, playerX, playerY, playerColor, playerAvatar, playerName, playerSize = 2.6,
   bgImage, bgTint, initialVb,
   onNodeClick, renderNode, header, extraSvgContent, showGrid, edgePathStyle = 'world',
+  fillParent = false,
 }: Props) {
   const animatedPlayer = useAnimatedPosition(playerX, playerY);
   const playerClipId = useId().replace(/:/g, '');
@@ -59,7 +62,7 @@ export default function GameGraph({
   const mapAspect = `${vbW} / ${vbH}`;
 
   return (
-    <div className="gg-wrap">
+    <div className={`gg-wrap${fillParent ? ' gg-wrap--fill' : ''}`}>
       <div className="gg-header">{header}</div>
 
       <div className="gg-stage">

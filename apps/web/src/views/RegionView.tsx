@@ -29,28 +29,27 @@ function TopicNodeShape({ node }: { node: GNode }) {
   return (
     <g filter={locked ? undefined : 'url(#gg-glow)'}>
       {active && (
-        <circle r={6} fill={color} opacity={0.12}>
-          <animate attributeName="r"       values="6;8;6"            dur="2.2s" repeatCount="indefinite" />
-          <animate attributeName="opacity" values="0.12;0.04;0.12"   dur="2.2s" repeatCount="indefinite" />
+        <circle r={3.5} fill={color} opacity={0.12}>
+          <animate attributeName="r"       values="3.5;4.5;3.5"          dur="2.2s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0.12;0.04;0.12"       dur="2.2s" repeatCount="indefinite" />
         </circle>
       )}
 
-      {/* Diamond — dimmed when locked */}
       <rect
-        x={-4} y={-4} width={8} height={8}
+        x={-2.5} y={-2.5} width={5} height={5}
         transform="rotate(45)"
         fill={color}
         fillOpacity={locked ? 0.06 : complete ? 0.45 : active ? 0.28 : 0.12}
         stroke={color}
         strokeOpacity={locked ? 0.25 : 1}
-        strokeWidth={locked ? 0.4 : active ? 1.2 : 0.8}
+        strokeWidth={locked ? 0.3 : active ? 0.9 : 0.55}
       />
 
       {complete ? (
         <text
-          y="1.8"
+          y="1"
           textAnchor="middle"
-          fontSize="4.5"
+          fontSize="3"
           fill={color}
           fontWeight="700"
           style={{ userSelect: 'none', pointerEvents: 'none' }}
@@ -58,32 +57,18 @@ function TopicNodeShape({ node }: { node: GNode }) {
           ✓
         </text>
       ) : (
-        <circle r="1.2" fill={color} opacity={locked ? 0.2 : 0.9} />
+        <circle r="0.7" fill={color} opacity={locked ? 0.2 : 0.9} />
       )}
 
-      {/* Label — always readable; muted when locked */}
       <text
-        y="8"
+        y="5.5"
         textAnchor="middle"
-        fontSize="2.1"
+        fontSize="1.75"
         fill={locked ? 'rgba(160,130,90,0.65)' : '#e8d5b0'}
         style={{ userSelect: 'none', pointerEvents: 'none' }}
       >
-        {node.label.length > 22 ? node.label.slice(0, 20) + '…' : node.label}
+        {node.label}
       </text>
-
-      {node.sublabel && (
-        <text
-          y="10.4"
-          textAnchor="middle"
-          fontSize="1.7"
-          fill={locked ? 'rgba(120,95,60,0.45)' : color}
-          opacity={locked ? 1 : 0.7}
-          style={{ userSelect: 'none', pointerEvents: 'none' }}
-        >
-          {node.sublabel}
-        </text>
-      )}
     </g>
   );
 }
@@ -150,7 +135,9 @@ export default function RegionView({ bundle, region, nav, autoOpenTopicId }: Pro
 
   return (
     <div className="region-view-root">
+      <div className="region-view-main">
       <GameGraph
+        fillParent
         nodes={nodes}
         edges={edges}
         playerX={displayPlayerPos.x}
@@ -213,6 +200,7 @@ export default function RegionView({ bundle, region, nav, autoOpenTopicId }: Pro
           </div>
         }
       />
+      </div>
 
       {selectedTopic && (
         <QuestPanel

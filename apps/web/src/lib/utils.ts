@@ -19,6 +19,19 @@ export function isTopicUnlocked(topic: Topic, completedTopics: string[]): boolea
   return topic.requires.every((req) => completedTopics.includes(req));
 }
 
+/** Short numeric label for region-map nodes (full title lives in quest panel). */
+export function topicMapLabel(topic: Topic): string {
+  const fromId = topic.id.match(/_i0*(\d+)$/i)?.[1];
+  if (fromId) return String(Number(fromId));
+
+  const fromLabel = topic.waypoint.label.match(/(\d+)/)?.[1];
+  if (fromLabel) return String(Number(fromLabel));
+
+  return topic.waypoint.label.length > 6
+    ? topic.waypoint.label.slice(0, 5) + '…'
+    : topic.waypoint.label;
+}
+
 // Player position: waypoint of the last completed topic, or the first world node.
 export function playerPosition(
   bundle: CampaignBundle,

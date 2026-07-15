@@ -4,7 +4,7 @@
  * There is no topic-level graph — encounters are surfaced in QuestPanel.
  */
 import type { CampaignBundle, Region } from '../types/campaign';
-import { isRegionUnlocked, isTopicUnlocked } from './utils';
+import { isRegionUnlocked, isTopicUnlocked, topicMapLabel } from './utils';
 import { layoutRegionTopics } from './topicSlots';
 
 // ─── Shared types ─────────────────────────────────────────────────────────────
@@ -188,8 +188,8 @@ export function buildRegionGraph(
       x: pos.x,
       y: pos.y,
       state,
-      label: t.title,
-      sublabel: `${t.estimated_hours}h`,
+      label: topicMapLabel(t),
+      sublabel: undefined,
       meta: { topic: t, color: region.color },
     };
   });
