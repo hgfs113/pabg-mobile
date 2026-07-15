@@ -32,13 +32,13 @@ boss:
 
 topics:
   - id: cv_i01
-    title: "CV: Intro & Pretraining"
+    title: "Iteration 1: CS198-126"
     description: |
-      CS198-126 lectures 1–5.
+      1, 2, 3, 4, 5 — Intro to ML, Intro to DL ч.1–2, Pretraining/Augmentations, Intro to CV
     estimated_hours: 8
     requires: []
     reward:
-      xp: 100
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -47,25 +47,40 @@ topics:
     encounters:
       - id: cv_i01_theory
         type: theory
-        title: "1–5 (Intro to ML, Intro to DL, Pretraining/Augmentations, Intro to CV)"
+        title: "1, 2, 3, 4, 5 — Intro to ML, Intro to DL ч.1–2, Pretraining/Augmentations, Intro to CV"
         description: |
-          CS198-126 lectures 1–5.
+          1, 2, 3, 4, 5 — Intro to ML, Intro to DL ч.1–2, Pretraining/Augmentations, Intro to CV
         resources:
           - type: video
-            title: "CS198-126"
-            ref: "1–5 (Intro to ML, Intro to DL, Pretraining/Augmentations, Intro to CV)"
+            title: "CS198-126 1"
+            url: "https://www.youtube.com/watch?v=Q3fqoJ41g6U&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=1"
+          - type: video
+            title: "CS198-126 2"
+            url: "https://www.youtube.com/watch?v=XBT8tuslJRE&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=2"
+          - type: video
+            title: "CS198-126 3"
+            url: "https://www.youtube.com/watch?v=wAhKtzlBEBg&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=3"
+          - type: video
+            title: "CS198-126 4"
+            url: "https://www.youtube.com/watch?v=zz4avbrwmmo&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=4"
+          - type: video
+            title: "CS198-126 5"
+            url: "https://www.youtube.com/watch?v=lkTIahRB_fE&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=5"
+          - type: video
+            title: "CS198-126 — playlist"
+            ref: "Intro to ML, Intro to DL ч.1–2, Pretraining/Augmentations, Intro to CV"
             url: "https://www.youtube.com/playlist?list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5"
-        xp: 80
+        xp: 90
 
   - id: cv_i02
-    title: "CV: Architectures & Detection"
+    title: "Iteration 2: CS198-126"
     description: |
-      CS198-126 lectures 6–7.
-    estimated_hours: 10
+      6, 7 — Advanced CV Architectures, Object Detection
+    estimated_hours: 8
     requires:
       - cv_i01
     reward:
-      xp: 120
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -74,15 +89,21 @@ topics:
     encounters:
       - id: cv_i02_theory
         type: theory
-        title: "6–7 (Advanced CV Architectures, Object Detection)"
+        title: "6, 7 — Advanced CV Architectures, Object Detection"
         description: |
-          CS198-126 lectures 6–7.
+          6, 7 — Advanced CV Architectures, Object Detection
         resources:
           - type: video
-            title: "CS198-126"
-            ref: "6–7 (Advanced CV Architectures, Object Detection)"
+            title: "CS198-126 6"
+            url: "https://www.youtube.com/watch?v=2GtYNKJSv50&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=6"
+          - type: video
+            title: "CS198-126 7"
+            url: "https://www.youtube.com/watch?v=O63hvwsEJ_c&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=7"
+          - type: video
+            title: "CS198-126 — playlist"
+            ref: "Advanced CV Architectures, Object Detection"
             url: "https://www.youtube.com/playlist?list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5"
-        xp: 100
+        xp: 90
       - id: cv_i02_practice
         type: practice
         title: "Практика"
@@ -93,14 +114,14 @@ topics:
         xp: 40
 
   - id: cv_i03
-    title: "CV: Segmentation & VAE"
+    title: "Iteration 3: CS198-126"
     description: |
-      CS198-126 lectures 8–9.
+      8, 9 — Semantic Segmentation, Autoencoders/VAE/Generative Modeling
     estimated_hours: 8
     requires:
       - cv_i02
     reward:
-      xp: 100
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -109,25 +130,31 @@ topics:
     encounters:
       - id: cv_i03_theory
         type: theory
-        title: "8–9 (Semantic Segmentation, Autoencoders/VAE)"
+        title: "8, 9 — Semantic Segmentation, Autoencoders/VAE/Generative Modeling"
         description: |
-          CS198-126 lectures 8–9.
+          8, 9 — Semantic Segmentation, Autoencoders/VAE/Generative Modeling
         resources:
           - type: video
-            title: "CS198-126"
-            ref: "8–9 (Semantic Segmentation, Autoencoders/VAE)"
+            title: "CS198-126 8"
+            url: "https://www.youtube.com/watch?v=kxzB2p9gzWU&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=8"
+          - type: video
+            title: "CS198-126 9"
+            url: "https://www.youtube.com/watch?v=ceu7CESRsI0&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=9"
+          - type: video
+            title: "CS198-126 — playlist"
+            ref: "Semantic Segmentation, Autoencoders/VAE/Generative Modeling"
             url: "https://www.youtube.com/playlist?list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5"
-        xp: 80
+        xp: 90
 
   - id: cv_i04
-    title: "CV: GANs & Diffusion"
+    title: "Iteration 4: CS198-126"
     description: |
-      CS198-126 lectures 10–12.
-    estimated_hours: 10
+      10, 11, 12 — GANs, Advanced GANs, Diffusion Models
+    estimated_hours: 8
     requires:
       - cv_i03
     reward:
-      xp: 120
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -136,33 +163,42 @@ topics:
     encounters:
       - id: cv_i04_theory
         type: theory
-        title: "10–12 (GANs, Advanced GANs, Diffusion Models)"
+        title: "10, 11, 12 — GANs, Advanced GANs, Diffusion Models"
         description: |
-          CS198-126 lectures 10–12.
+          10, 11, 12 — GANs, Advanced GANs, Diffusion Models
         resources:
           - type: video
-            title: "CS198-126"
-            ref: "10–12 (GANs, Advanced GANs, Diffusion Models)"
+            title: "CS198-126 10"
+            url: "https://www.youtube.com/watch?v=VXgmL2xP0i4&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=10"
+          - type: video
+            title: "CS198-126 11"
+            url: "https://www.youtube.com/watch?v=0tPq8sFTW7w&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=11"
+          - type: video
+            title: "CS198-126 12"
+            url: "https://www.youtube.com/watch?v=687zEGODmHA&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=12"
+          - type: video
+            title: "CS198-126 — playlist"
+            ref: "GANs, Advanced GANs, Diffusion Models"
             url: "https://www.youtube.com/playlist?list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5"
-        xp: 100
+        xp: 90
       - id: cv_i04_practice
         type: practice
         title: "Практика"
         description: |
-          Обучить GAN на MNIST (диффузию — опционально)
+          Обучить GAN на MNIST (диффузию — опционально, как демо)
         tasks:
-          - "Обучить GAN на MNIST (диффузию — опционально)"
+          - "Обучить GAN на MNIST (диффузию — опционально, как демо)"
         xp: 40
 
   - id: cv_i05
-    title: "CV: Transformers & ViT"
+    title: "Iteration 5: CS198-126"
     description: |
-      CS198-126 lectures 13–16.
-    estimated_hours: 10
+      13, 14, 15, 16 — Sequence Modeling, Transformers/Attention, Vision Transformers, Advanced Detection/Segmentation
+    estimated_hours: 8
     requires:
       - cv_i04
     reward:
-      xp: 120
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -171,33 +207,45 @@ topics:
     encounters:
       - id: cv_i05_theory
         type: theory
-        title: "13–16 (Sequence Modeling, Transformers, ViT, Advanced Detection/Segmentation)"
+        title: "13, 14, 15, 16 — Sequence Modeling, Transformers/Attention, Vision Transformers, Advanced Detection/Segmentation"
         description: |
-          CS198-126 lectures 13–16.
+          13, 14, 15, 16 — Sequence Modeling, Transformers/Attention, Vision Transformers, Advanced Detection/Segmentation
         resources:
           - type: video
-            title: "CS198-126"
-            ref: "13–16 (Sequence Modeling, Transformers, ViT, Advanced Detection/Segmentation)"
+            title: "CS198-126 13"
+            url: "https://www.youtube.com/watch?v=dEiued7ljWE&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=13"
+          - type: video
+            title: "CS198-126 14"
+            url: "https://www.youtube.com/watch?v=5SClruyUnoU&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=14"
+          - type: video
+            title: "CS198-126 15"
+            url: "https://www.youtube.com/watch?v=jzPbx9Y0vHg&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=15"
+          - type: video
+            title: "CS198-126 16"
+            url: "https://www.youtube.com/watch?v=QEWa3m68vIs&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=16"
+          - type: video
+            title: "CS198-126 — playlist"
+            ref: "Sequence Modeling, Transformers/Attention, Vision Transformers, Advanced Detection/Segmentation"
             url: "https://www.youtube.com/playlist?list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5"
-        xp: 100
+        xp: 90
       - id: cv_i05_practice
         type: practice
         title: "Практика"
         description: |
-          Transfer learning: дообучить ViT/детектор
+          Transfer learning: дообучить предобученный ViT/детектор на своём датасете
         tasks:
-          - "Transfer learning: дообучить ViT/детектор"
+          - "Transfer learning: дообучить предобученный ViT/детектор на своём датасете"
         xp: 40
 
   - id: cv_i06
-    title: "CV: 3D & Pretraining"
+    title: "Iteration 6: CS198-126"
     description: |
-      CS198-126 lectures 17–19.
+      17, 18, 19 — 3D Vision Survey ч.1–2, Advanced Vision Pretraining
     estimated_hours: 8
     requires:
       - cv_i05
     reward:
-      xp: 100
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -206,25 +254,34 @@ topics:
     encounters:
       - id: cv_i06_theory
         type: theory
-        title: "17–19 (3D Vision Survey, Advanced Vision Pretraining)"
+        title: "17, 18, 19 — 3D Vision Survey ч.1–2, Advanced Vision Pretraining"
         description: |
-          CS198-126 lectures 17–19.
+          17, 18, 19 — 3D Vision Survey ч.1–2, Advanced Vision Pretraining
         resources:
           - type: video
-            title: "CS198-126"
-            ref: "17–19 (3D Vision Survey, Advanced Vision Pretraining)"
+            title: "CS198-126 17"
+            url: "https://www.youtube.com/watch?v=yRXL0iw0HFI&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=17"
+          - type: video
+            title: "CS198-126 18"
+            url: "https://www.youtube.com/watch?v=DEda9G6_UKk&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=18"
+          - type: video
+            title: "CS198-126 19"
+            url: "https://www.youtube.com/watch?v=kg45Na2ejv4&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=19"
+          - type: video
+            title: "CS198-126 — playlist"
+            ref: "3D Vision Survey ч.1–2, Advanced Vision Pretraining"
             url: "https://www.youtube.com/playlist?list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5"
-        xp: 80
+        xp: 90
 
   - id: cv_i07
-    title: "CV: Multimodal & Audio"
+    title: "Iteration 7: CS198-126"
     description: |
-      CS198-126 lectures 20–22.
+      20, 21, 22 — Stylizing Images, Generative Audio, Multimodal Learning
     estimated_hours: 8
     requires:
       - cv_i06
     reward:
-      xp: 100
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -233,12 +290,21 @@ topics:
     encounters:
       - id: cv_i07_theory
         type: theory
-        title: "20–22 (Stylizing Images, Generative Audio, Multimodal Learning)"
+        title: "20, 21, 22 — Stylizing Images, Generative Audio, Multimodal Learning"
         description: |
-          CS198-126 lectures 20–22.
+          20, 21, 22 — Stylizing Images, Generative Audio, Multimodal Learning
         resources:
           - type: video
-            title: "CS198-126"
-            ref: "20–22 (Stylizing Images, Generative Audio, Multimodal Learning)"
+            title: "CS198-126 20"
+            url: "https://www.youtube.com/watch?v=2F0tYkpEgm8&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=20"
+          - type: video
+            title: "CS198-126 21"
+            url: "https://www.youtube.com/watch?v=lUIzI91Il0s&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=21"
+          - type: video
+            title: "CS198-126 22"
+            url: "https://www.youtube.com/watch?v=_Y-D5jrX7IQ&list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5&index=22"
+          - type: video
+            title: "CS198-126 — playlist"
+            ref: "Stylizing Images, Generative Audio, Multimodal Learning"
             url: "https://www.youtube.com/playlist?list=PLzWRmD0Vi2KVsrCqA4VnztE4t71KnTnP5"
-        xp: 80
+        xp: 90

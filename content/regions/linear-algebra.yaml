@@ -32,13 +32,13 @@ boss:
 
 topics:
   - id: la_i01
-    title: "Vector Spaces"
+    title: "Iteration 1: LADR 4e"
     description: |
-      LADR Ch. 1 — vector spaces.
+      Гл. 1 Vector Spaces
     estimated_hours: 8
     requires: []
     reward:
-      xp: 120
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -49,13 +49,12 @@ topics:
         type: theory
         title: "Гл. 1 Vector Spaces"
         description: |
-          LADR Ch. 1 — vector spaces.
+          Гл. 1 Vector Spaces
         resources:
           - type: book
-            title: "LADR 4e"
-            ref: "Гл. 1 Vector Spaces"
-            url: "https://linear.axler.net/LADR4e.html"
-        xp: 100
+            title: "LADR 4e Гл. 1 Vector Spaces"
+            url: "https://linear.axler.net/LADR4e.pdf"
+        xp: 90
       - id: la_i01_practice
         type: practice
         title: "Практика"
@@ -66,14 +65,14 @@ topics:
         xp: 40
 
   - id: la_i02
-    title: "Finite-Dimensional Spaces"
+    title: "Iteration 2: LADR 4e"
     description: |
-      LADR Ch. 2 — dimension, basis, rank.
+      Гл. 2 Finite-Dimensional Vector Spaces
     estimated_hours: 8
     requires:
       - la_i01
     reward:
-      xp: 120
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -84,13 +83,12 @@ topics:
         type: theory
         title: "Гл. 2 Finite-Dimensional Vector Spaces"
         description: |
-          LADR Ch. 2 — dimension, basis, rank.
+          Гл. 2 Finite-Dimensional Vector Spaces
         resources:
           - type: book
-            title: "LADR 4e"
-            ref: "Гл. 2 Finite-Dimensional Vector Spaces"
-            url: "https://linear.axler.net/LADR4e.html"
-        xp: 100
+            title: "LADR 4e Гл. 2 Finite-Dimensional Vector Spaces"
+            url: "https://linear.axler.net/LADR4e.pdf"
+        xp: 90
       - id: la_i02_practice
         type: practice
         title: "Практика"
@@ -101,14 +99,14 @@ topics:
         xp: 40
 
   - id: la_i03
-    title: "Linear Maps"
+    title: "Iteration 3: LADR 4e"
     description: |
-      LADR Ch. 3 — linear maps and matrices.
-    estimated_hours: 10
+      Гл. 3 Linear Maps
+    estimated_hours: 8
     requires:
       - la_i02
     reward:
-      xp: 140
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -119,13 +117,12 @@ topics:
         type: theory
         title: "Гл. 3 Linear Maps"
         description: |
-          LADR Ch. 3 — linear maps and matrices.
+          Гл. 3 Linear Maps
         resources:
           - type: book
-            title: "LADR 4e"
-            ref: "Гл. 3 Linear Maps"
-            url: "https://linear.axler.net/LADR4e.html"
-        xp: 120
+            title: "LADR 4e Гл. 3 Linear Maps"
+            url: "https://linear.axler.net/LADR4e.pdf"
+        xp: 90
       - id: la_i03_practice
         type: practice
         title: "Практика"
@@ -136,14 +133,14 @@ topics:
         xp: 40
 
   - id: la_i04
-    title: "Polynomials"
+    title: "Iteration 4: LADR 4e"
     description: |
-      LADR Ch. 4 — polynomial tools (selective).
-    estimated_hours: 6
+      Гл. 4 Polynomials
+    estimated_hours: 8
     requires:
       - la_i03
     reward:
-      xp: 100
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -154,31 +151,30 @@ topics:
         type: theory
         title: "Гл. 4 Polynomials"
         description: |
-          LADR Ch. 4 — polynomial tools (selective).
+          Гл. 4 Polynomials
         resources:
           - type: book
-            title: "LADR 4e"
-            ref: "Гл. 4 Polynomials"
-            url: "https://linear.axler.net/LADR4e.html"
-        xp: 80
+            title: "LADR 4e Гл. 4 Polynomials"
+            url: "https://linear.axler.net/LADR4e.pdf"
+        xp: 90
       - id: la_i04_practice
         type: practice
         title: "Практика"
         description: |
-          Задачи выборочно
+          Задачи выборочно (глава менее критична для ML)
         tasks:
-          - "Задачи выборочно"
+          - "Задачи выборочно (глава менее критична для ML)"
         xp: 40
 
   - id: la_i05
-    title: "Eigenvalues & Eigenvectors"
+    title: "Iteration 5: LADR 4e"
     description: |
-      LADR Ch. 5 — spectral foundations for ML.
-    estimated_hours: 10
+      Гл. 5 Eigenvalues and Eigenvectors
+    estimated_hours: 8
     requires:
       - la_i04
     reward:
-      xp: 140
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -189,31 +185,30 @@ topics:
         type: theory
         title: "Гл. 5 Eigenvalues and Eigenvectors"
         description: |
-          LADR Ch. 5 — spectral foundations for ML.
+          Гл. 5 Eigenvalues and Eigenvectors
         resources:
           - type: book
-            title: "LADR 4e"
-            ref: "Гл. 5 Eigenvalues and Eigenvectors"
-            url: "https://linear.axler.net/LADR4e.html"
-        xp: 120
+            title: "LADR 4e Гл. 5 Eigenvalues and Eigenvectors"
+            url: "https://linear.axler.net/LADR4e.pdf"
+        xp: 90
       - id: la_i05_practice
         type: practice
         title: "Практика"
         description: |
-          Задачи из конца главы — не пропускать
+          Задачи + важно для ML, не пропускать
         tasks:
-          - "Задачи из конца главы — не пропускать"
+          - "Задачи + важно для ML, не пропускать"
         xp: 40
 
   - id: la_i06
-    title: "Inner Product Spaces"
+    title: "Iteration 6: LADR 4e"
     description: |
-      LADR Ch. 6 — geometry, orthogonality.
+      Гл. 6 Inner Product Spaces
     estimated_hours: 8
     requires:
       - la_i05
     reward:
-      xp: 120
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -224,13 +219,12 @@ topics:
         type: theory
         title: "Гл. 6 Inner Product Spaces"
         description: |
-          LADR Ch. 6 — geometry, orthogonality.
+          Гл. 6 Inner Product Spaces
         resources:
           - type: book
-            title: "LADR 4e"
-            ref: "Гл. 6 Inner Product Spaces"
-            url: "https://linear.axler.net/LADR4e.html"
-        xp: 100
+            title: "LADR 4e Гл. 6 Inner Product Spaces"
+            url: "https://linear.axler.net/LADR4e.pdf"
+        xp: 90
       - id: la_i06_practice
         type: practice
         title: "Практика"
@@ -241,14 +235,14 @@ topics:
         xp: 40
 
   - id: la_i07
-    title: "SVD & Normal Operators"
+    title: "Iteration 7: LADR 4e"
     description: |
-      LADR Ch. 7 — operators on inner product spaces.
-    estimated_hours: 10
+      Гл. 7 Operators on Inner Product Spaces (SVD)
+    estimated_hours: 8
     requires:
       - la_i06
     reward:
-      xp: 140
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -259,13 +253,12 @@ topics:
         type: theory
         title: "Гл. 7 Operators on Inner Product Spaces (SVD)"
         description: |
-          LADR Ch. 7 — operators on inner product spaces.
+          Гл. 7 Operators on Inner Product Spaces (SVD)
         resources:
           - type: book
-            title: "LADR 4e"
-            ref: "Гл. 7 Operators on Inner Product Spaces (SVD)"
-            url: "https://linear.axler.net/LADR4e.html"
-        xp: 120
+            title: "LADR 4e Гл. 7 Operators on Inner Product Spaces (SVD)"
+            url: "https://linear.axler.net/LADR4e.pdf"
+        xp: 90
       - id: la_i07_practice
         type: practice
         title: "Практика"
@@ -276,14 +269,14 @@ topics:
         xp: 40
 
   - id: la_i08
-    title: "Complex & Real Operators"
+    title: "Iteration 8: LADR 4e"
     description: |
-      LADR Ch. 8–9 — selective coverage.
-    estimated_hours: 6
+      Гл. 8–9 Operators on Complex/Real Vector Spaces
+    estimated_hours: 8
     requires:
       - la_i07
     reward:
-      xp: 100
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -294,13 +287,12 @@ topics:
         type: theory
         title: "Гл. 8–9 Operators on Complex/Real Vector Spaces"
         description: |
-          LADR Ch. 8–9 — selective coverage.
+          Гл. 8–9 Operators on Complex/Real Vector Spaces
         resources:
           - type: book
-            title: "LADR 4e"
-            ref: "Гл. 8–9 Operators on Complex/Real Vector Spaces"
-            url: "https://linear.axler.net/LADR4e.html"
-        xp: 80
+            title: "LADR 4e Гл. 8–9 Operators on Complex/Real Vector Spaces"
+            url: "https://linear.axler.net/LADR4e.pdf"
+        xp: 90
       - id: la_i08_practice
         type: practice
         title: "Практика"
@@ -311,14 +303,14 @@ topics:
         xp: 40
 
   - id: la_i09
-    title: "Trace & Determinant"
+    title: "Iteration 9: LADR 4e"
     description: |
-      LADR Ch. 10 — trace and determinant.
+      Гл. 10 Trace and Determinant
     estimated_hours: 8
     requires:
       - la_i08
     reward:
-      xp: 120
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -329,13 +321,12 @@ topics:
         type: theory
         title: "Гл. 10 Trace and Determinant"
         description: |
-          LADR Ch. 10 — trace and determinant.
+          Гл. 10 Trace and Determinant
         resources:
           - type: book
-            title: "LADR 4e"
-            ref: "Гл. 10 Trace and Determinant"
-            url: "https://linear.axler.net/LADR4e.html"
-        xp: 100
+            title: "LADR 4e Гл. 10 Trace and Determinant"
+            url: "https://linear.axler.net/LADR4e.pdf"
+        xp: 90
       - id: la_i09_practice
         type: practice
         title: "Практика"
@@ -346,36 +337,25 @@ topics:
         xp: 40
 
   - id: la_i10
-    title: "Power Iteration & SVD Lab"
+    title: "Iteration 10: LADR 4e"
     description: |
-      Capstone: implement power iteration and simplified SVD.
+      —
     estimated_hours: 8
     requires:
       - la_i09
     reward:
-      xp: 150
+      xp: 110
     waypoint:
       x: 0
       y: 0
       icon: crystal_small
       label: "Iteration 10"
     encounters:
-      - id: la_i10_theory
-        type: theory
-        title: "Итерация 10 — capstone"
-        description: |
-          Capstone: implement power iteration and simplified SVD.
-        resources:
-          - type: url
-            title: "Python / numpy"
-            ref: "Итерация 10 — capstone"
-            url: "https://numpy.org/doc/stable/reference/routines.linalg.html"
-        xp: 130
       - id: la_i10_practice
         type: practice
         title: "Практика"
         description: |
-          Реализовать power iteration и упрощённый SVD, сверить с numpy.linalg
+          Реализовать power iteration для собственных значений и упрощённый SVD на Python, сверить с `numpy.linalg`
         tasks:
-          - "Реализовать power iteration и упрощённый SVD, сверить с numpy.linalg"
+          - "Реализовать power iteration для собственных значений и упрощённый SVD на Python, сверить с `numpy.linalg`"
         xp: 40

@@ -3,7 +3,7 @@ id: nlp
 title: "NLP & LLM"
 world_name: "The Scriptoria"
 world_description: |
-  Upper block: requires optimization and ML. Content TBD in plan.md.
+  Upper block: requires optimization and ML. Content TBD.
 color: "#f48fb1"
 
 unlocks_after:
@@ -25,20 +25,20 @@ boss:
     type: review
     title: "Forge the Model"
     description: |
-      Will be defined when the NLP block is filled in plan.md.
+      Will be defined when the NLP block is filled in plan_2.md.
     tasks:
       - "TBD"
 
 
 topics:
   - id: nlp_i01
-    title: "Coming Soon"
+    title: "Iteration 1: NLP"
     description: |
-      Block 5 from plan.md — наполнение будет добавлено позже.
-    estimated_hours: 1
+      NLP и LLM — placeholder
+    estimated_hours: 8
     requires: []
     reward:
-      xp: 10
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -49,9 +49,9 @@ topics:
         type: theory
         title: "NLP и LLM — placeholder"
         description: |
-          Block 5 from plan.md — наполнение будет добавлено позже.
+          NLP и LLM — placeholder
         resources:
           - type: url
-            title: "TBD"
-            ref: "NLP и LLM — placeholder"
-        xp: 40
+            title: "NLP"
+            ref: "Наполнение будет добавлено позже"
+        xp: 90

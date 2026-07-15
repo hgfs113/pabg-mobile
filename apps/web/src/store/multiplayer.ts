@@ -1,46 +1,36 @@
 /**
- * Multiplayer store.
- *
- * Shared data (players registry + all progress) is persisted to localStorage
- * under 'pbg-players-v1' so every tab in the same browser sees the same data.
- * Cross-tab sync is achieved via the Window 'storage' event.
- *
- * The current session (who is logged in in THIS tab) is stored in
- * sessionStorage so different tabs can be logged in as different players.
+ * Online multiplayer — shared server DB, sync across all devices.
  */
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import {
+  apiLogin,
+  apiMe,
+  apiPatchProgress,
+  apiRegister,
+  fetchWorld,
+  readAuthToken,
+  writeAuthToken,
+} from '../lib/api';
 
-const STORE_KEY   = 'pbg-players-v1';
 const SESSION_KEY = 'pbg-session-v1';
-const PURGE_PLAYERS_KEY = 'pbg-purged-altuska-stray-v1';
 
 export const PLAYER_COLORS = [
-  '#e8734a', // terracotta
-  '#6aaa8e', // sage
-  '#9b7fd4', // lavender
-  '#e8b84a', // amber
-  '#5ba8d4', // sky
-  '#d45b8a', // rose
-  '#4abec8', // teal
-  '#a8d45b', // lime
+  '#e8734a', '#6aaa8e', '#9b7fd4', '#e8b84a',
+  '#5ba8d4', '#d45b8a', '#4abec8', '#a8d45b',
 ];
 
 export const PLAYER_AVATARS = [
-  '/content/assets/image_0.png',  // blue-cloak warrior
-  '/content/assets/image_1.png', // dark mage
-  '/content/assets/image_2.png', // knight scholar
-  '/content/assets/image_3.png', // ranger scout
+  '/content/assets/image_0.png',
+  '/content/assets/image_1.png',
+  '/content/assets/image_2.png',
+  '/content/assets/image_3.png',
 ];
-
-// ─── Types ────────────────────────────────────────────────────────────────────
 
 export interface PlayerMeta {
   id: string;
   name: string;
   color: string;
-  avatar: string;   // path to portrait image
-  password: string; // plaintext — local-only, no real security needed
+  avatar: string;
   joinedAt: number;
 }
 
@@ -49,7 +39,6 @@ export interface PlayerProgress {
   acceptedTopics: string[];
   xp: number;
   lastCompletedTopicId: string | null;
-  /** World-map region the player last entered (marker stays on its node). */
   lastVisitedRegionId: string | null;
 }
 
@@ -61,26 +50,29 @@ const EMPTY_PROGRESS: PlayerProgress = {
   lastVisitedRegionId: null,
 };
 
+type AuthResult = { ok: true } | { ok: false; error?: string };
+
 interface MultiplayerState {
   players:         Record<string, PlayerMeta>;
   progress:        Record<string, PlayerProgress>;
   currentPlayerId: string | null;
+  ready:           boolean;
 
-  register:     (name: string, password: string) => { ok: boolean; error?: string };
-  login:        (name: string, password: string) => { ok: boolean; error?: string };
-  logout:       () => void;
-  removePlayer: (name: string) => void;
-  acceptTopic:  (topicId: string) => void;
-  completeTopic:(topicId: string, xp: number) => void;
-  visitRegion:  (regionId: string) => void;
-  resetProgress:() => void;
+  bootstrap:       () => Promise<void>;
+  syncWorld:       () => Promise<void>;
+  register:        (name: string, password: string) => Promise<AuthResult>;
+  login:           (name: string, password: string) => Promise<AuthResult>;
+  logout:          () => void;
+  acceptTopic:     (topicId: string) => void;
+  completeTopic:   (topicId: string, xp: number) => void;
+  visitRegion:     (regionId: string) => void;
+  resetProgress:   () => void;
 }
-
-// ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function readSession(): string | null {
   try { return sessionStorage.getItem(SESSION_KEY); } catch { return null; }
 }
+
 function writeSession(id: string | null) {
   try {
     if (id) sessionStorage.setItem(SESSION_KEY, id);
@@ -88,166 +80,150 @@ function writeSession(id: string | null) {
   } catch {}
 }
 
-// ─── Store ────────────────────────────────────────────────────────────────────
-
-export const useMultiplayer = create<MultiplayerState>()(
-  persist(
-    (set, get) => ({
-      players: {},
-      progress: {},
-      currentPlayerId: readSession(),
-
-      register(name, password) {
-        const trimmed = name.trim();
-        const id      = trimmed.toLowerCase();
-        if (!id)               return { ok: false, error: 'Name cannot be empty.' };
-        if (id.length > 24)    return { ok: false, error: 'Name too long (max 24 chars).' };
-
-        const { players, progress } = get();
-        if (players[id])       return { ok: false, error: 'That name is already taken.' };
-
-        const idx   = Object.keys(players).length;
-        const color  = PLAYER_COLORS[idx % PLAYER_COLORS.length];
-        const avatar = PLAYER_AVATARS[idx % PLAYER_AVATARS.length];
-        const newMeta: PlayerMeta = { id, name: trimmed, color, avatar, password, joinedAt: Date.now() };
-
-        set({
-          players:         { ...players,  [id]: newMeta },
-          progress:        { ...progress, [id]: { ...EMPTY_PROGRESS } },
-          currentPlayerId: id,
-        });
-        writeSession(id);
-        return { ok: true };
-      },
-
-      login(name, password) {
-        const id     = name.trim().toLowerCase();
-        const player = get().players[id];
-        if (!player)                  return { ok: false, error: 'Player not found.' };
-        if (player.password !== password) return { ok: false, error: 'Wrong password.' };
-
-        set({ currentPlayerId: id });
-        writeSession(id);
-        return { ok: true };
-      },
-
-      logout() {
-        set({ currentPlayerId: null });
-        writeSession(null);
-      },
-
-      removePlayer(name) {
-        const id = name.trim().toLowerCase();
-        if (!id) return;
-
-        const { players, progress, currentPlayerId } = get();
-        if (!players[id]) return;
-
-        const nextPlayers = { ...players };
-        const nextProgress = { ...progress };
-        delete nextPlayers[id];
-        delete nextProgress[id];
-
-        set({
-          players: nextPlayers,
-          progress: nextProgress,
-          currentPlayerId: currentPlayerId === id ? null : currentPlayerId,
-        });
-        if (currentPlayerId === id) writeSession(null);
-      },
-
-      acceptTopic(topicId) {
-        const { currentPlayerId, progress } = get();
-        if (!currentPlayerId) return;
-        const p = progress[currentPlayerId] ?? EMPTY_PROGRESS;
-        if (p.acceptedTopics.includes(topicId)) return;
-        set({
-          progress: {
-            ...progress,
-            [currentPlayerId]: { ...p, acceptedTopics: [...p.acceptedTopics, topicId] },
-          },
-        });
-      },
-
-      completeTopic(topicId, xpGain) {
-        const { currentPlayerId, progress } = get();
-        if (!currentPlayerId) return;
-        const p = progress[currentPlayerId] ?? EMPTY_PROGRESS;
-        if (p.completedTopics.includes(topicId)) return;
-        set({
-          progress: {
-            ...progress,
-            [currentPlayerId]: {
-              ...p,
-              completedTopics: [...p.completedTopics, topicId],
-              acceptedTopics: p.acceptedTopics.includes(topicId)
-                ? p.acceptedTopics
-                : [...p.acceptedTopics, topicId],
-              xp:                    p.xp + xpGain,
-              lastCompletedTopicId:  topicId,
-            },
-          },
-        });
-      },
-
-      visitRegion(regionId) {
-        const { currentPlayerId, progress } = get();
-        if (!currentPlayerId) return;
-        const p = progress[currentPlayerId] ?? EMPTY_PROGRESS;
-        if (p.lastVisitedRegionId === regionId) return;
-        set({
-          progress: {
-            ...progress,
-            [currentPlayerId]: { ...p, lastVisitedRegionId: regionId },
-          },
-        });
-      },
-
-      resetProgress() {
-        const { currentPlayerId, progress } = get();
-        if (!currentPlayerId) return;
-        set({ progress: { ...progress, [currentPlayerId]: { ...EMPTY_PROGRESS } } });
-      },
-    }),
-
-    {
-      name: STORE_KEY,
-      // Only persist shared data; currentPlayerId is managed via sessionStorage
-      partialize: (s) => ({ players: s.players, progress: s.progress }),
-    },
-  ),
-);
-
-// ─── Cross-tab sync ───────────────────────────────────────────────────────────
-// The 'storage' event fires in OTHER tabs when localStorage changes.
-if (typeof window !== 'undefined') {
-  useMultiplayer.persist.onFinishHydration(() => {
-    try {
-      if (localStorage.getItem(PURGE_PLAYERS_KEY)) return;
-      const { removePlayer } = useMultiplayer.getState();
-      removePlayer('altuska');
-      removePlayer('stray');
-      localStorage.setItem(PURGE_PLAYERS_KEY, '1');
-    } catch {}
-  });
-
-  window.addEventListener('storage', (e) => {
-    if (e.key !== STORE_KEY || !e.newValue) return;
-    try {
-      const { state } = JSON.parse(e.newValue);
-      useMultiplayer.setState({
-        players:  state.players  ?? {},
-        progress: state.progress ?? {},
-      });
-    } catch {}
-  });
+function pushProgressOnline(get: () => MultiplayerState) {
+  const { currentPlayerId, progress } = get();
+  if (!currentPlayerId) return;
+  const p = progress[currentPlayerId];
+  if (!p) return;
+  void apiPatchProgress(p).catch(() => {});
 }
 
-// ─── Convenience selectors ────────────────────────────────────────────────────
+export const useMultiplayer = create<MultiplayerState>()((set, get) => ({
+  players: {},
+  progress: {},
+  currentPlayerId: null,
+  ready: false,
+
+  async bootstrap() {
+    const token = readAuthToken();
+    if (!token) {
+      set({ ready: true, currentPlayerId: null });
+      return;
+    }
+
+    try {
+      const [me, world] = await Promise.all([apiMe(), fetchWorld()]);
+      set({
+        currentPlayerId: me.player.id,
+        players: world.players,
+        progress: world.progress,
+        ready: true,
+      });
+      writeSession(me.player.id);
+    } catch {
+      writeAuthToken(null);
+      writeSession(null);
+      set({ ready: true, currentPlayerId: null, players: {}, progress: {} });
+    }
+  },
+
+  async syncWorld() {
+    try {
+      const world = await fetchWorld();
+      set({ players: world.players, progress: world.progress });
+    } catch {
+      /* server unreachable — keep last known state */
+    }
+  },
+
+  async register(name, password) {
+    try {
+      const { token, player } = await apiRegister(name, password);
+      writeAuthToken(token);
+      writeSession(player.id);
+      const world = await fetchWorld();
+      set({
+        currentPlayerId: player.id,
+        players: world.players,
+        progress: world.progress,
+      });
+      return { ok: true };
+    } catch (e) {
+      return { ok: false, error: e instanceof Error ? e.message : 'Register failed.' };
+    }
+  },
+
+  async login(name, password) {
+    try {
+      const { token, player } = await apiLogin(name, password);
+      writeAuthToken(token);
+      writeSession(player.id);
+      const world = await fetchWorld();
+      set({
+        currentPlayerId: player.id,
+        players: world.players,
+        progress: world.progress,
+      });
+      return { ok: true };
+    } catch (e) {
+      return { ok: false, error: e instanceof Error ? e.message : 'Login failed.' };
+    }
+  },
+
+  logout() {
+    writeAuthToken(null);
+    set({ currentPlayerId: null });
+    writeSession(null);
+  },
+
+  acceptTopic(topicId) {
+    const { currentPlayerId, progress } = get();
+    if (!currentPlayerId) return;
+    const p = progress[currentPlayerId] ?? EMPTY_PROGRESS;
+    if (p.acceptedTopics.includes(topicId)) return;
+    const next = {
+      ...progress,
+      [currentPlayerId]: { ...p, acceptedTopics: [...p.acceptedTopics, topicId] },
+    };
+    set({ progress: next });
+    pushProgressOnline(get);
+  },
+
+  completeTopic(topicId, xpGain) {
+    const { currentPlayerId, progress } = get();
+    if (!currentPlayerId) return;
+    const p = progress[currentPlayerId] ?? EMPTY_PROGRESS;
+    if (p.completedTopics.includes(topicId)) return;
+    const next = {
+      ...progress,
+      [currentPlayerId]: {
+        ...p,
+        completedTopics: [...p.completedTopics, topicId],
+        acceptedTopics: p.acceptedTopics.includes(topicId)
+          ? p.acceptedTopics
+          : [...p.acceptedTopics, topicId],
+        xp: p.xp + xpGain,
+        lastCompletedTopicId: topicId,
+      },
+    };
+    set({ progress: next });
+    pushProgressOnline(get);
+  },
+
+  visitRegion(regionId) {
+    const { currentPlayerId, progress } = get();
+    if (!currentPlayerId) return;
+    const p = progress[currentPlayerId] ?? EMPTY_PROGRESS;
+    if (p.lastVisitedRegionId === regionId) return;
+    const next = {
+      ...progress,
+      [currentPlayerId]: { ...p, lastVisitedRegionId: regionId },
+    };
+    set({ progress: next });
+    pushProgressOnline(get);
+  },
+
+  resetProgress() {
+    const { currentPlayerId, progress } = get();
+    if (!currentPlayerId) return;
+    const next = { ...progress, [currentPlayerId]: { ...EMPTY_PROGRESS } };
+    set({ progress: next });
+    pushProgressOnline(get);
+  },
+}));
 
 export function currentProgress(state: MultiplayerState): PlayerProgress {
   const id = state.currentPlayerId;
-  const p = (id && state.progress[id]) ? state.progress[id] : { ...EMPTY_PROGRESS };
-  // Migrate older saves that lack lastVisitedRegionId
+  const p = id && state.progress[id] ? state.progress[id] : { ...EMPTY_PROGRESS };
   return { ...EMPTY_PROGRESS, ...p };
 }

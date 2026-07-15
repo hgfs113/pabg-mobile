@@ -34,7 +34,7 @@ function ResourceItem({ r }: { r: Resource }) {
         {r.ref && <div className="quest-resource-ref">{r.ref}</div>}
         {r.url && isExternalUrl(r.url) && (
           <a href={r.url} target="_blank" rel="noopener noreferrer" className="quest-resource-link">
-            Open ↗
+            {r.title} ↗
           </a>
         )}
       </div>

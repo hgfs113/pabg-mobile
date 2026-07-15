@@ -3,7 +3,7 @@ id: opt
 title: "Optimization"
 world_name: "The Gradient Wastes"
 world_description: |
-  EE364A (18 lectures) + Caramanis (12 blocks). Depends on linear algebra.
+  EE364A + Caramanis. Depends on linear algebra.
 color: "#ffb74d"
 
 unlocks_after:
@@ -32,9 +32,9 @@ boss:
 
 topics:
   - id: opt_i01
-    title: "EE364A: Intro & Convexity"
+    title: "Iteration 1: EE364A"
     description: |
-      Boyd EE364A lectures 1–3.
+      1, 2, 3 — intro, выпуклые множества, выпуклые функции
     estimated_hours: 8
     requires: []
     reward:
@@ -47,20 +47,29 @@ topics:
     encounters:
       - id: opt_i01_theory
         type: theory
-        title: "EE364A 1–3 (intro, выпуклые множества, выпуклые функции)"
+        title: "1, 2, 3 — intro, выпуклые множества, выпуклые функции"
         description: |
-          Boyd EE364A lectures 1–3.
+          1, 2, 3 — intro, выпуклые множества, выпуклые функции
         resources:
           - type: video
-            title: "EE364A"
-            ref: "EE364A 1–3 (intro, выпуклые множества, выпуклые функции)"
+            title: "EE364A 1"
+            url: "https://www.youtube.com/watch?v=kV1ru-Inzl4&list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h&index=1"
+          - type: video
+            title: "EE364A 2"
+            url: "https://www.youtube.com/watch?v=2H4_7izio9Y&list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h&index=2"
+          - type: video
+            title: "EE364A 3"
+            url: "https://www.youtube.com/watch?v=1menqhfNzzo&list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h&index=3"
+          - type: video
+            title: "EE364A — playlist"
+            ref: "intro, выпуклые множества, выпуклые функции"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h"
         xp: 90
 
   - id: opt_i02
-    title: "EE364A: Problems & Duality"
+    title: "Iteration 2: EE364A"
     description: |
-      Boyd EE364A lectures 4–5.
+      4, 5 — задачи выпуклой оптимизации, двойственность
     estimated_hours: 8
     requires:
       - opt_i01
@@ -74,28 +83,34 @@ topics:
     encounters:
       - id: opt_i02_theory
         type: theory
-        title: "EE364A 4–5 (задачи выпуклой оптимизации, двойственность)"
+        title: "4, 5 — задачи выпуклой оптимизации, двойственность"
         description: |
-          Boyd EE364A lectures 4–5.
+          4, 5 — задачи выпуклой оптимизации, двойственность
         resources:
           - type: video
-            title: "EE364A"
-            ref: "EE364A 4–5 (задачи выпуклой оптимизации, двойственность)"
+            title: "EE364A 4"
+            url: "https://www.youtube.com/watch?v=U2HRwA7XePU&list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h&index=4"
+          - type: video
+            title: "EE364A 5"
+            url: "https://www.youtube.com/watch?v=AAjG1TQcL7c&list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h&index=5"
+          - type: video
+            title: "EE364A — playlist"
+            ref: "задачи выпуклой оптимизации, двойственность"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h"
         xp: 90
       - id: opt_i02_practice
         type: practice
         title: "Практика"
         description: |
-          Проверка выпуклости по Гессиану на 3–4 тестовых функциях
+          Проверка выпуклости функции по Гессиану на 3–4 тестовых функциях
         tasks:
-          - "Проверка выпуклости по Гессиану на 3–4 тестовых функциях"
+          - "Проверка выпуклости функции по Гессиану на 3–4 тестовых функциях"
         xp: 40
 
   - id: opt_i03
-    title: "EE364A: Approximation & Estimation"
+    title: "Iteration 3: EE364A"
     description: |
-      Boyd EE364A lectures 6–8.
+      6, 7, 8 — аппроксимация/fitting, стат. оценивание, геометрические задачи
     estimated_hours: 8
     requires:
       - opt_i02
@@ -109,25 +124,34 @@ topics:
     encounters:
       - id: opt_i03_theory
         type: theory
-        title: "EE364A 6–8 (аппроксимация/fitting, стат. оценивание, геометрические задачи)"
+        title: "6, 7, 8 — аппроксимация/fitting, стат. оценивание, геометрические задачи"
         description: |
-          Boyd EE364A lectures 6–8.
+          6, 7, 8 — аппроксимация/fitting, стат. оценивание, геометрические задачи
         resources:
           - type: video
-            title: "EE364A"
-            ref: "EE364A 6–8 (аппроксимация/fitting, стат. оценивание, геометрические задачи)"
+            title: "EE364A 6"
+            url: "https://www.youtube.com/watch?v=d2jF3SXcFQ8&list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h&index=6"
+          - type: video
+            title: "EE364A 7"
+            url: "https://www.youtube.com/watch?v=P_SuSVZnrT0&list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h&index=7"
+          - type: video
+            title: "EE364A 8"
+            url: "https://www.youtube.com/watch?v=wsRznzNgTS0&list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h&index=8"
+          - type: video
+            title: "EE364A — playlist"
+            ref: "аппроксимация/fitting, стат. оценивание, геометрические задачи"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h"
         xp: 90
 
   - id: opt_i04
-    title: "EE364A: Numerical LA & Unconstrained"
+    title: "Iteration 4: EE364A"
     description: |
-      Boyd EE364A lectures 9–10.
-    estimated_hours: 10
+      9, 10 — численная линалгебра, безусловная минимизация
+    estimated_hours: 8
     requires:
       - opt_i03
     reward:
-      xp: 120
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -136,15 +160,21 @@ topics:
     encounters:
       - id: opt_i04_theory
         type: theory
-        title: "EE364A 9–10 (численная линалгебра, безусловная минимизация)"
+        title: "9, 10 — численная линалгебра, безусловная минимизация"
         description: |
-          Boyd EE364A lectures 9–10.
+          9, 10 — численная линалгебра, безусловная минимизация
         resources:
           - type: video
-            title: "EE364A"
-            ref: "EE364A 9–10 (численная линалгебра, безусловная минимизация)"
+            title: "EE364A 9"
+            url: "https://www.youtube.com/watch?v=whE03c84ahA&list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h&index=9"
+          - type: video
+            title: "EE364A 10"
+            url: "https://www.youtube.com/watch?v=N3V2AdTImJE&list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h&index=10"
+          - type: video
+            title: "EE364A — playlist"
+            ref: "численная линалгебра, безусловная минимизация"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h"
-        xp: 100
+        xp: 90
       - id: opt_i04_practice
         type: practice
         title: "Практика"
@@ -155,14 +185,14 @@ topics:
         xp: 40
 
   - id: opt_i05
-    title: "EE364A: Constrained & Interior Point"
+    title: "Iteration 5: EE364A"
     description: |
-      Boyd EE364A lectures 11–14.
-    estimated_hours: 10
+      11, 12, 13, 14 — условная минимизация, методы внутренней точки
+    estimated_hours: 8
     requires:
       - opt_i04
     reward:
-      xp: 120
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -171,15 +201,27 @@ topics:
     encounters:
       - id: opt_i05_theory
         type: theory
-        title: "EE364A 11–14 (условная минимизация, методы внутренней точки)"
+        title: "11, 12, 13, 14 — условная минимизация, методы внутренней точки"
         description: |
-          Boyd EE364A lectures 11–14.
+          11, 12, 13, 14 — условная минимизация, методы внутренней точки
         resources:
           - type: video
-            title: "EE364A"
-            ref: "EE364A 11–14 (условная минимизация, методы внутренней точки)"
+            title: "EE364A 11"
+            url: "https://www.youtube.com/watch?v=trs0RI39uWI&list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h&index=11"
+          - type: video
+            title: "EE364A 12"
+            url: "https://www.youtube.com/watch?v=t8sp9rv-Dqo&list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h&index=12"
+          - type: video
+            title: "EE364A 13"
+            url: "https://www.youtube.com/watch?v=ankx1lGi5jI&list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h&index=13"
+          - type: video
+            title: "EE364A 14"
+            url: "https://www.youtube.com/watch?v=dAvxvA4_Euo&list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h&index=14"
+          - type: video
+            title: "EE364A — playlist"
+            ref: "условная минимизация, методы внутренней точки"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h"
-        xp: 100
+        xp: 90
       - id: opt_i05_practice
         type: practice
         title: "Практика"
@@ -190,9 +232,9 @@ topics:
         xp: 40
 
   - id: opt_i06
-    title: "EE364A: Remaining Topics"
+    title: "Iteration 6: EE364A"
     description: |
-      Boyd EE364A lectures 15–18.
+      15, 16, 17, 18 — оставшиеся темы курса
     estimated_hours: 8
     requires:
       - opt_i05
@@ -206,25 +248,37 @@ topics:
     encounters:
       - id: opt_i06_theory
         type: theory
-        title: "EE364A 15–18 (оставшиеся темы курса)"
+        title: "15, 16, 17, 18 — оставшиеся темы курса"
         description: |
-          Boyd EE364A lectures 15–18.
+          15, 16, 17, 18 — оставшиеся темы курса
         resources:
           - type: video
-            title: "EE364A"
-            ref: "EE364A 15–18 (оставшиеся темы курса)"
+            title: "EE364A 15"
+            url: "https://www.youtube.com/watch?v=zVO4ccvrwrI&list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h&index=15"
+          - type: video
+            title: "EE364A 16"
+            url: "https://www.youtube.com/watch?v=Sx7TKDFJjmk&list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h&index=16"
+          - type: video
+            title: "EE364A 17"
+            url: "https://www.youtube.com/watch?v=vcTIA2X0UVk&list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h&index=17"
+          - type: video
+            title: "EE364A 18"
+            url: "https://www.youtube.com/watch?v=4A5opemjRW4&list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h&index=18"
+          - type: video
+            title: "EE364A — playlist"
+            ref: "оставшиеся темы курса"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h"
         xp: 90
 
   - id: opt_i07
-    title: "Caramanis: Introduction"
+    title: "Iteration 7: Caramanis"
     description: |
-      Caramanis 1.1–1.4.
-    estimated_hours: 6
+      1.1, 1.2, 1.3, 1.4 — введение в курс, обзор, первые примеры, база линалгебры/анализа
+    estimated_hours: 8
     requires:
       - opt_i06
     reward:
-      xp: 100
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -233,25 +287,37 @@ topics:
     encounters:
       - id: opt_i07_theory
         type: theory
-        title: "1.1–1.4 (введение, обзор, примеры, база линалгебры/анализа)"
+        title: "1.1, 1.2, 1.3, 1.4 — введение в курс, обзор, первые примеры, база линалгебры/анализа"
         description: |
-          Caramanis 1.1–1.4.
+          1.1, 1.2, 1.3, 1.4 — введение в курс, обзор, первые примеры, база линалгебры/анализа
         resources:
           - type: video
-            title: "Caramanis"
-            ref: "1.1–1.4 (введение, обзор, примеры, база линалгебры/анализа)"
+            title: "Caramanis 1.1"
+            url: "https://www.youtube.com/watch?v=ee-HYD6kKqM&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=1"
+          - type: video
+            title: "Caramanis 1.2"
+            url: "https://www.youtube.com/watch?v=QcZJBkL7rhk&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=2"
+          - type: video
+            title: "Caramanis 1.3"
+            url: "https://www.youtube.com/watch?v=p7BZKqXL0ak&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=3"
+          - type: video
+            title: "Caramanis 1.4"
+            url: "https://www.youtube.com/watch?v=FTzZff0uq9U&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=4"
+          - type: video
+            title: "Caramanis — playlist"
+            ref: "введение в курс, обзор, первые примеры, база линалгебры/анализа"
             url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
-        xp: 80
+        xp: 90
 
   - id: opt_i08
-    title: "Caramanis: Convex Sets I"
+    title: "Iteration 8: Caramanis"
     description: |
-      Caramanis 2.1–2.3.
-    estimated_hours: 6
+      2.1, 2.2, 2.3 — выпуклые множества: определения, примеры, выпуклые функции
+    estimated_hours: 8
     requires:
       - opt_i07
     reward:
-      xp: 100
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -260,20 +326,29 @@ topics:
     encounters:
       - id: opt_i08_theory
         type: theory
-        title: "2.1–2.3 (выпуклые множества, выпуклые функции)"
+        title: "2.1, 2.2, 2.3 — выпуклые множества: определения, примеры, выпуклые функции"
         description: |
-          Caramanis 2.1–2.3.
+          2.1, 2.2, 2.3 — выпуклые множества: определения, примеры, выпуклые функции
         resources:
           - type: video
-            title: "Caramanis"
-            ref: "2.1–2.3 (выпуклые множества, выпуклые функции)"
+            title: "Caramanis 2.1"
+            url: "https://www.youtube.com/watch?v=hNRtGmrgr2g&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=5"
+          - type: video
+            title: "Caramanis 2.2"
+            url: "https://www.youtube.com/watch?v=7JHr0eL7YCY&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=6"
+          - type: video
+            title: "Caramanis 2.3"
+            url: "https://www.youtube.com/watch?v=FNiJJL-1xVw&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=7"
+          - type: video
+            title: "Caramanis — playlist"
+            ref: "выпуклые множества: определения, примеры, выпуклые функции"
             url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
-        xp: 80
+        xp: 90
 
   - id: opt_i09
-    title: "Caramanis: Convex Sets II"
+    title: "Iteration 9: Caramanis"
     description: |
-      Caramanis 2.4–2.6.
+      2.4, 2.5, 2.6 — эквивалентные определения выпуклости, условия оптимальности, проекция
     estimated_hours: 8
     requires:
       - opt_i08
@@ -287,13 +362,22 @@ topics:
     encounters:
       - id: opt_i09_theory
         type: theory
-        title: "2.4–2.6 (эквивалентные определения, условия оптимальности, проекция)"
+        title: "2.4, 2.5, 2.6 — эквивалентные определения выпуклости, условия оптимальности, проекция"
         description: |
-          Caramanis 2.4–2.6.
+          2.4, 2.5, 2.6 — эквивалентные определения выпуклости, условия оптимальности, проекция
         resources:
           - type: video
-            title: "Caramanis"
-            ref: "2.4–2.6 (эквивалентные определения, условия оптимальности, проекция)"
+            title: "Caramanis 2.4"
+            url: "https://www.youtube.com/watch?v=2c5UyW9M4g0&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=8"
+          - type: video
+            title: "Caramanis 2.5"
+            url: "https://www.youtube.com/watch?v=oS4kCcFOJGg&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=9"
+          - type: video
+            title: "Caramanis 2.6"
+            url: "https://www.youtube.com/watch?v=mg0l36wI_Ek&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=10"
+          - type: video
+            title: "Caramanis — playlist"
+            ref: "эквивалентные определения выпуклости, условия оптимальности, проекция"
             url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
         xp: 90
       - id: opt_i09_practice
@@ -306,14 +390,14 @@ topics:
         xp: 40
 
   - id: opt_i10
-    title: "Caramanis: Gradient Descent"
+    title: "Iteration 10: Caramanis"
     description: |
-      Caramanis 3.1–3.4.
-    estimated_hours: 10
+      3.1, 3.2, 3.3, 3.4 — Gradient & Subgradient Descent, smooth/strongly convex, скорости сходимости
+    estimated_hours: 8
     requires:
       - opt_i09
     reward:
-      xp: 120
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -322,28 +406,40 @@ topics:
     encounters:
       - id: opt_i10_theory
         type: theory
-        title: "3.1–3.4 (Gradient & Subgradient Descent, smooth/strongly convex)"
+        title: "3.1, 3.2, 3.3, 3.4 — Gradient & Subgradient Descent, smooth/strongly convex, скорости сходимости"
         description: |
-          Caramanis 3.1–3.4.
+          3.1, 3.2, 3.3, 3.4 — Gradient & Subgradient Descent, smooth/strongly convex, скорости сходимости
         resources:
           - type: video
-            title: "Caramanis"
-            ref: "3.1–3.4 (Gradient & Subgradient Descent, smooth/strongly convex)"
+            title: "Caramanis 3.1"
+            url: "https://www.youtube.com/watch?v=ejIgu3UZM9c&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=11"
+          - type: video
+            title: "Caramanis 3.2"
+            url: "https://www.youtube.com/watch?v=Clw24Fajnqg&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=12"
+          - type: video
+            title: "Caramanis 3.3"
+            url: "https://www.youtube.com/watch?v=BQyHULGB4fY&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=13"
+          - type: video
+            title: "Caramanis 3.4"
+            url: "https://www.youtube.com/watch?v=R8kL8CKyz5I&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=14"
+          - type: video
+            title: "Caramanis — playlist"
+            ref: "Gradient & Subgradient Descent, smooth/strongly convex, скорости сходимости"
             url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
-        xp: 100
+        xp: 90
       - id: opt_i10_practice
         type: practice
         title: "Практика"
         description: |
-          Subgradient descent с нуля + тест скорости сходимости
+          Subgradient descent (1-й порядок) с нуля + тест скорости сходимости
         tasks:
-          - "Subgradient descent с нуля + тест скорости сходимости"
+          - "Subgradient descent (1-й порядок) с нуля + тест скорости сходимости"
         xp: 40
 
   - id: opt_i11
-    title: "Caramanis: Acceleration"
+    title: "Iteration 11: Caramanis"
     description: |
-      Caramanis 4.1–4.2.
+      4.1, 4.2 — Oracle Lower Bounds, Accelerated Gradient Descent
     estimated_hours: 8
     requires:
       - opt_i10
@@ -357,13 +453,19 @@ topics:
     encounters:
       - id: opt_i11_theory
         type: theory
-        title: "4.1–4.2 (Oracle Lower Bounds, Accelerated Gradient Descent)"
+        title: "4.1, 4.2 — Oracle Lower Bounds, Accelerated Gradient Descent"
         description: |
-          Caramanis 4.1–4.2.
+          4.1, 4.2 — Oracle Lower Bounds, Accelerated Gradient Descent
         resources:
           - type: video
-            title: "Caramanis"
-            ref: "4.1–4.2 (Oracle Lower Bounds, Accelerated Gradient Descent)"
+            title: "Caramanis 4.1"
+            url: "https://www.youtube.com/watch?v=DL6i8BIZt0A&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=15"
+          - type: video
+            title: "Caramanis 4.2"
+            url: "https://www.youtube.com/watch?v=D1TseaVu9Nc&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=16"
+          - type: video
+            title: "Caramanis — playlist"
+            ref: "Oracle Lower Bounds, Accelerated Gradient Descent"
             url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
         xp: 90
       - id: opt_i11_practice
@@ -376,14 +478,14 @@ topics:
         xp: 40
 
   - id: opt_i12
-    title: "Caramanis: Proximal Methods"
+    title: "Iteration 12: Caramanis"
     description: |
-      Caramanis 5.1–5.4.
-    estimated_hours: 10
+      5.1, 5.2, 5.3, 5.4 — Proximal/Projected GD, свойства, скорости сходимости, ISTA/FISTA
+    estimated_hours: 8
     requires:
       - opt_i11
     reward:
-      xp: 120
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -392,15 +494,27 @@ topics:
     encounters:
       - id: opt_i12_theory
         type: theory
-        title: "5.1–5.4 (Proximal/Projected GD, ISTA/FISTA)"
+        title: "5.1, 5.2, 5.3, 5.4 — Proximal/Projected GD, свойства, скорости сходимости, ISTA/FISTA"
         description: |
-          Caramanis 5.1–5.4.
+          5.1, 5.2, 5.3, 5.4 — Proximal/Projected GD, свойства, скорости сходимости, ISTA/FISTA
         resources:
           - type: video
-            title: "Caramanis"
-            ref: "5.1–5.4 (Proximal/Projected GD, ISTA/FISTA)"
+            title: "Caramanis 5.1"
+            url: "https://www.youtube.com/watch?v=m73Fy_rHV0A&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=17"
+          - type: video
+            title: "Caramanis 5.2"
+            url: "https://www.youtube.com/watch?v=ifK85fCxtcA&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=18"
+          - type: video
+            title: "Caramanis 5.3"
+            url: "https://www.youtube.com/watch?v=zWgzHQR8dh4&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=19"
+          - type: video
+            title: "Caramanis 5.4"
+            url: "https://www.youtube.com/watch?v=JRerBpNggN0&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=20"
+          - type: video
+            title: "Caramanis — playlist"
+            ref: "Proximal/Projected GD, свойства, скорости сходимости, ISTA/FISTA"
             url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
-        xp: 100
+        xp: 90
       - id: opt_i12_practice
         type: practice
         title: "Практика"
@@ -411,9 +525,9 @@ topics:
         xp: 40
 
   - id: opt_i13
-    title: "Caramanis: Mirror & Frank-Wolfe"
+    title: "Iteration 13: Caramanis"
     description: |
-      Caramanis 5.5–5.12.
+      5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12 — Mirror Descent, части 1–6, Frank-Wolfe
     estimated_hours: 8
     requires:
       - opt_i12
@@ -427,13 +541,37 @@ topics:
     encounters:
       - id: opt_i13_theory
         type: theory
-        title: "5.5–5.12 (Mirror Descent, Frank-Wolfe)"
+        title: "5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12 — Mirror Descent, части 1–6, Frank-Wolfe"
         description: |
-          Caramanis 5.5–5.12.
+          5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12 — Mirror Descent, части 1–6, Frank-Wolfe
         resources:
           - type: video
-            title: "Caramanis"
-            ref: "5.5–5.12 (Mirror Descent, Frank-Wolfe)"
+            title: "Caramanis 5.5"
+            url: "https://www.youtube.com/watch?v=m_SJafYedbQ&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=21"
+          - type: video
+            title: "Caramanis 5.6"
+            url: "https://www.youtube.com/watch?v=DTvDRHWWWGc&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=22"
+          - type: video
+            title: "Caramanis 5.7"
+            url: "https://www.youtube.com/watch?v=UtoI5zsB3ZQ&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=23"
+          - type: video
+            title: "Caramanis 5.8"
+            url: "https://www.youtube.com/watch?v=Up-Ks0P5AoY&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=24"
+          - type: video
+            title: "Caramanis 5.9"
+            url: "https://www.youtube.com/watch?v=ArTZybO1CGc&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=25"
+          - type: video
+            title: "Caramanis 5.10"
+            url: "https://www.youtube.com/watch?v=wV3k4o92V1c&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=26"
+          - type: video
+            title: "Caramanis 5.11"
+            url: "https://www.youtube.com/watch?v=BGDCqAvLoHw&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=27"
+          - type: video
+            title: "Caramanis 5.12"
+            url: "https://www.youtube.com/watch?v=tIywqa-OgoI&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=28"
+          - type: video
+            title: "Caramanis — playlist"
+            ref: "Mirror Descent, части 1–6, Frank-Wolfe"
             url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
         xp: 90
       - id: opt_i13_practice
@@ -446,14 +584,14 @@ topics:
         xp: 40
 
   - id: opt_i14
-    title: "Caramanis: SGD & SVRG"
+    title: "Iteration 14: Caramanis"
     description: |
-      Caramanis 6.1–6.5.
-    estimated_hours: 10
+      6.1, 6.2, 6.3, 6.4, 6.5 — SGD, SVRG
+    estimated_hours: 8
     requires:
       - opt_i13
     reward:
-      xp: 120
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -462,15 +600,30 @@ topics:
     encounters:
       - id: opt_i14_theory
         type: theory
-        title: "6.1–6.5 (SGD, SVRG)"
+        title: "6.1, 6.2, 6.3, 6.4, 6.5 — SGD, SVRG"
         description: |
-          Caramanis 6.1–6.5.
+          6.1, 6.2, 6.3, 6.4, 6.5 — SGD, SVRG
         resources:
           - type: video
-            title: "Caramanis"
-            ref: "6.1–6.5 (SGD, SVRG)"
+            title: "Caramanis 6.1"
+            url: "https://www.youtube.com/watch?v=Z_FW352X2IA&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=29"
+          - type: video
+            title: "Caramanis 6.2"
+            url: "https://www.youtube.com/watch?v=9mUYxyTYaX4&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=30"
+          - type: video
+            title: "Caramanis 6.3"
+            url: "https://www.youtube.com/watch?v=fU7UFzKF4xg&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=31"
+          - type: video
+            title: "Caramanis 6.4"
+            url: "https://www.youtube.com/watch?v=hwm2mr8PBhs&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=32"
+          - type: video
+            title: "Caramanis 6.5"
+            url: "https://www.youtube.com/watch?v=dhVRKzybsck&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=33"
+          - type: video
+            title: "Caramanis — playlist"
+            ref: "SGD, SVRG"
             url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
-        xp: 100
+        xp: 90
       - id: opt_i14_practice
         type: practice
         title: "Практика"
@@ -481,14 +634,14 @@ topics:
         xp: 40
 
   - id: opt_i15
-    title: "Caramanis: Newton's Method"
+    title: "Iteration 15: Caramanis"
     description: |
-      Caramanis 7.1–7.4.
-    estimated_hours: 10
+      7.1, 7.2, 7.3, 7.4 — метод Ньютона: вид, афинные преобразования, сходимость, доказательство
+    estimated_hours: 8
     requires:
       - opt_i14
     reward:
-      xp: 120
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -497,15 +650,27 @@ topics:
     encounters:
       - id: opt_i15_theory
         type: theory
-        title: "7.1–7.4 (метод Ньютона: вид, аффинные преобразования, сходимость)"
+        title: "7.1, 7.2, 7.3, 7.4 — метод Ньютона: вид, афинные преобразования, сходимость, доказательство"
         description: |
-          Caramanis 7.1–7.4.
+          7.1, 7.2, 7.3, 7.4 — метод Ньютона: вид, афинные преобразования, сходимость, доказательство
         resources:
           - type: video
-            title: "Caramanis"
-            ref: "7.1–7.4 (метод Ньютона: вид, аффинные преобразования, сходимость)"
+            title: "Caramanis 7.1"
+            url: "https://www.youtube.com/watch?v=NanGIMVYH7c&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=34"
+          - type: video
+            title: "Caramanis 7.2"
+            url: "https://www.youtube.com/watch?v=NIyIJYmCTcc&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=35"
+          - type: video
+            title: "Caramanis 7.3"
+            url: "https://www.youtube.com/watch?v=Bh3UWxsEoTc&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=36"
+          - type: video
+            title: "Caramanis 7.4"
+            url: "https://www.youtube.com/watch?v=ZPb7HXtIqDE&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=37"
+          - type: video
+            title: "Caramanis — playlist"
+            ref: "метод Ньютона: вид, афинные преобразования, сходимость, доказательство"
             url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
-        xp: 100
+        xp: 90
       - id: opt_i15_practice
         type: practice
         title: "Практика"
@@ -516,9 +681,9 @@ topics:
         xp: 40
 
   - id: opt_i16
-    title: "Caramanis: Quasi-Newton & IPM"
+    title: "Iteration 16: Caramanis"
     description: |
-      Caramanis 8.1–9.4.
+      8.1, 8.2, 9.1, 9.2, 9.3, 9.4 — Quasi-Newton/BFGS, Interior Point Methods
     estimated_hours: 8
     requires:
       - opt_i15
@@ -532,13 +697,31 @@ topics:
     encounters:
       - id: opt_i16_theory
         type: theory
-        title: "8.1–9.4 (Quasi-Newton/BFGS, Interior Point Methods)"
+        title: "8.1, 8.2, 9.1, 9.2, 9.3, 9.4 — Quasi-Newton/BFGS, Interior Point Methods"
         description: |
-          Caramanis 8.1–9.4.
+          8.1, 8.2, 9.1, 9.2, 9.3, 9.4 — Quasi-Newton/BFGS, Interior Point Methods
         resources:
           - type: video
-            title: "Caramanis"
-            ref: "8.1–9.4 (Quasi-Newton/BFGS, Interior Point Methods)"
+            title: "Caramanis 8.1"
+            url: "https://www.youtube.com/watch?v=UvGQRAA8Yms&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=38"
+          - type: video
+            title: "Caramanis 8.2"
+            url: "https://www.youtube.com/watch?v=QGFct_3HMzk&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=39"
+          - type: video
+            title: "Caramanis 9.1"
+            url: "https://www.youtube.com/watch?v=q4iXHLM72FY&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=40"
+          - type: video
+            title: "Caramanis 9.2"
+            url: "https://www.youtube.com/watch?v=lQpOXOTKTw8&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=41"
+          - type: video
+            title: "Caramanis 9.3"
+            url: "https://www.youtube.com/watch?v=U0cUcsGCS1A&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=42"
+          - type: video
+            title: "Caramanis 9.4"
+            url: "https://www.youtube.com/watch?v=3pmAJOitNU4&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=43"
+          - type: video
+            title: "Caramanis — playlist"
+            ref: "Quasi-Newton/BFGS, Interior Point Methods"
             url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
         xp: 90
       - id: opt_i16_practice
@@ -551,9 +734,9 @@ topics:
         xp: 40
 
   - id: opt_i17
-    title: "Caramanis: Duality & Decomposition"
+    title: "Iteration 17: Caramanis"
     description: |
-      Caramanis 10.1–11.6.
+      10.1, 10.2, 10.3, 10.4, 11.1, 11.2, 11.3, 11.4, 11.5, 11.6 — Fenchel Dual, Dual Decomposition, Proximal Point/ALM
     estimated_hours: 8
     requires:
       - opt_i16
@@ -567,25 +750,55 @@ topics:
     encounters:
       - id: opt_i17_theory
         type: theory
-        title: "10.1–11.6 (Fenchel Dual, Dual Decomposition, Proximal Point/ALM)"
+        title: "10.1, 10.2, 10.3, 10.4, 11.1, 11.2, 11.3, 11.4, 11.5, 11.6 — Fenchel Dual, Dual Decomposition, Proximal Point/ALM"
         description: |
-          Caramanis 10.1–11.6.
+          10.1, 10.2, 10.3, 10.4, 11.1, 11.2, 11.3, 11.4, 11.5, 11.6 — Fenchel Dual, Dual Decomposition, Proximal Point/ALM
         resources:
           - type: video
-            title: "Caramanis"
-            ref: "10.1–11.6 (Fenchel Dual, Dual Decomposition, Proximal Point/ALM)"
+            title: "Caramanis 10.1"
+            url: "https://www.youtube.com/watch?v=CwDcth9J_7U&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=44"
+          - type: video
+            title: "Caramanis 10.2"
+            url: "https://www.youtube.com/watch?v=-4ux8xo9QWw&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=45"
+          - type: video
+            title: "Caramanis 10.3"
+            url: "https://www.youtube.com/watch?v=Re8OZk7jO_0&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=46"
+          - type: video
+            title: "Caramanis 10.4"
+            url: "https://www.youtube.com/watch?v=Rvx2vcJ1jXA&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=47"
+          - type: video
+            title: "Caramanis 11.1"
+            url: "https://www.youtube.com/watch?v=q4Eig1U72Ww&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=48"
+          - type: video
+            title: "Caramanis 11.2"
+            url: "https://www.youtube.com/watch?v=pL_t2X72vek&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=49"
+          - type: video
+            title: "Caramanis 11.3"
+            url: "https://www.youtube.com/watch?v=dWCT8PnVA5Y&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=50"
+          - type: video
+            title: "Caramanis 11.4"
+            url: "https://www.youtube.com/watch?v=i5fs8caiTLU&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=51"
+          - type: video
+            title: "Caramanis 11.5"
+            url: "https://www.youtube.com/watch?v=iEl-tS4CZWM&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=52"
+          - type: video
+            title: "Caramanis 11.6"
+            url: "https://www.youtube.com/watch?v=lks7kCNQNlg&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=53"
+          - type: video
+            title: "Caramanis — playlist"
+            ref: "Fenchel Dual, Dual Decomposition, Proximal Point/ALM"
             url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
         xp: 90
 
   - id: opt_i18
-    title: "Caramanis: ADMM"
+    title: "Iteration 18: Caramanis"
     description: |
-      Caramanis 12.1–12.5.
-    estimated_hours: 10
+      12.1, 12.2, 12.3, 12.4, 12.5 — Monotone Operators, Douglas-Rachford splitting, ADMM
+    estimated_hours: 8
     requires:
       - opt_i17
     reward:
-      xp: 130
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -594,15 +807,30 @@ topics:
     encounters:
       - id: opt_i18_theory
         type: theory
-        title: "12.1–12.5 (Monotone Operators, Douglas-Rachford, ADMM)"
+        title: "12.1, 12.2, 12.3, 12.4, 12.5 — Monotone Operators, Douglas-Rachford splitting, ADMM"
         description: |
-          Caramanis 12.1–12.5.
+          12.1, 12.2, 12.3, 12.4, 12.5 — Monotone Operators, Douglas-Rachford splitting, ADMM
         resources:
           - type: video
-            title: "Caramanis"
-            ref: "12.1–12.5 (Monotone Operators, Douglas-Rachford, ADMM)"
+            title: "Caramanis 12.1"
+            url: "https://www.youtube.com/watch?v=VsAUznfNe1o&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=54"
+          - type: video
+            title: "Caramanis 12.2"
+            url: "https://www.youtube.com/watch?v=fn3uFc41R60&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=55"
+          - type: video
+            title: "Caramanis 12.3"
+            url: "https://www.youtube.com/watch?v=255Ey2vkOg4&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=56"
+          - type: video
+            title: "Caramanis 12.4"
+            url: "https://www.youtube.com/watch?v=n6zYFWoY8Uc&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=57"
+          - type: video
+            title: "Caramanis 12.5"
+            url: "https://www.youtube.com/watch?v=GVGxveZTgjw&list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc&index=58"
+          - type: video
+            title: "Caramanis — playlist"
+            ref: "Monotone Operators, Douglas-Rachford splitting, ADMM"
             url: "https://www.youtube.com/playlist?list=PLXsmhnDvpjORzPelSDs0LSDrfJcqyLlZc"
-        xp: 110
+        xp: 90
       - id: opt_i18_practice
         type: practice
         title: "Практика"

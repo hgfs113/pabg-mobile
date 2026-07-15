@@ -1,7 +1,9 @@
 import { useMemo, useState, useEffect } from 'react';
 import GameGraph from '../components/GameGraph';
 import QuestPanel from '../components/QuestPanel';
+import MapPlayerAvatar from '../components/MapPlayerAvatar';
 import Logo from '../components/Logo';
+import { useRegionOtherPlayerMarkers } from '../hooks/useOtherPlayerMarkers';
 import { buildRegionGraph, regionMapBackground, type GNode } from '../lib/graphLayout';
 import type { CampaignBundle, Region, Topic } from '../types/campaign';
 import type { Navigator } from '../lib/router';
@@ -147,6 +149,8 @@ export default function RegionView({ bundle, region, nav, autoOpenTopicId }: Pro
     (id) => !completedTopics.includes(id),
   ).length;
 
+  const otherMarkers = useRegionOtherPlayerMarkers(bundle, region);
+
   return (
     <div className="region-view-root">
       <GameGraph
@@ -163,6 +167,21 @@ export default function RegionView({ bundle, region, nav, autoOpenTopicId }: Pro
         initialVb={initialVb}
         onNodeClick={handleTopicClick}
         renderNode={(node) => <TopicNodeShape node={node} />}
+        extraSvgContent={
+          <>
+            {otherMarkers.map((m) => (
+              <g key={m.id} transform={`translate(${m.x},${m.y})`}>
+                <MapPlayerAvatar
+                  avatar={m.avatar}
+                  color={m.color}
+                  size={3.2}
+                  clipId={`region-other-${m.id}`}
+                  label={m.name}
+                />
+              </g>
+            ))}
+          </>
+        }
         showGrid={showGrid}
         header={
           <div className="map-header">

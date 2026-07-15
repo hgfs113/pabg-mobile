@@ -3,8 +3,13 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  // Resolve symlinks so the content/ symlink in public/ works correctly
   resolve: {
     preserveSymlinks: true,
+  },
+  server: {
+    proxy: {
+      '/api': 'http://localhost:3001',
+      '/health': 'http://localhost:3001',
+    },
   },
 });

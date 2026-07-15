@@ -3,7 +3,8 @@ import GameGraph from '../components/GameGraph';
 import PartyPanel from '../components/PartyPanel';
 import Logo from '../components/Logo';
 import MapPlayerAvatar from '../components/MapPlayerAvatar';
-import { buildWorldGraph, type GNode, worldMapCoords } from '../lib/graphLayout';
+import { useOtherPlayerMarkers } from '../hooks/useOtherPlayerMarkers';
+import { buildWorldGraph, type GNode } from '../lib/graphLayout';
 import { PLAYER_MOVE_MS } from '../lib/useAnimatedPosition';
 import type { CampaignBundle } from '../types/campaign';
 import type { Navigator } from '../lib/router';
@@ -64,7 +65,7 @@ function WorldNodeShape({ node }: { node: GNode }) {
 export default function WorldView({ bundle, nav }: Props) {
   const { completedTopics, acceptedTopics, xp, lastVisitedRegionId, visitRegion } = useProgress();
   const { questLogOpen, toggleQuestLog, togglePartyPanel, partyPanelOpen } = useUI();
-  const { players, progress, currentPlayerId }  = useMultiplayer();
+  const { currentPlayerId, players } = useMultiplayer();
 
   const { nodes, edges, initialVb, playerPos } = useMemo(
     () => buildWorldGraph(bundle, completedTopics, acceptedTopics, lastVisitedRegionId),
@@ -112,37 +113,7 @@ export default function WorldView({ bundle, nav }: Props) {
   const currentMeta = currentPlayerId ? players[currentPlayerId] : null;
   const playerColor = currentMeta?.color;
 
-  // Other players' world-map positions
-  const otherMarkers = useMemo(() => {
-    const regionPos = (regionId: string | null) => {
-      if (!regionId) return null;
-      const node = bundle.campaign.world.nodes.find((n) => n.region === regionId);
-      return node ? worldMapCoords(node.x, node.y) : null;
-    };
-
-    return Object.values(players)
-      .filter((p) => p.id !== currentPlayerId)
-      .map((p) => {
-        const prog = progress[p.id];
-        if (!prog) return null;
-
-        const pos =
-          regionPos(prog.lastVisitedRegionId) ??
-          (() => {
-            const lastId = prog.lastCompletedTopicId;
-            const region = lastId ? bundle.regionByTopicId[lastId] : null;
-            return region ? regionPos(region.id) : null;
-          })() ??
-          (() => {
-            const first = bundle.campaign.world.nodes[0];
-            return first ? worldMapCoords(first.x, first.y) : worldMapCoords(18, 78);
-          })();
-
-        return { id: p.id, name: p.name, color: p.color, avatar: p.avatar, x: pos.x, y: pos.y };
-      })
-      .filter(Boolean) as Array<{ id: string; name: string; color: string; avatar: string; x: number; y: number }>;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [players, progress, currentPlayerId, bundle]);
+  const otherMarkers = useOtherPlayerMarkers(bundle);
 
   return (
     <div style={{ position: 'relative', width: '100%', height: '100vh' }}>

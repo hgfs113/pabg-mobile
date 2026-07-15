@@ -3,6 +3,7 @@ import { useCampaign } from './store/campaign';
 import { useRouter } from './lib/router';
 import { useUI } from './store/ui';
 import { useMultiplayer } from './store/multiplayer';
+import { useWorldSync } from './hooks/useWorldSync';
 import WorldView from './views/WorldView';
 import RegionView from './views/RegionView';
 import QuestLog from './components/QuestLog';
@@ -13,15 +14,18 @@ export default function App() {
   const { bundle, loading, error, load } = useCampaign();
   const { route, nav } = useRouter();
   const { questLogOpen } = useUI();
-  const { currentPlayerId } = useMultiplayer();
+  const { currentPlayerId, ready, bootstrap } = useMultiplayer();
+
+  useWorldSync();
 
   /** When the player clicks a quest in the log, we navigate to the region and
    *  pass the topic ID to RegionView so it auto-opens the QuestPanel. */
   const [pendingTopicId, setPendingTopicId] = useState<string | null>(null);
 
   useEffect(() => { load(); }, []);
+  useEffect(() => { void bootstrap(); }, [bootstrap]);
 
-  if (loading || (!bundle && !error)) {
+  if (loading || !ready || (!bundle && !error)) {
     return (
       <div className="splash">
         <Logo size="splash" />

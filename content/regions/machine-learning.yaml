@@ -32,13 +32,13 @@ boss:
 
 topics:
   - id: ml_i01
-    title: "CS109: Counting & Probability"
+    title: "Iteration 1: CS109"
     description: |
-      CS109 lectures 1–3.
-    estimated_hours: 6
+      1, 2, 3 — счёт, комбинаторика, что такое вероятность
+    estimated_hours: 8
     requires: []
     reward:
-      xp: 90
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -47,25 +47,34 @@ topics:
     encounters:
       - id: ml_i01_theory
         type: theory
-        title: "1–3 (счёт, комбинаторика, что такое вероятность)"
+        title: "1, 2, 3 — счёт, комбинаторика, что такое вероятность"
         description: |
-          CS109 lectures 1–3.
+          1, 2, 3 — счёт, комбинаторика, что такое вероятность
         resources:
           - type: video
-            title: "CS109"
-            ref: "1–3 (счёт, комбинаторика, что такое вероятность)"
+            title: "CS109 1"
+            url: "https://www.youtube.com/watch?v=2MuDZIAzBMY&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=1"
+          - type: video
+            title: "CS109 2"
+            url: "https://www.youtube.com/watch?v=ag4Ei15CG0c&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=2"
+          - type: video
+            title: "CS109 3"
+            url: "https://www.youtube.com/watch?v=EGgMCE2AgyU&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=3"
+          - type: video
+            title: "CS109 — playlist"
+            ref: "счёт, комбинаторика, что такое вероятность"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg"
-        xp: 70
+        xp: 90
 
   - id: ml_i02
-    title: "CS109: Bayes & Expectation"
+    title: "Iteration 2: CS109"
     description: |
-      CS109 lectures 4–6.
+      4, 5, 6 — условная вероятность и Байес, независимость, случайные величины и ожидание
     estimated_hours: 8
     requires:
       - ml_i01
     reward:
-      xp: 100
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -74,15 +83,24 @@ topics:
     encounters:
       - id: ml_i02_theory
         type: theory
-        title: "4–6 (условная вероятность и Байес, независимость, случайные величины)"
+        title: "4, 5, 6 — условная вероятность и Байес, независимость, случайные величины и ожидание"
         description: |
-          CS109 lectures 4–6.
+          4, 5, 6 — условная вероятность и Байес, независимость, случайные величины и ожидание
         resources:
           - type: video
-            title: "CS109"
-            ref: "4–6 (условная вероятность и Байес, независимость, случайные величины)"
+            title: "CS109 4"
+            url: "https://www.youtube.com/watch?v=NHRoXvPaZqY&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=4"
+          - type: video
+            title: "CS109 5"
+            url: "https://www.youtube.com/watch?v=zTJDZ2wmaRU&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=5"
+          - type: video
+            title: "CS109 6"
+            url: "https://www.youtube.com/watch?v=8QCg2ur-3fo&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=6"
+          - type: video
+            title: "CS109 — playlist"
+            ref: "условная вероятность и Байес, независимость, случайные величины и ожидание"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg"
-        xp: 80
+        xp: 90
       - id: ml_i02_practice
         type: practice
         title: "Практика"
@@ -93,14 +111,14 @@ topics:
         xp: 40
 
   - id: ml_i03
-    title: "CS109: Distributions I"
+    title: "Iteration 3: CS109"
     description: |
-      CS109 lectures 7–10.
+      7, 8, 9, 10 — дисперсия/Бернулли/Биномиальное, Пуассон, непрерывные величины, нормальное распределение
     estimated_hours: 8
     requires:
       - ml_i02
     reward:
-      xp: 100
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -109,15 +127,27 @@ topics:
     encounters:
       - id: ml_i03_theory
         type: theory
-        title: "7–10 (дисперсия, Бернулли, Биномиальное, Пуассон, непрерывные, нормальное)"
+        title: "7, 8, 9, 10 — дисперсия/Бернулли/Биномиальное, Пуассон, непрерывные величины, нормальное распределение"
         description: |
-          CS109 lectures 7–10.
+          7, 8, 9, 10 — дисперсия/Бернулли/Биномиальное, Пуассон, непрерывные величины, нормальное распределение
         resources:
           - type: video
-            title: "CS109"
-            ref: "7–10 (дисперсия, Бернулли, Биномиальное, Пуассон, непрерывные, нормальное)"
+            title: "CS109 7"
+            url: "https://www.youtube.com/watch?v=I2UBspTNAG0&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=7"
+          - type: video
+            title: "CS109 8"
+            url: "https://www.youtube.com/watch?v=QV3IRiG6dVs&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=8"
+          - type: video
+            title: "CS109 9"
+            url: "https://www.youtube.com/watch?v=OFgBn4rQkqc&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=9"
+          - type: video
+            title: "CS109 10"
+            url: "https://www.youtube.com/watch?v=rpB_NNXiWlM&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=10"
+          - type: video
+            title: "CS109 — playlist"
+            ref: "дисперсия/Бернулли/Биномиальное, Пуассон, непрерывные величины, нормальное распределение"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg"
-        xp: 80
+        xp: 90
       - id: ml_i03_practice
         type: practice
         title: "Практика"
@@ -128,14 +158,14 @@ topics:
         xp: 40
 
   - id: ml_i04
-    title: "CS109: Joint & Inference I"
+    title: "Iteration 4: CS109"
     description: |
-      CS109 lectures 11–14.
+      11, 12, 13, 14 — совместные распределения, инференс I–II, моделирование
     estimated_hours: 8
     requires:
       - ml_i03
     reward:
-      xp: 100
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -144,25 +174,37 @@ topics:
     encounters:
       - id: ml_i04_theory
         type: theory
-        title: "11–14 (совместные распределения, инференс I–II, моделирование)"
+        title: "11, 12, 13, 14 — совместные распределения, инференс I–II, моделирование"
         description: |
-          CS109 lectures 11–14.
+          11, 12, 13, 14 — совместные распределения, инференс I–II, моделирование
         resources:
           - type: video
-            title: "CS109"
-            ref: "11–14 (совместные распределения, инференс I–II, моделирование)"
+            title: "CS109 11"
+            url: "https://www.youtube.com/watch?v=8Il2M7kbQSc&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=11"
+          - type: video
+            title: "CS109 12"
+            url: "https://www.youtube.com/watch?v=fvgQBAsg5Zo&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=12"
+          - type: video
+            title: "CS109 13"
+            url: "https://www.youtube.com/watch?v=d0ImA7m4BEg&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=13"
+          - type: video
+            title: "CS109 14"
+            url: "https://www.youtube.com/watch?v=q9lk8l8P-E4&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=14"
+          - type: video
+            title: "CS109 — playlist"
+            ref: "совместные распределения, инференс I–II, моделирование"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg"
-        xp: 80
+        xp: 90
 
   - id: ml_i05
-    title: "CS109: CLT & Bootstrap"
+    title: "Iteration 5: CS109"
     description: |
-      CS109 lectures 15–19.
+      15, 16, 17, 18, 19 — общий инференс, Beta, сумма случ. величин, ЦПТ, bootstrap/p-values
     estimated_hours: 8
     requires:
       - ml_i04
     reward:
-      xp: 100
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -171,15 +213,30 @@ topics:
     encounters:
       - id: ml_i05_theory
         type: theory
-        title: "15–19 (инференс, Beta, ЦПТ, bootstrap/p-values)"
+        title: "15, 16, 17, 18, 19 — общий инференс, Beta, сумма случ. величин, ЦПТ, bootstrap/p-values"
         description: |
-          CS109 lectures 15–19.
+          15, 16, 17, 18, 19 — общий инференс, Beta, сумма случ. величин, ЦПТ, bootstrap/p-values
         resources:
           - type: video
-            title: "CS109"
-            ref: "15–19 (инференс, Beta, ЦПТ, bootstrap/p-values)"
+            title: "CS109 15"
+            url: "https://www.youtube.com/watch?v=c0QGjtu9GZg&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=15"
+          - type: video
+            title: "CS109 16"
+            url: "https://www.youtube.com/watch?v=aOhk9mFrHdU&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=16"
+          - type: video
+            title: "CS109 17"
+            url: "https://www.youtube.com/watch?v=UEyHbI9FRtM&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=17"
+          - type: video
+            title: "CS109 18"
+            url: "https://www.youtube.com/watch?v=6Q9wT6JGMMM&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=18"
+          - type: video
+            title: "CS109 19"
+            url: "https://www.youtube.com/watch?v=NXJwyPT1vsc&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=19"
+          - type: video
+            title: "CS109 — playlist"
+            ref: "общий инференс, Beta, сумма случ. величин, ЦПТ, bootstrap/p-values"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg"
-        xp: 80
+        xp: 90
       - id: ml_i05_practice
         type: practice
         title: "Практика"
@@ -190,14 +247,14 @@ topics:
         xp: 40
 
   - id: ml_i06
-    title: "CS109: MLE & MAP"
+    title: "Iteration 6: CS109"
     description: |
-      CS109 lectures 20–22.
+      20, 21, 22 — алгоритмический анализ, MLE, MAP
     estimated_hours: 8
     requires:
       - ml_i05
     reward:
-      xp: 100
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -206,15 +263,24 @@ topics:
     encounters:
       - id: ml_i06_theory
         type: theory
-        title: "20–22 (алгоритмический анализ, MLE, MAP)"
+        title: "20, 21, 22 — алгоритмический анализ, MLE, MAP"
         description: |
-          CS109 lectures 20–22.
+          20, 21, 22 — алгоритмический анализ, MLE, MAP
         resources:
           - type: video
-            title: "CS109"
-            ref: "20–22 (алгоритмический анализ, MLE, MAP)"
+            title: "CS109 20"
+            url: "https://www.youtube.com/watch?v=Ht9yUPtppwY&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=20"
+          - type: video
+            title: "CS109 21"
+            url: "https://www.youtube.com/watch?v=utFEufMXHgw&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=21"
+          - type: video
+            title: "CS109 22"
+            url: "https://www.youtube.com/watch?v=sL1zOr-P4xc&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=22"
+          - type: video
+            title: "CS109 — playlist"
+            ref: "алгоритмический анализ, MLE, MAP"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg"
-        xp: 80
+        xp: 90
       - id: ml_i06_practice
         type: practice
         title: "Практика"
@@ -225,9 +291,9 @@ topics:
         xp: 40
 
   - id: ml_i07
-    title: "CS109: Naive Bayes & LogReg"
+    title: "Iteration 7: CS109"
     description: |
-      CS109 lectures 23–24.
+      23, 24 — наивный Байес, логистическая регрессия
     estimated_hours: 8
     requires:
       - ml_i06
@@ -241,13 +307,19 @@ topics:
     encounters:
       - id: ml_i07_theory
         type: theory
-        title: "23–24 (наивный Байес, логистическая регрессия)"
+        title: "23, 24 — наивный Байес, логистическая регрессия"
         description: |
-          CS109 lectures 23–24.
+          23, 24 — наивный Байес, логистическая регрессия
         resources:
           - type: video
-            title: "CS109"
-            ref: "23–24 (наивный Байес, логистическая регрессия)"
+            title: "CS109 23"
+            url: "https://www.youtube.com/watch?v=yqF3DvDVpvw&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=23"
+          - type: video
+            title: "CS109 24"
+            url: "https://www.youtube.com/watch?v=ILqZWvDWKEc&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=24"
+          - type: video
+            title: "CS109 — playlist"
+            ref: "наивный Байес, логистическая регрессия"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg"
         xp: 90
       - id: ml_i07_practice
@@ -260,14 +332,14 @@ topics:
         xp: 40
 
   - id: ml_i08
-    title: "CS109: Deep Learning Intro"
+    title: "Iteration 8: CS109"
     description: |
-      CS109 lectures 25–29.
-    estimated_hours: 6
+      25, 26, 27, 28, 29 — Deep Learning intro, Fairness, Advanced Probability, Future of Probability
+    estimated_hours: 8
     requires:
       - ml_i07
     reward:
-      xp: 90
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -276,25 +348,40 @@ topics:
     encounters:
       - id: ml_i08_theory
         type: theory
-        title: "25–29 (Deep Learning intro, Fairness, Advanced Probability)"
+        title: "25, 26, 27, 28, 29 — Deep Learning intro, Fairness, Advanced Probability, Future of Probability"
         description: |
-          CS109 lectures 25–29.
+          25, 26, 27, 28, 29 — Deep Learning intro, Fairness, Advanced Probability, Future of Probability
         resources:
           - type: video
-            title: "CS109"
-            ref: "25–29 (Deep Learning intro, Fairness, Advanced Probability)"
+            title: "CS109 25"
+            url: "https://www.youtube.com/watch?v=MSfI6TTgyl4&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=25"
+          - type: video
+            title: "CS109 26"
+            url: "https://www.youtube.com/watch?v=cbzwbr5H_LA&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=26"
+          - type: video
+            title: "CS109 27"
+            url: "https://www.youtube.com/watch?v=BquE8Z9htws&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=27"
+          - type: video
+            title: "CS109 28"
+            url: "https://www.youtube.com/watch?v=SoXygq5LtiM&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=28"
+          - type: video
+            title: "CS109 29"
+            url: "https://www.youtube.com/watch?v=yyKSsjRt42o&list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&index=29"
+          - type: video
+            title: "CS109 — playlist"
+            ref: "Deep Learning intro, Fairness, Advanced Probability, Future of Probability"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg"
-        xp: 70
+        xp: 90
 
   - id: ml_i09
-    title: "CS229: LMS & Regression"
+    title: "Iteration 9: CS229"
     description: |
-      CS229 lectures 1–3.
-    estimated_hours: 10
+      1, 2, 3 — введение, LMS, Weighted LS/логрег/Ньютон
+    estimated_hours: 8
     requires:
       - ml_i08
     reward:
-      xp: 120
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -303,33 +390,42 @@ topics:
     encounters:
       - id: ml_i09_theory
         type: theory
-        title: "1–3 (введение, LMS, Weighted LS/логрег/Ньютон)"
+        title: "1, 2, 3 — введение, LMS, Weighted LS/логрег/Ньютон"
         description: |
-          CS229 lectures 1–3.
+          1, 2, 3 — введение, LMS, Weighted LS/логрег/Ньютон
         resources:
           - type: video
-            title: "CS229"
-            ref: "1–3 (введение, LMS, Weighted LS/логрег/Ньютон)"
+            title: "CS229 1"
+            url: "https://www.youtube.com/watch?v=Bl4Feh_Mjvo&list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&index=1"
+          - type: video
+            title: "CS229 2"
+            url: "https://www.youtube.com/watch?v=gqKaVgQxEJ0&list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&index=2"
+          - type: video
+            title: "CS229 3"
+            url: "https://www.youtube.com/watch?v=k_pDh_68K6c&list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&index=3"
+          - type: video
+            title: "CS229 — playlist"
+            ref: "введение, LMS, Weighted LS/логрег/Ньютон"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy"
-        xp: 100
+        xp: 90
       - id: ml_i09_practice
         type: practice
         title: "Практика"
         description: |
-          Линейная и логистическая регрессия с нуля
+          Линейная и логистическая регрессия с нуля (переиспользовать GD из блока 1)
         tasks:
-          - "Линейная и логистическая регрессия с нуля"
+          - "Линейная и логистическая регрессия с нуля (переиспользовать GD из блока 1)"
         xp: 40
 
   - id: ml_i10
-    title: "CS229: GLM & Generative"
+    title: "Iteration 10: CS229"
     description: |
-      CS229 lectures 4–6.
+      4, 5, 6 — экспоненциальное семейство/GLM, GDA/наивный Байес, Laplace smoothing
     estimated_hours: 8
     requires:
       - ml_i09
     reward:
-      xp: 100
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -338,25 +434,34 @@ topics:
     encounters:
       - id: ml_i10_theory
         type: theory
-        title: "4–6 (экспоненциальное семейство/GLM, GDA/наивный Байес)"
+        title: "4, 5, 6 — экспоненциальное семейство/GLM, GDA/наивный Байес, Laplace smoothing"
         description: |
-          CS229 lectures 4–6.
+          4, 5, 6 — экспоненциальное семейство/GLM, GDA/наивный Байес, Laplace smoothing
         resources:
           - type: video
-            title: "CS229"
-            ref: "4–6 (экспоненциальное семейство/GLM, GDA/наивный Байес)"
+            title: "CS229 4"
+            url: "https://www.youtube.com/watch?v=goDDnBbJQ4g&list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&index=4"
+          - type: video
+            title: "CS229 5"
+            url: "https://www.youtube.com/watch?v=RMy_1mO4HLk&list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&index=5"
+          - type: video
+            title: "CS229 6"
+            url: "https://www.youtube.com/watch?v=ADj95edZc0w&list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&index=6"
+          - type: video
+            title: "CS229 — playlist"
+            ref: "экспоненциальное семейство/GLM, GDA/наивный Байес, Laplace smoothing"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy"
-        xp: 80
+        xp: 90
 
   - id: ml_i11
-    title: "CS229: Kernels & Neural Nets"
+    title: "Iteration 11: CS229"
     description: |
-      CS229 lectures 7–9.
-    estimated_hours: 10
+      7, 8, 9 — ядра, нейросети 1–2/backprop
+    estimated_hours: 8
     requires:
       - ml_i10
     reward:
-      xp: 120
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -365,15 +470,24 @@ topics:
     encounters:
       - id: ml_i11_theory
         type: theory
-        title: "7–9 (ядра, нейросети 1–2/backprop)"
+        title: "7, 8, 9 — ядра, нейросети 1–2/backprop"
         description: |
-          CS229 lectures 7–9.
+          7, 8, 9 — ядра, нейросети 1–2/backprop
         resources:
           - type: video
-            title: "CS229"
-            ref: "7–9 (ядра, нейросети 1–2/backprop)"
+            title: "CS229 7"
+            url: "https://www.youtube.com/watch?v=dzDOqrac9Ks&list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&index=7"
+          - type: video
+            title: "CS229 8"
+            url: "https://www.youtube.com/watch?v=ZMxfDWPXmjc&list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&index=8"
+          - type: video
+            title: "CS229 9"
+            url: "https://www.youtube.com/watch?v=UbtTv7j1tzU&list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&index=9"
+          - type: video
+            title: "CS229 — playlist"
+            ref: "ядра, нейросети 1–2/backprop"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy"
-        xp: 100
+        xp: 90
       - id: ml_i11_practice
         type: practice
         title: "Практика"
@@ -384,14 +498,14 @@ topics:
         xp: 40
 
   - id: ml_i12
-    title: "CS229: Bias-Variance"
+    title: "Iteration 12: CS229"
     description: |
-      CS229 lectures 10–11.
+      10, 11 — bias-variance/регуляризация, feature/model selection
     estimated_hours: 8
     requires:
       - ml_i11
     reward:
-      xp: 100
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -400,25 +514,31 @@ topics:
     encounters:
       - id: ml_i12_theory
         type: theory
-        title: "10–11 (bias-variance/регуляризация, feature/model selection)"
+        title: "10, 11 — bias-variance/регуляризация, feature/model selection"
         description: |
-          CS229 lectures 10–11.
+          10, 11 — bias-variance/регуляризация, feature/model selection
         resources:
           - type: video
-            title: "CS229"
-            ref: "10–11 (bias-variance/регуляризация, feature/model selection)"
+            title: "CS229 10"
+            url: "https://www.youtube.com/watch?v=7AQYw5FOVcw&list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&index=10"
+          - type: video
+            title: "CS229 11"
+            url: "https://www.youtube.com/watch?v=NirZnqwYfYU&list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&index=11"
+          - type: video
+            title: "CS229 — playlist"
+            ref: "bias-variance/регуляризация, feature/model selection"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy"
-        xp: 80
+        xp: 90
 
   - id: ml_i13
-    title: "CS229: Unsupervised"
+    title: "Iteration 13: CS229"
     description: |
-      CS229 lectures 12–15.
-    estimated_hours: 10
+      12, 13, 14, 15 — k-means, GMM non-EM/EM, factor analysis/PCA, PCA/ICA
+    estimated_hours: 8
     requires:
       - ml_i12
     reward:
-      xp: 120
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -427,15 +547,27 @@ topics:
     encounters:
       - id: ml_i13_theory
         type: theory
-        title: "12–15 (k-means, GMM/EM, factor analysis/PCA, PCA/ICA)"
+        title: "12, 13, 14, 15 — k-means, GMM non-EM/EM, factor analysis/PCA, PCA/ICA"
         description: |
-          CS229 lectures 12–15.
+          12, 13, 14, 15 — k-means, GMM non-EM/EM, factor analysis/PCA, PCA/ICA
         resources:
           - type: video
-            title: "CS229"
-            ref: "12–15 (k-means, GMM/EM, factor analysis/PCA, PCA/ICA)"
+            title: "CS229 12"
+            url: "https://www.youtube.com/watch?v=LMZZPneTcP4&list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&index=12"
+          - type: video
+            title: "CS229 13"
+            url: "https://www.youtube.com/watch?v=khTGx7m3Y8A&list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&index=13"
+          - type: video
+            title: "CS229 14"
+            url: "https://www.youtube.com/watch?v=o2KzJdbOwMc&list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&index=14"
+          - type: video
+            title: "CS229 15"
+            url: "https://www.youtube.com/watch?v=FVLZG_oHUIw&list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&index=15"
+          - type: video
+            title: "CS229 — playlist"
+            ref: "k-means, GMM non-EM/EM, factor analysis/PCA, PCA/ICA"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy"
-        xp: 100
+        xp: 90
       - id: ml_i13_practice
         type: practice
         title: "Практика"
@@ -446,14 +578,14 @@ topics:
         xp: 40
 
   - id: ml_i14
-    title: "CS229: RL & Impact"
+    title: "Iteration 14: CS229"
     description: |
-      CS229 lectures 16–19.
+      16, 17, 18, 19 — self-supervised learning, основы RL, societal impact, model-based RL
     estimated_hours: 8
     requires:
       - ml_i13
     reward:
-      xp: 100
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -462,25 +594,37 @@ topics:
     encounters:
       - id: ml_i14_theory
         type: theory
-        title: "16–19 (self-supervised, RL basics, societal impact, model-based RL)"
+        title: "16, 17, 18, 19 — self-supervised learning, основы RL, societal impact, model-based RL"
         description: |
-          CS229 lectures 16–19.
+          16, 17, 18, 19 — self-supervised learning, основы RL, societal impact, model-based RL
         resources:
           - type: video
-            title: "CS229"
-            ref: "16–19 (self-supervised, RL basics, societal impact, model-based RL)"
+            title: "CS229 16"
+            url: "https://www.youtube.com/watch?v=6N3OAWIsUOU&list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&index=16"
+          - type: video
+            title: "CS229 17"
+            url: "https://www.youtube.com/watch?v=6ZYx_1NlYbI&list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&index=17"
+          - type: video
+            title: "CS229 18"
+            url: "https://www.youtube.com/watch?v=UyPn-QR8A7I&list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&index=18"
+          - type: video
+            title: "CS229 19"
+            url: "https://www.youtube.com/watch?v=gPCd0xx_OYI&list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&index=19"
+          - type: video
+            title: "CS229 — playlist"
+            ref: "self-supervised learning, основы RL, societal impact, model-based RL"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy"
-        xp: 80
+        xp: 90
 
   - id: ml_i15
-    title: "CS229M: ERM & Concentration"
+    title: "Iteration 15: CS229M"
     description: |
-      CS229M lectures 1–4 (by number).
+      1, 2, 3, 4 — overview/ERM, uniform convergence/Hoeffding, гипотезы классов, концентрационные неравенства
     estimated_hours: 8
     requires:
       - ml_i14
     reward:
-      xp: 100
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -489,15 +633,27 @@ topics:
     encounters:
       - id: ml_i15_theory
         type: theory
-        title: "1–4 (overview/ERM, Hoeffding, гипотезы классов, концентрационные неравенства)"
+        title: "1, 2, 3, 4 — overview/ERM, uniform convergence/Hoeffding, гипотезы классов, концентрационные неравенства"
         description: |
-          CS229M lectures 1–4 (by number).
+          1, 2, 3, 4 — overview/ERM, uniform convergence/Hoeffding, гипотезы классов, концентрационные неравенства
         resources:
           - type: video
-            title: "CS229M"
-            ref: "1–4 (overview/ERM, Hoeffding, гипотезы классов, концентрационные неравенства)"
+            title: "CS229M 1"
+            url: "https://www.youtube.com/watch?v=I-tmjGFaaBg&list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh&index=1"
+          - type: video
+            title: "CS229M 2"
+            url: "https://www.youtube.com/watch?v=Fx3xldCEfsM&list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh&index=2"
+          - type: video
+            title: "CS229M 3"
+            url: "https://www.youtube.com/watch?v=io-YFfXbIXk&list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh&index=3"
+          - type: video
+            title: "CS229M 4"
+            url: "https://www.youtube.com/watch?v=fKM6fcOkXuk&list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh&index=4"
+          - type: video
+            title: "CS229M — playlist"
+            ref: "overview/ERM, uniform convergence/Hoeffding, гипотезы классов, концентрационные неравенства"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh"
-        xp: 80
+        xp: 90
       - id: ml_i15_practice
         type: practice
         title: "Практика"
@@ -508,14 +664,14 @@ topics:
         xp: 40
 
   - id: ml_i16
-    title: "CS229M: Rademacher & Margin"
+    title: "Iteration 16: CS229M"
     description: |
-      CS229M lectures 5–6.
+      5, 6 — Rademacher complexity, margin theory для линейных моделей
     estimated_hours: 8
     requires:
       - ml_i15
     reward:
-      xp: 100
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -524,25 +680,31 @@ topics:
     encounters:
       - id: ml_i16_theory
         type: theory
-        title: "5–6 (Rademacher complexity, margin theory)"
+        title: "5, 6 — Rademacher complexity, margin theory для линейных моделей"
         description: |
-          CS229M lectures 5–6.
+          5, 6 — Rademacher complexity, margin theory для линейных моделей
         resources:
           - type: video
-            title: "CS229M"
-            ref: "5–6 (Rademacher complexity, margin theory)"
+            title: "CS229M 5"
+            url: "https://www.youtube.com/watch?v=tkJd2B98hII&list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh&index=5"
+          - type: video
+            title: "CS229M 6"
+            url: "https://www.youtube.com/watch?v=echF7IWE05c&list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh&index=6"
+          - type: video
+            title: "CS229M — playlist"
+            ref: "Rademacher complexity, margin theory для линейных моделей"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh"
-        xp: 80
+        xp: 90
 
   - id: ml_i17
-    title: "CS229M: Deep Generalization"
+    title: "Iteration 17: CS229M"
     description: |
-      CS229M lectures 7–10.
+      7, 8, 9, 10 — генерализация для нейросетей, теория ядер, covering numbers/Dudley, bounds для глубоких сетей
     estimated_hours: 8
     requires:
       - ml_i16
     reward:
-      xp: 100
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -551,20 +713,32 @@ topics:
     encounters:
       - id: ml_i17_theory
         type: theory
-        title: "7–10 (генерализация для нейросетей, ядра, covering numbers, bounds)"
+        title: "7, 8, 9, 10 — генерализация для нейросетей, теория ядер, covering numbers/Dudley, bounds для глубоких сетей"
         description: |
-          CS229M lectures 7–10.
+          7, 8, 9, 10 — генерализация для нейросетей, теория ядер, covering numbers/Dudley, bounds для глубоких сетей
         resources:
           - type: video
-            title: "CS229M"
-            ref: "7–10 (генерализация для нейросетей, ядра, covering numbers, bounds)"
+            title: "CS229M 7"
+            url: "https://www.youtube.com/watch?v=kVkMRDZ5fcU&list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh&index=7"
+          - type: video
+            title: "CS229M 8"
+            url: "https://www.youtube.com/watch?v=gwKfeDRCvSg&list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh&index=8"
+          - type: video
+            title: "CS229M 9"
+            url: "https://www.youtube.com/watch?v=wDfardbL50I&list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh&index=9"
+          - type: video
+            title: "CS229M 10"
+            url: "https://www.youtube.com/watch?v=P5-VVI1qLxA&list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh&index=10"
+          - type: video
+            title: "CS229M — playlist"
+            ref: "генерализация для нейросетей, теория ядер, covering numbers/Dudley, bounds для глубоких сетей"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh"
-        xp: 80
+        xp: 90
 
   - id: ml_i18
-    title: "CS229M: Nonconvex & Margins"
+    title: "Iteration 18: CS229M"
     description: |
-      CS229M lectures 11–12.
+      11, 12 — all-layer margin, невыпуклая оптимизация/PCA/matrix completion
     estimated_hours: 8
     requires:
       - ml_i17
@@ -578,13 +752,19 @@ topics:
     encounters:
       - id: ml_i18_theory
         type: theory
-        title: "11–12 (all-layer margin, невыпуклая оптимизация/PCA/matrix completion)"
+        title: "11, 12 — all-layer margin, невыпуклая оптимизация/PCA/matrix completion"
         description: |
-          CS229M lectures 11–12.
+          11, 12 — all-layer margin, невыпуклая оптимизация/PCA/matrix completion
         resources:
           - type: video
-            title: "CS229M"
-            ref: "11–12 (all-layer margin, невыпуклая оптимизация/PCA/matrix completion)"
+            title: "CS229M 11"
+            url: "https://www.youtube.com/watch?v=GeXBfyrKfM4&list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh&index=11"
+          - type: video
+            title: "CS229M 12"
+            url: "https://www.youtube.com/watch?v=EVyJkXOd5Xo&list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh&index=20"
+          - type: video
+            title: "CS229M — playlist"
+            ref: "all-layer margin, невыпуклая оптимизация/PCA/matrix completion"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh"
         xp: 90
       - id: ml_i18_practice
@@ -597,14 +777,14 @@ topics:
         xp: 40
 
   - id: ml_i19
-    title: "CS229M: NTK & Implicit Reg"
+    title: "Iteration 19: CS229M"
     description: |
-      CS229M lectures 13–17.
+      13, 14, 15, 16, 17 — Neural Tangent Kernel ×2, implicit regularization: инициализация/классификация/шум
     estimated_hours: 8
     requires:
       - ml_i18
     reward:
-      xp: 100
+      xp: 110
     waypoint:
       x: 0
       y: 0
@@ -613,20 +793,35 @@ topics:
     encounters:
       - id: ml_i19_theory
         type: theory
-        title: "13–17 (NTK, implicit regularization)"
+        title: "13, 14, 15, 16, 17 — Neural Tangent Kernel ×2, implicit regularization: инициализация/классификация/шум"
         description: |
-          CS229M lectures 13–17.
+          13, 14, 15, 16, 17 — Neural Tangent Kernel ×2, implicit regularization: инициализация/классификация/шум
         resources:
           - type: video
-            title: "CS229M"
-            ref: "13–17 (NTK, implicit regularization)"
+            title: "CS229M 13"
+            url: "https://www.youtube.com/watch?v=btphvvnad0A&list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh&index=12"
+          - type: video
+            title: "CS229M 14"
+            url: "https://www.youtube.com/watch?v=xpT1ymwCk9w&list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh&index=13"
+          - type: video
+            title: "CS229M 15"
+            url: "https://www.youtube.com/watch?v=l-CR_TLihdg&list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh&index=14"
+          - type: video
+            title: "CS229M 16"
+            url: "https://www.youtube.com/watch?v=mham4hHpo7A&list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh&index=15"
+          - type: video
+            title: "CS229M 17"
+            url: "https://www.youtube.com/watch?v=60GqpISCtCU&list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh&index=16"
+          - type: video
+            title: "CS229M — playlist"
+            ref: "Neural Tangent Kernel ×2, implicit regularization: инициализация/классификация/шум"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh"
-        xp: 80
+        xp: 90
 
   - id: ml_i20
-    title: "CS229M: Unsupervised Theory"
+    title: "Iteration 20: CS229M"
     description: |
-      CS229M lectures 18–20.
+      18, 19, 20 — unsupervised: mixture of Gaussians/moment methods, spectral clustering
     estimated_hours: 8
     requires:
       - ml_i19
@@ -640,13 +835,22 @@ topics:
     encounters:
       - id: ml_i20_theory
         type: theory
-        title: "18–20 (mixture of Gaussians, spectral clustering)"
+        title: "18, 19, 20 — unsupervised: mixture of Gaussians/moment methods, spectral clustering"
         description: |
-          CS229M lectures 18–20.
+          18, 19, 20 — unsupervised: mixture of Gaussians/moment methods, spectral clustering
         resources:
           - type: video
-            title: "CS229M"
-            ref: "18–20 (mixture of Gaussians, spectral clustering)"
+            title: "CS229M 18"
+            url: "https://www.youtube.com/watch?v=4xDEsLUkdG4&list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh&index=17"
+          - type: video
+            title: "CS229M 19"
+            url: "https://www.youtube.com/watch?v=E6rZeGIKdRY&list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh&index=18"
+          - type: video
+            title: "CS229M 20"
+            url: "https://www.youtube.com/watch?v=UYBRLG64oSQ&list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh&index=19"
+          - type: video
+            title: "CS229M — playlist"
+            ref: "unsupervised: mixture of Gaussians/moment methods, spectral clustering"
             url: "https://www.youtube.com/playlist?list=PLoROMvodv4rP8nAmISxFINlGKSK4rbLKh"
         xp: 90
       - id: ml_i20_practice

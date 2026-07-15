@@ -5,25 +5,23 @@ import Logo from './Logo';
 export default function LoginScreen() {
   const { register, login, players } = useMultiplayer();
 
-  const noPlayers = Object.keys(players).length === 0;
-
   const [name,     setName]     = useState('');
   const [password, setPassword] = useState('');
   const [error,    setError]    = useState('');
-  const [mode,     setMode]     = useState<'login' | 'register'>(noPlayers ? 'register' : 'login');
+  const [busy,     setBusy]     = useState(false);
+  const [mode,     setMode]     = useState<'login' | 'register'>('register');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    const result = mode === 'register' ? register(name, password) : login(name, password);
+    setBusy(true);
+    const result = await (mode === 'register' ? register(name, password) : login(name, password));
+    setBusy(false);
     if (!result.ok) setError(result.error ?? 'Unknown error.');
   };
 
   const switchMode = () => { setMode(mode === 'login' ? 'register' : 'login'); setError(''); };
 
-  // Portrait to show:
-  // - Login mode: look up avatar of existing player by name
-  // - Register mode: show the next available avatar
   const loginedPlayer = mode === 'login'
     ? players[name.trim().toLowerCase()]
     : null;
@@ -36,20 +34,16 @@ export default function LoginScreen() {
     <div className="login-overlay">
       <div className="login-card">
 
-        {/* Hero portrait — changes based on typed name */}
         <div className="login-portrait">
           <img src={portraitSrc} alt="Hero" key={portraitSrc} />
         </div>
 
-        {/* Form side */}
         <div className="login-form-wrap">
           <Logo size="login" />
           <p className="login-subtitle">
-            {noPlayers
-              ? 'Create your account to begin the journey.'
-              : mode === 'login'
+            {mode === 'login'
               ? 'Welcome back. Enter your credentials.'
-              : 'Choose a name and password to join.'}
+              : 'Choose a name and password to join the journey.'}
           </p>
 
           <form className="login-form" onSubmit={handleSubmit}>
@@ -80,18 +74,16 @@ export default function LoginScreen() {
 
             {error && <div className="login-error">{error}</div>}
 
-            <button className="login-btn" type="submit">
-              {mode === 'register' ? 'Create Account' : 'Sign In'}
+            <button className="login-btn" type="submit" disabled={busy}>
+              {busy ? '…' : mode === 'register' ? 'Create Account' : 'Sign In'}
             </button>
           </form>
 
-          {!noPlayers && (
-            <button className="login-switch" type="button" onClick={switchMode}>
-              {mode === 'login'
-                ? "No account yet? Register"
-                : 'Already registered? Sign in'}
-            </button>
-          )}
+          <button className="login-switch" type="button" onClick={switchMode}>
+            {mode === 'login'
+              ? "No account yet? Register"
+              : 'Already registered? Sign in'}
+          </button>
         </div>
       </div>
     </div>
